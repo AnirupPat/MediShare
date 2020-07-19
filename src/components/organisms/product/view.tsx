@@ -36,7 +36,15 @@ export class Product extends React.Component<ProductProps, ProductState> {
                             <RTitleText>Donate</RTitleText>
                         </View>
                         <View style={Styles.qunatityBox}>
-                            <Text style={Styles.quantity}>{this.props.data.fields.InStockQty}</Text>
+                            <View style={Styles.quantityActionBox}>
+                                <TouchableOpacity>
+                                    <AntDesign style={Styles.quantityAction} name="minuscircle" size={24} color="black" />
+                                </TouchableOpacity>
+                                <Text style={Styles.quantity}>{this.props.data.fields.InStockQty}</Text>
+                                <TouchableOpacity>
+                                    <AntDesign style={Styles.quantityAction} name="pluscircle" size={24} color="black" />
+                                </TouchableOpacity>
+                            </View>
                             <RTitleText>Quantity</RTitleText>
                         </View>
                     </View>

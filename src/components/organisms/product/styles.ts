@@ -50,13 +50,14 @@ export const Styles = StyleSheet.create({
     },
     qunatityBox: {
         paddingTop: 20,
-        paddingLeft: 40,
+        paddingLeft: 20,
         width: '50%',
         borderLeftColor: Colors.codes.grayLight,
         borderLeftWidth: 0.3
     },
     quantity: {
-        fontSize: 35
+        fontSize: 35,
+        marginHorizontal: 20
     },
     delete: {
         marginLeft: 10,
@@ -73,6 +74,13 @@ export const Styles = StyleSheet.create({
         width: '80%',
         display: 'flex',
         flexDirection: 'row'
+    },
+    quantityActionBox: {
+        display: 'flex',
+        flexDirection: 'row'
+    },
+    quantityAction: {
+        marginTop: 10
     }
 });
 
