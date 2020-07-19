@@ -48,8 +48,14 @@ const Constants = {
             settingsStack: {
                 name: "settingsStack",
                 icon: "settings",
-                package: "feather",
+                package: "Feather",
                 displayText: "Settings"
+            },
+            medicineStack: {
+                name: "medicineStack",
+                icon: "inbox",
+                package: "Feather",
+                displayText: "Medicines"
             }
         },
         screenNames: {
