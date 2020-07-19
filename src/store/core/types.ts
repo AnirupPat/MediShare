@@ -27,6 +27,12 @@ export type MedicineStackNavigationParamsType = {
     }
 }
 
+export type RequestStackNavigationParamsType = {
+    request: {
+        title: string
+    }
+}
+
 
 
 
@@ -55,7 +61,8 @@ export type SettingsStackNavigationParamsType = {
 export type RootStackParamsType = {
     authStack: AuthStackNavigationParamsType,
     settingsStack: SettingsStackNavigationParamsType,
-    medicineStack: MedicineStackNavigationParamsType
+    medicineStack: MedicineStackNavigationParamsType,
+    requestStack: RequestStackNavigationParamsType
 }
 
 export type CoreReduxStateType = {

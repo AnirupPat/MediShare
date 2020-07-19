@@ -56,6 +56,12 @@ const Constants = {
                 icon: "inbox",
                 package: "Feather",
                 displayText: "Medicines"
+            },
+            requestStack: {
+                name: "requestStack",
+                icon: "map-pin",
+                package: "Feather",
+                displayText: "Request"
             }
         },
         screenNames: {

@@ -69,6 +69,9 @@ export const getTabIcon = (route: string) => {
     if (route == lsettings.medicineStack.name) {
         iconName = lsettings.medicineStack.icon
     }
+    if (route == lsettings.requestStack.name) {
+        iconName = lsettings.requestStack.icon
+    }
     return iconName
 }
 
@@ -98,6 +101,9 @@ export const getTabLabel = (route: string) => {
     }
     if (route == lsettings.medicineStack.name) {
         tabLabel = lsettings.medicineStack.displayText
+    }
+    if (route == lsettings.requestStack.name) {
+        tabLabel = lsettings.requestStack.displayText
     }
     return tabLabel
 }

@@ -15,6 +15,7 @@ import { Feather } from '@expo/vector-icons';
 import { getTabIcon, getTabBarStyles, getTabLabel } from '../commons/styles/stack-style-constants';
 import { SettingsStackNavigation } from './stacks/settings-stack';
 import { MedicineStackNavigation } from './stacks/medicine-stack';
+import { RequestStackNavigation } from './stacks/request-stack';
 
 
 const TabNavigator = createBottomTabNavigator<RootStackParamsType>();
@@ -47,9 +48,13 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
                         <TabNavigator.Screen
                             name="medicineStack"
                             component={MedicineStackNavigation}
-                            initialParams={this.props.core.rootStackParams.medicineStack}
-                        />
-                        
+                            initialParams={this.props.core.rootStackParams.medicineStack} />
+
+                        <TabNavigator.Screen
+                            name="requestStack"
+                            component={RequestStackNavigation}
+                            initialParams={this.props.core.rootStackParams.requestStack} />
+
                         <TabNavigator.Screen
                             name="settingsStack"
                             component={SettingsStackNavigation}

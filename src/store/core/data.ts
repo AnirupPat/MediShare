@@ -43,6 +43,12 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             medicine: {
                 title: "Medicines"
             }
+        },
+
+        requestStack: {
+            request: {
+                title: 'Request'
+            }
         }
     },
     coreData: {
