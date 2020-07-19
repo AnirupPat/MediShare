@@ -1,0 +1,452 @@
+[
+    {
+        "id": 1,
+        "aggDay": "5/8/2020",
+        "noOfOrders": 477
+    },
+    {
+        "id": 2,
+        "aggDay": "12/31/2019",
+        "noOfOrders": 942
+    },
+    {
+        "id": 3,
+        "aggDay": "10/1/2019",
+        "noOfOrders": 765
+    },
+    {
+        "id": 4,
+        "aggDay": "4/20/2020",
+        "noOfOrders": 464
+    },
+    {
+        "id": 5,
+        "aggDay": "9/30/2019",
+        "noOfOrders": 172
+    },
+    {
+        "id": 6,
+        "aggDay": "6/16/2019",
+        "noOfOrders": 65
+    },
+    {
+        "id": 7,
+        "aggDay": "5/25/2020",
+        "noOfOrders": 906
+    },
+    {
+        "id": 8,
+        "aggDay": "2/28/2020",
+        "noOfOrders": 339
+    },
+    {
+        "id": 9,
+        "aggDay": "11/1/2019",
+        "noOfOrders": 746
+    },
+    {
+        "id": 10,
+        "aggDay": "10/28/2019",
+        "noOfOrders": 553
+    },
+    {
+        "id": 11,
+        "aggDay": "9/13/2019",
+        "noOfOrders": 611
+    },
+    {
+        "id": 12,
+        "aggDay": "4/8/2020",
+        "noOfOrders": 939
+    },
+    {
+        "id": 13,
+        "aggDay": "3/3/2020",
+        "noOfOrders": 74
+    },
+    {
+        "id": 14,
+        "aggDay": "9/2/2019",
+        "noOfOrders": 899
+    },
+    {
+        "id": 15,
+        "aggDay": "4/13/2020",
+        "noOfOrders": 985
+    },
+    {
+        "id": 16,
+        "aggDay": "11/15/2019",
+        "noOfOrders": 183
+    },
+    {
+        "id": 17,
+        "aggDay": "12/10/2019",
+        "noOfOrders": 640
+    },
+    {
+        "id": 18,
+        "aggDay": "5/28/2020",
+        "noOfOrders": 812
+    },
+    {
+        "id": 19,
+        "aggDay": "5/21/2020",
+        "noOfOrders": 181
+    },
+    {
+        "id": 20,
+        "aggDay": "12/20/2019",
+        "noOfOrders": 324
+    },
+    {
+        "id": 21,
+        "aggDay": "3/22/2020",
+        "noOfOrders": 611
+    },
+    {
+        "id": 22,
+        "aggDay": "11/25/2019",
+        "noOfOrders": 927
+    },
+    {
+        "id": 23,
+        "aggDay": "8/21/2019",
+        "noOfOrders": 984
+    },
+    {
+        "id": 24,
+        "aggDay": "2/23/2020",
+        "noOfOrders": 561
+    },
+    {
+        "id": 25,
+        "aggDay": "12/10/2019",
+        "noOfOrders": 301
+    },
+    {
+        "id": 26,
+        "aggDay": "7/22/2019",
+        "noOfOrders": 648
+    },
+    {
+        "id": 27,
+        "aggDay": "7/7/2019",
+        "noOfOrders": 456
+    },
+    {
+        "id": 28,
+        "aggDay": "6/8/2020",
+        "noOfOrders": 216
+    },
+    {
+        "id": 29,
+        "aggDay": "1/12/2020",
+        "noOfOrders": 931
+    },
+    {
+        "id": 30,
+        "aggDay": "12/2/2019",
+        "noOfOrders": 68
+    },
+    {
+        "id": 31,
+        "aggDay": "3/24/2020",
+        "noOfOrders": 322
+    },
+    {
+        "id": 32,
+        "aggDay": "8/25/2019",
+        "noOfOrders": 901
+    },
+    {
+        "id": 33,
+        "aggDay": "7/20/2019",
+        "noOfOrders": 188
+    },
+    {
+        "id": 34,
+        "aggDay": "3/30/2020",
+        "noOfOrders": 443
+    },
+    {
+        "id": 35,
+        "aggDay": "1/15/2020",
+        "noOfOrders": 868
+    },
+    {
+        "id": 36,
+        "aggDay": "6/8/2020",
+        "noOfOrders": 432
+    },
+    {
+        "id": 37,
+        "aggDay": "8/17/2019",
+        "noOfOrders": 321
+    },
+    {
+        "id": 38,
+        "aggDay": "8/13/2019",
+        "noOfOrders": 379
+    },
+    {
+        "id": 39,
+        "aggDay": "2/24/2020",
+        "noOfOrders": 140
+    },
+    {
+        "id": 40,
+        "aggDay": "4/22/2020",
+        "noOfOrders": 34
+    },
+    {
+        "id": 41,
+        "aggDay": "5/27/2020",
+        "noOfOrders": 224
+    },
+    {
+        "id": 42,
+        "aggDay": "12/14/2019",
+        "noOfOrders": 146
+    },
+    {
+        "id": 43,
+        "aggDay": "12/8/2019",
+        "noOfOrders": 437
+    },
+    {
+        "id": 44,
+        "aggDay": "12/22/2019",
+        "noOfOrders": 262
+    },
+    {
+        "id": 45,
+        "aggDay": "6/6/2020",
+        "noOfOrders": 358
+    },
+    {
+        "id": 46,
+        "aggDay": "6/18/2019",
+        "noOfOrders": 435
+    },
+    {
+        "id": 47,
+        "aggDay": "1/22/2020",
+        "noOfOrders": 104
+    },
+    {
+        "id": 48,
+        "aggDay": "8/15/2019",
+        "noOfOrders": 288
+    },
+    {
+        "id": 49,
+        "aggDay": "6/26/2019",
+        "noOfOrders": 238
+    },
+    {
+        "id": 50,
+        "aggDay": "1/26/2020",
+        "noOfOrders": 356
+    },
+    {
+        "id": 51,
+        "aggDay": "3/21/2020",
+        "noOfOrders": 787
+    },
+    {
+        "id": 52,
+        "aggDay": "9/30/2019",
+        "noOfOrders": 930
+    },
+    {
+        "id": 53,
+        "aggDay": "11/20/2019",
+        "noOfOrders": 120
+    },
+    {
+        "id": 54,
+        "aggDay": "2/20/2020",
+        "noOfOrders": 905
+    },
+    {
+        "id": 55,
+        "aggDay": "5/4/2020",
+        "noOfOrders": 11
+    },
+    {
+        "id": 56,
+        "aggDay": "5/25/2020",
+        "noOfOrders": 82
+    },
+    {
+        "id": 57,
+        "aggDay": "8/29/2019",
+        "noOfOrders": 278
+    },
+    {
+        "id": 58,
+        "aggDay": "7/3/2019",
+        "noOfOrders": 649
+    },
+    {
+        "id": 59,
+        "aggDay": "2/18/2020",
+        "noOfOrders": 636
+    },
+    {
+        "id": 60,
+        "aggDay": "6/19/2019",
+        "noOfOrders": 118
+    },
+    {
+        "id": 61,
+        "aggDay": "12/29/2019",
+        "noOfOrders": 847
+    },
+    {
+        "id": 62,
+        "aggDay": "3/1/2020",
+        "noOfOrders": 939
+    },
+    {
+        "id": 63,
+        "aggDay": "1/13/2020",
+        "noOfOrders": 91
+    },
+    {
+        "id": 64,
+        "aggDay": "11/21/2019",
+        "noOfOrders": 609
+    },
+    {
+        "id": 65,
+        "aggDay": "8/16/2019",
+        "noOfOrders": 765
+    },
+    {
+        "id": 66,
+        "aggDay": "6/30/2019",
+        "noOfOrders": 939
+    },
+    {
+        "id": 67,
+        "aggDay": "8/9/2019",
+        "noOfOrders": 286
+    },
+    {
+        "id": 68,
+        "aggDay": "11/29/2019",
+        "noOfOrders": 415
+    },
+    {
+        "id": 69,
+        "aggDay": "6/15/2019",
+        "noOfOrders": 186
+    },
+    {
+        "id": 70,
+        "aggDay": "4/8/2020",
+        "noOfOrders": 200
+    },
+    {
+        "id": 71,
+        "aggDay": "8/7/2019",
+        "noOfOrders": 228
+    },
+    {
+        "id": 72,
+        "aggDay": "10/24/2019",
+        "noOfOrders": 508
+    },
+    {
+        "id": 73,
+        "aggDay": "10/29/2019",
+        "noOfOrders": 129
+    },
+    {
+        "id": 74,
+        "aggDay": "8/2/2019",
+        "noOfOrders": 797
+    },
+    {
+        "id": 75,
+        "aggDay": "7/15/2019",
+        "noOfOrders": 784
+    },
+    {
+        "id": 76,
+        "aggDay": "3/12/2020",
+        "noOfOrders": 123
+    },
+    {
+        "id": 77,
+        "aggDay": "10/27/2019",
+        "noOfOrders": 859
+    },
+    {
+        "id": 78,
+        "aggDay": "3/13/2020",
+        "noOfOrders": 711
+    },
+    {
+        "id": 79,
+        "aggDay": "12/15/2019",
+        "noOfOrders": 382
+    },
+    {
+        "id": 80,
+        "aggDay": "7/4/2019",
+        "noOfOrders": 778
+    },
+    {
+        "id": 81,
+        "aggDay": "7/8/2019",
+        "noOfOrders": 398
+    },
+    {
+        "id": 82,
+        "aggDay": "8/22/2019",
+        "noOfOrders": 379
+    },
+    {
+        "id": 83,
+        "aggDay": "8/9/2019",
+        "noOfOrders": 533
+    },
+    {
+        "id": 84,
+        "aggDay": "10/8/2019",
+        "noOfOrders": 675
+    },
+    {
+        "id": 85,
+        "aggDay": "3/5/2020",
+        "noOfOrders": 69
+    },
+    {
+        "id": 86,
+        "aggDay": "7/20/2019",
+        "noOfOrders": 859
+    },
+    {
+        "id": 87,
+        "aggDay": "3/1/2020",
+        "noOfOrders": 428
+    },
+    {
+        "id": 88,
+        "aggDay": "2/19/2020",
+        "noOfOrders": 635
+    },
+    {
+        "id": 89,
+        "aggDay": "12/2/2019",
+        "noOfOrders": 621
+    },
+    {
+        "id": 90,
+        "aggDay": "10/9/2019",
+        "noOfOrders": 416
+    }
+]

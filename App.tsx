@@ -1,21 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import AppNavigation from './src/index';
+import { Provider } from 'react-redux';
+import { store } from './src/store';
+import { CoreReduxInitialState } from './src/store/core/data';
+import { AppLoading } from 'expo';
+import * as Font from 'expo-font';
+import Constants from './src/commons/constants';
+import { enableScreens } from 'react-native-screens';
+
+enableScreens()
+
+const fetchFonts = () => {
+  return Font.loadAsync(Constants.FONTS);
+};
 
 export default function App() {
+
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+    if (!fontLoaded) {
+        return (
+            <AppLoading
+                startAsync={fetchFonts}
+                onFinish={() => setFontLoaded(true)}
+            />
+        );
+    }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <AppNavigation core={CoreReduxInitialState} />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
