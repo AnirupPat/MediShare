@@ -14,6 +14,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 import { getTabIcon, getTabBarStyles, getTabLabel } from '../commons/styles/stack-style-constants';
 import { SettingsStackNavigation } from './stacks/settings-stack';
+import { MedicineStackNavigation } from './stacks/medicine-stack';
 
 
 const TabNavigator = createBottomTabNavigator<RootStackParamsType>();
@@ -31,7 +32,31 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
     render(): React.ReactNode {
         return (
             <NavigationContainer>
-                <AuthStackNavigator.Navigator initialRouteName="login">
+                {this.props.core.coreData.auth.signedIn ? (
+                    <TabNavigator.Navigator
+                        initialRouteName="medicineStack"
+                        screenOptions={(props) => ({
+                            tabBarIcon: (tabProps: any) => {
+                                return (
+                                    <Feather name={getTabIcon(props.route.name)} size={tabProps.size + 2} color={tabProps.color} />
+                                )
+                            },
+                            tabBarLabel: getTabLabel(props.route.name)
+                        })}
+                        tabBarOptions={getTabBarStyles()}>
+                        <TabNavigator.Screen
+                            name="medicineStack"
+                            component={MedicineStackNavigation}
+                            initialParams={this.props.core.rootStackParams.medicineStack}
+                        />
+                        
+                        <TabNavigator.Screen
+                            name="settingsStack"
+                            component={SettingsStackNavigation}
+                            initialParams={this.props.core.rootStackParams.settingsStack} />
+                    </TabNavigator.Navigator>
+                ) : (
+                        <AuthStackNavigator.Navigator initialRouteName="login">
                             <AuthStackNavigator.Screen
                                 name="login"
                                 component={LoginScreen}
@@ -53,6 +78,8 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
                                 initialParams={this.props.core.rootStackParams.authStack.finishedReset}
                             />
                         </AuthStackNavigator.Navigator>
+                    )
+                }
             </NavigationContainer>
         )
     }

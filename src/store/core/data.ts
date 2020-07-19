@@ -37,6 +37,12 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             aboutUs: {
                 title: "About Us"
             }
+        },
+
+        medicineStack: {
+            medicine: {
+                title: "Medicines"
+            }
         }
     },
     coreData: {

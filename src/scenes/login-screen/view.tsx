@@ -58,7 +58,7 @@ class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
                 </KeyboardAvoidingView>
                 <Card>
                     <RText>Want to try out our product?</RText>
-                    <RButton name="Request access" onPress={() => { console.log(this.props) }} />
+                    <RButton name="Register" onPress={() => { console.log(this.props) }} />
                 </Card>
             </ScrollView>
         )

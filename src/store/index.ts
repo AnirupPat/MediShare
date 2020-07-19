@@ -2,9 +2,11 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { coreReducer } from './core/reducer';
 import { CoreActionTypes } from './core/actions';
 import { composeWithDevTools, devToolsEnhancer } from 'redux-devtools-extension';
+import { MedicineReducer } from './medicines/reducer';
 
 export const rootReducer = combineReducers({
-    core: coreReducer
+    core: coreReducer,
+    medicine: MedicineReducer
 });
 
 const composeEnhancers = composeWithDevTools({
