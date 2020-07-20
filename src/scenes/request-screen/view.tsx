@@ -12,6 +12,9 @@ import navigations from '../../navigations';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import { LogoImage } from '../../components/molecules/logo-image/view';
+import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Entypo } from '@expo/vector-icons'; 
 
 const { height } = Dimensions.get("window");
 const _draggedValue = new Animated.Value(180);
@@ -103,20 +106,42 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                     friction={0.5}
                     ref={c => this._panel = c}>
                     <View style={Styles.container}>
-                        {/* <Text style={Styles.text}>Here is the content inside panel</Text>
-                        <Button title='Hide' onPress={() => this._panel?.hide()} /> */}
-                        <View style={Styles.logoBox}>
+                        {/* <View style={Styles.logoBox}>
                             <LogoImage />
-                        </View>
+                        </View> */}
 
-                        {/* <SafeAreaView style={Styles.screen}>
+                        <SafeAreaView style={Styles.screen}>
                             <FlatList
                                 style={Styles.screen}
                                 data={this.props.data}
-                                renderItem={(product) => <Product data={product.item} onPress={this.handleNavigateToDetail.bind(this, product.item.id)} />}
-                                keyExtractor={(product) => product.id.toString()}
+                                renderItem={(donor) =>
+
+                                    <View style={Styles.donorBox}>
+                                        <View style={Styles.nameBox}>
+                                            <RTitleText>{donor.item.name}</RTitleText>
+                                            <View style={Styles.verifiedBox}>
+                                                <Text style={Styles.verifiedFont}>{donor.item.status}</Text>
+                                            </View>
+                                        </View>
+
+                                        <Text style={Styles.donorAddress}>{donor.item.address}</Text>
+                                        <View style={Styles.distanceActionBox}>
+                                            <Text style={{fontSize: 15}}>Distance: {donor.item.distance}</Text>
+                                            <View style={Styles.requestAction}>
+                                            <TouchableOpacity>
+                                                <Entypo name="hand" size={24} color="black" />
+                                            </TouchableOpacity>
+                                            <Text>Request</Text>
+                                            </View>
+                                            
+                                        </View>
+                                        
+                                    </View>
+
+                                }
+                                keyExtractor={(donor) => donor.id.toString()}
                             />
-                        </SafeAreaView> */}
+                        </SafeAreaView>
 
                         {/* <Text style={Styles.text}>Here is the content inside panel</Text>
                         <Button title='Hide' onPress={() => this._panel?.hide()} /> */}
@@ -131,8 +156,7 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
 const mapStatetoProps = (state: AppState, localProps: RequestScreenProps): RequestScreenProps => {
     return {
         ...localProps,
-        // data: state.Request.Requests,
-        // title: localProps.route.params.title
+        data: state.donors.donors
     }
 }
 

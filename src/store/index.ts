@@ -3,10 +3,12 @@ import { coreReducer } from './core/reducer';
 import { CoreActionTypes } from './core/actions';
 import { composeWithDevTools, devToolsEnhancer } from 'redux-devtools-extension';
 import { MedicineReducer } from './medicines/reducer';
+import { DonorsReducer } from './donors/reducers';
 
 export const rootReducer = combineReducers({
     core: coreReducer,
-    medicine: MedicineReducer
+    medicine: MedicineReducer,
+    donors: DonorsReducer
 });
 
 const composeEnhancers = composeWithDevTools({

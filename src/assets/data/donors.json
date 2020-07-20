@@ -1,0 +1,26 @@
+[
+    {
+        "id": "P001",
+        "name": "Nikhilesh",
+        "status": "Verified",
+        "donationPoints": 760,
+        "distance": "3.5 km",
+        "address": "Prestige Heights,C-404, Whitefeild, Bangalore"
+    },
+    {
+        "id": "P003",
+        "name": "Vinayak",
+        "status": "Verified",
+        "donationPoints": 1000,
+        "distance": "4.3 km",
+        "address": "Shobha Heights Block C, Off Old Airport Road, Yemlur, Yemlur Post, Bengaluru"
+    },
+    {
+        "id": "P002",
+        "name": "Anirup Patnaik",
+        "status": "Verified",
+        "donationPoints": 420,
+        "distance": "6 km",
+        "address": "B-104, Euphoria Corporate Leisure Apartment, Bellandur, Bangalore"
+    }
+]
