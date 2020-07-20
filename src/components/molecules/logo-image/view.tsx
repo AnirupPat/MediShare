@@ -5,7 +5,7 @@ import { Styles } from './styles';
 import Constants from '../../../commons/constants/index';
 
 
-export class Logo extends React.Component<LogoProps, LogoState> {
+export class LogoImage extends React.Component<LogoProps, LogoState> {
 
     constructor(props: LogoProps) {
         super(props)
@@ -15,7 +15,7 @@ export class Logo extends React.Component<LogoProps, LogoState> {
         return (
             <View style={Styles.logoContainer}>
                 <Image style={Styles.logo} source={require('../../../assets/images/MediShare_logo.png')} />
-                <Text style={Styles.headingText}>{Constants.APP_NAME}</Text>
+                <Text style={Styles.headingText}>A small helping hand</Text>
             </View>
         );
     }
