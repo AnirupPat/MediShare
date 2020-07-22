@@ -79,7 +79,6 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
                     text2={Constants.DEFAULT_TEXT.insightsText2}
                 />
             </ScrollView>
-            
         )
     }
 }

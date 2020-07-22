@@ -5,6 +5,7 @@ export type Medicine =
         "name": string,
         "InStockQty": number,
         "BlockedQty": number,
+        "expiresOn": string,
         "points": string[],
         "description": string,
         "price": number,

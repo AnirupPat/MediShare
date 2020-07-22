@@ -6,7 +6,8 @@ import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r
 import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { MaterialIcons, FontAwesome } from '@expo/vector-icons'; 
+import { RText } from '../../atoms/r-text/view';
 
 export class Product extends React.Component<ProductProps, ProductState> {
     constructor(props: ProductProps) {
@@ -28,6 +29,14 @@ export class Product extends React.Component<ProductProps, ProductState> {
                             </TouchableOpacity>
                         </View>
                     </View>
+
+                    <View style={Styles.orderNumberContainer}>
+                        <View style={Styles.medicineNameBox}>
+                        <FontAwesome name="calendar" size={24} color="black" />
+                            <RText> Expires  {this.props.data.fields.expiresOn}</RText>
+                        </View>
+                    </View>
+
                     <View style={Styles.lowerBox}>
                         <View style={Styles.donate}>
                             <TouchableOpacity style={Styles.donateIcon}>

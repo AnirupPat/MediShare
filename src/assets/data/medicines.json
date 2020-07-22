@@ -4,6 +4,7 @@
         "fields": {
             "name": "Paracetamol",
             "InStockQty": 20,
+            "expiresOn": "after 6 months",
             "BlockedQty": 8,
             "points": [
                 "A smart essential - thin, lightweight and tough, the stylish Galaxy Active watch fits in with your lifestyle",
@@ -41,6 +42,7 @@
         "fields": {
             "name": "Chloroquine",
             "InStockQty": 20,
+            "expiresOn": "after 1 months",
             "BlockedQty": 8,
             "points": [
                 "A smart essential - thin, lightweight and tough, the stylish Galaxy Active watch fits in with your lifestyle",
@@ -78,6 +80,7 @@
         "fields": {
             "name": "Salbutamol",
             "InStockQty": 30,
+            "expiresOn": "after 10 days",
             "BlockedQty": 8,
             "points": [
                 "A smart essential - thin, lightweight and tough, the stylish Galaxy Active watch fits in with your lifestyle",
@@ -115,6 +118,7 @@
         "fields": {
             "name": "Cetirizine",
             "InStockQty": 15,
+            "expiresOn": "after 6 months",
             "BlockedQty": 8,
             "points": [
                 "A smart essential - thin, lightweight and tough, the stylish Galaxy Active watch fits in with your lifestyle",
@@ -152,6 +156,7 @@
         "fields": {
             "name": "Oseltamivir",
             "InStockQty": 10,
+            "expiresOn": "after 6 months",
             "BlockedQty": 8,
             "points": [
                 "A smart essential - thin, lightweight and tough, the stylish Galaxy Active watch fits in with your lifestyle",
