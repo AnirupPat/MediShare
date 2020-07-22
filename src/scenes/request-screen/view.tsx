@@ -106,9 +106,9 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                     friction={0.5}
                     ref={c => this._panel = c}>
                     <View style={Styles.container}>
-                        {/* <View style={Styles.logoBox}>
+                        <View style={Styles.logoBox}>
                             <LogoImage />
-                        </View> */}
+                        </View>
 
                         <SafeAreaView style={Styles.screen}>
                             <FlatList

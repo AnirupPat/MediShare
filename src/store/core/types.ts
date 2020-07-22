@@ -24,6 +24,9 @@ export type AuthStackNavigationParamsType = {
 export type MedicineStackNavigationParamsType = {
     medicine: {
         title: string
+    },
+    notifications: {
+        title: string
     }
 }
 

@@ -42,6 +42,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
         medicineStack: {
             medicine: {
                 title: "Medicines"
+            },
+            notifications: {
+                title: 'Notifications'
             }
         },
 

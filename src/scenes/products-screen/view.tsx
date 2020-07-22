@@ -9,42 +9,40 @@ import { Product } from '../../components/organisms/product/view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RAntIconButton } from '../../components/atoms/r-ant-icon-button/view';
 import navigations from '../../navigations';
+import { Ionicons, AntDesign } from '@expo/vector-icons'; 
 
 class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreenState> {
 
     constructor(props: MedicineScreenProps, state: MedicineScreenState) {
         super(props)
         var options = getStackStyles(
-            this.props.title,
-            "plus",
-            () => {
-                 this.handleNavigateToNewProduct()
-            }
+            this.props.title
+            // "plus",
+            // () => {
+            //      this.handleNavigateToNewProduct()
+            // }
         )
         options = {
             ...options,
-            headerLeft: () => (
-                <RAntIconButton
-                    icon="filter"
-                    size={28}
-                    onPress={() => {
-                        // @ts-ignore
-                        // REASON: state picked up from redux
-                        this.props.navigation.navigate('filterProducts', {
-                            title: "Filters"
-                        })
-                    }}
+            headerRight: () => (
+                <Ionicons name="md-notifications" style={{marginRight: 15}} size={28} color="black"
+                    onPress={this.handleNavigateToNotifications}
                 />
+            ),
+            headerLeft: () => (
+                <AntDesign name="plus" style={{marginLeft: 10}} size={28} color="black" />
             )
         }
         this.props.navigation.setOptions(options)
     }
 
-    handleNavigateToDetail = (id: any) => {
-        
+    handleNavigateToNotifications = (id: any) => {
+        this.props.navigation.navigate("notifications", {
+            title: "Notifications"
+        })
     }
 
-    handleNavigateToNewProduct = () => {
+    handleNavigateToDetail = () => {
         
     }
 

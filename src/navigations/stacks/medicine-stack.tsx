@@ -2,7 +2,7 @@ import React from 'react'
 import { MedicineStackNavigationParamsType, RootStackParamsType } from '../../store/core/types'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import ProductScreen  from '../../scenes/products-screen/view'
-
+import NotificationScreen from '../../scenes/notifications-screen/view'
 
 const MedicineStackNavigator = createStackNavigator<MedicineStackNavigationParamsType>();
 
@@ -20,6 +20,11 @@ export class MedicineStackNavigation extends React.Component<MedicineStackScreen
                     name="medicine"
                     component={ProductScreen}
                     initialParams={this.props.route.params.medicine}
+                />
+				<MedicineStackNavigator.Screen
+                    name="notifications"
+                    component={NotificationScreen}
+                    initialParams={this.props.route.params.notifications}
                 />
 			</MedicineStackNavigator.Navigator>
 		)
