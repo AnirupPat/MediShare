@@ -16,7 +16,10 @@ export type RegisterScreenDataProps = {
     data: {
         country: Country
         phoneNumber: string
-        password: string
+        password: string,
+        location: string,
+        latitude: number,
+        longitude: number
     }
 }
 
@@ -34,6 +37,8 @@ export type RegisterDetailsDispatchProps = {
     setPhoneNumber: (phoneNumber: string) => void
     setPassword: (password: string) => void
     setCountry: (countryCode: string) => void
+    setGeoLocation: (latitude: number, longitude: number) => void
+    setLocation: (location: string) => void
 }
 
 export type RegisterScreenProps =

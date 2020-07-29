@@ -4,23 +4,22 @@ import { Card, PhoneNumber, PasswordInput, RButton, RHeadingText, RText, Logo } 
 import { RegisterScreenProps, RegisterScreenState, RegisterDetailsDispatchProps } from './types'
 import { connect } from 'react-redux';
 import { AppState, AppActionTypes } from '../../store';
-import { signInUser, setCountry, setPhoneNumber, setPassword, signOutUser } from '../../store/core/actions';
+import { signInUser, setCountry, setPhoneNumber, setPassword, signOutUser, GeoLocation, LocationVal } from '../../store/core/actions';
 import Styles from './styles';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
 import Constants from 'expo-constants';
 import * as Location from 'expo-location';
-import Geolocation from 'react-native-geolocation-service';
 import * as Permissions from 'expo-permissions';
 
-const EXAMPLES = { latitude: 20.241189949999992, longitude: 85.80121611999998 };
+const EXAMPLES = { latitude: 20.2400237, longitude: 85.799339 };
 
 class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreenState> {
     constructor(props: RegisterScreenProps) {
         super(props)
         this.state = {
             selectedExample: {
-                latitude: EXAMPLES.latitude,
-                longitude: EXAMPLES.longitude
+                latitude: this.props.data.latitude,
+                longitude: this.props.data.longitude
             },
             result: '',
             inProgress: false,
@@ -29,7 +28,6 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
     }
 
     componentDidMount() {
-        console.log(this.state.selectedExample);
         this.getPermissionAsync()
     }
 
@@ -42,14 +40,20 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
                 console.log('Permission to access location was denied');
             }
             let location = await Location.getCurrentPositionAsync({});
-            console.log(location)
-
-             this._attemptReverseGeocodeAsync()
+             this._attemptReverseGeocodeAsync(location.coords.latitude, location.coords.longitude)
 
         }
     }
 
-    _attemptReverseGeocodeAsync = async () => {
+    _attemptReverseGeocodeAsync = async (lat: number, lon: number) => {
+        this.setState({
+            selectedExample: {
+                latitude: lat,
+                longitude: lon
+            },
+            result: '',
+            inProgress: false
+        })
         this.setState({ inProgress: true });
         try {
             let result = await Location.reverseGeocodeAsync(
@@ -57,16 +61,14 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
             );
             console.log('Result is ')
             console.log(result)
+            this.props.setGeoLocation(lat, lon)
+            this.props.setLocation(result[0].city)
         } catch (e) {
             console.log(e)
         } finally {
             this.setState({ inProgress: false });
         }
     };
-
-    dashboardStackNavigationHandler = () => {
-        // console.log("dashboardStackNavigationHandler Handled!")
-    }
 
     resetCodeScreenNavigationHandler = () => {
         // @ts-ignore
@@ -77,7 +79,6 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
-
                 <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
                     <Card>
                         <PhoneNumber
@@ -109,10 +110,8 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
                             }}
                         />
                         <RButton name={this.props.route.name} onPress={this.props.signInUser} />
-
                     </Card>
                 </KeyboardAvoidingView>
-
             </ScrollView>
         )
     }
@@ -124,7 +123,10 @@ const mapStatetoProps = (state: AppState, localProps: RegisterScreenProps): Regi
         data: {
             country: state.core.coreData.country,
             phoneNumber: state.core.coreData.phoneNumber,
-            password: state.core.coreData.password
+            password: state.core.coreData.password,
+            location: state.core.coreData.location,
+            latitude: state.core.coreData.latitude,
+            longitude: state.core.coreData.longitude
         }
     }
 }
@@ -134,7 +136,9 @@ const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): RegisterDetails
         signInUser: () => dispatch(signInUser()),
         setCountry: (countryCode: string) => dispatch(setCountry(countryCode)),
         setPhoneNumber: (phoneNumber: string) => dispatch(setPhoneNumber(phoneNumber)),
-        setPassword: (password: string) => dispatch(setPassword(password))
+        setPassword: (password: string) => dispatch(setPassword(password)),
+        setGeoLocation: (latitude: number, longitude: number) => dispatch(GeoLocation(latitude, longitude)),
+        setLocation: (location: string) => dispatch(LocationVal(location))
     }
 }
 

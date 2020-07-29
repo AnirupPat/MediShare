@@ -5,6 +5,8 @@ export const SET_PHONE_NUMBER = 'SET_PHONE_NUMBER'
 export const SET_PASSWORD = 'SET_PASSWORD'
 export const SET_NEW_PASSWORD = 'SET_NEWPASSWORD'
 export const SET_OTP = 'SET_OTP'
+export const GEO_LOCATION = "GEO_LOCATION"
+export const LOCATION = "LOCATION"
 
 export interface UserSignInAction {
     type: typeof USER_SIGNED_IN
@@ -40,6 +42,17 @@ export interface SetOTP {
     otp: string
 }
 
+export interface GeoLocationAction {
+    type: typeof GEO_LOCATION
+    latitude: number
+    longitude: number
+}
+
+export interface LocationAction {
+    type: typeof LOCATION
+    location: string
+}
+
 export type CoreActionTypes =
     SetCountryAction
     | SetPhoneNumberAction
@@ -48,6 +61,23 @@ export type CoreActionTypes =
     | SetPassword
     | SetNewPassword
     | SetOTP
+    | GeoLocationAction
+    | LocationAction
+
+export const GeoLocation = (latitude: number, longitude: number): CoreActionTypes => {
+    return {
+        type: GEO_LOCATION,
+        latitude,
+        longitude
+    }
+}
+
+export const LocationVal = (location: string): CoreActionTypes => {
+    return {
+        type: LOCATION,
+        location
+    }
+}
 
 export const signInUser = (): CoreActionTypes => {
     return {

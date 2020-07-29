@@ -1,5 +1,5 @@
 import { CoreReduxStateType } from './types'
-import { SET_PHONE_NUMBER, SET_COUNTRY, CoreActionTypes, USER_SIGNED_IN, USER_SIGNED_OUT, SET_PASSWORD, SET_NEW_PASSWORD, SET_OTP } from './actions';
+import { SET_PHONE_NUMBER, SET_COUNTRY, CoreActionTypes, USER_SIGNED_IN, USER_SIGNED_OUT, SET_PASSWORD, SET_NEW_PASSWORD, SET_OTP, GEO_LOCATION, LOCATION } from './actions';
 import Constants from '../../commons/constants';
 import { Country } from '../../models/country';
 import { CoreReduxInitialState } from './data'
@@ -100,6 +100,27 @@ const updateOTP = (state: CoreReduxStateType, otp: string): CoreReduxStateType =
     }
 }
 
+const updateGeoLocation = (state: CoreReduxStateType, latitude: number, longitude: number): CoreReduxStateType => {
+    return {
+        ...state,
+        coreData: {
+            ...state.coreData,
+            latitude,
+            longitude
+        }
+    }
+}
+
+const updateLocation = (state: CoreReduxStateType, location: string): CoreReduxStateType => {
+    return {
+        ...state,
+        coreData: {
+            ...state.coreData,
+            location
+        }
+    }
+}
+
 export const coreReducer = (state = CoreReduxInitialState, action: CoreActionTypes): CoreReduxStateType => {
     switch (action.type) {
         case USER_SIGNED_IN:
@@ -116,6 +137,10 @@ export const coreReducer = (state = CoreReduxInitialState, action: CoreActionTyp
             return updateNewPassword(state, action.newPassword)
         case SET_OTP:
             return updateOTP(state, action.otp)
+        case GEO_LOCATION:
+            return updateGeoLocation(state, action.latitude, action.longitude)
+        case LOCATION:
+            return updateLocation(state, action.location)
         default:
             return state
     }

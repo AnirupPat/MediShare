@@ -78,7 +78,10 @@ export type CoreReduxStateType = {
         phoneNumber: string
         password: string
         auth: Authentication
-        username: string
+        username: string,
+        latitude: number,
+        longitude: number,
+        location: string,
         resetPassword: {
             otp: string
             newPassword: string
