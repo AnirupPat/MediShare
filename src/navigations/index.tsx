@@ -16,7 +16,7 @@ import { getTabIcon, getTabBarStyles, getTabLabel } from '../commons/styles/stac
 import { SettingsStackNavigation } from './stacks/settings-stack';
 import { MedicineStackNavigation } from './stacks/medicine-stack';
 import { RequestStackNavigation } from './stacks/request-stack';
-
+import RegisterScreen from '../scenes/register-screen/view';
 
 const TabNavigator = createBottomTabNavigator<RootStackParamsType>();
 
@@ -66,6 +66,11 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
                                 name="login"
                                 component={LoginScreen}
                                 initialParams={this.props.core.rootStackParams.authStack.login}
+                            />
+                            <AuthStackNavigator.Screen
+                                name="register"
+                                component={RegisterScreen}
+                                initialParams={this.props.core.rootStackParams.authStack.register}
                             />
                             <AuthStackNavigator.Screen
                                 name="resetCode"

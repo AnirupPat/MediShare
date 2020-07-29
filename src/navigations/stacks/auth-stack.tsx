@@ -5,6 +5,7 @@ import ResetCodeScreen from '../../scenes/reset-code-screen/view'
 import LoginScreen from '../../scenes/login-screen/view';
 import FinishedResetScreen from '../../scenes/finished-reset-screen/view';
 import ResetPasswordScreen from '../../scenes/reset-password-screen/view';
+import RegisterScreen from '../../scenes/register-screen/view';
 
 const AuthStackNavigator = createStackNavigator<AuthStackNavigationParamsType>();
 
@@ -22,6 +23,11 @@ export class AuthStackNavigation extends React.Component<AuthStackScreenProps> {
                     name="login"
                     component={LoginScreen}
                     initialParams={this.props.route.params.login}
+                />
+                <AuthStackNavigator.Screen
+                    name="register"
+                    component={RegisterScreen}
+                    initialParams={this.props.route.params.register}
                 />
                 <AuthStackNavigator.Screen
                     name="resetCode"

@@ -10,6 +10,9 @@ export type AuthStackNavigationParamsType = {
     login: {
         title: string
     },
+    register: {
+        title: string
+    },
     resetCode: {
         title: string
     },

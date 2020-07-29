@@ -1,23 +1,22 @@
-import React, { Dispatch } from 'react'
-import { View, ScrollView, KeyboardAvoidingView, Button } from 'react-native'
-import { Card, PhoneNumber, PasswordInput, RButton, RHeadingText, RText, Logo } from '../../components/atoms'
-import Styles from './styles'
-import { LoginScreenProps, LoginScreenState, LoginDetailsDispatchProps } from './types'
-import { getStackStyles } from '../../commons/styles';
-import { AppState, AppActionTypes } from '../../store';
+import React, { Dispatch }  from 'react';
+import { View, Text, ScrollView, KeyboardAvoidingView, Button } from 'react-native';
+import { Card, PhoneNumber, PasswordInput, RButton, RHeadingText, RText, Logo } from '../../components/atoms';
+import { RegisterScreenProps, RegisterScreenState, RegisterDetailsDispatchProps } from './types'
 import { connect } from 'react-redux';
-import { signInUser, setCountry, setPhoneNumber, setPassword } from '../../store/core/actions';
+import { AppState, AppActionTypes } from '../../store';
+import { signInUser, setCountry, setPhoneNumber, setPassword, signOutUser } from '../../store/core/actions';
+import Styles from './styles';
+import { getStackStyles } from '../../commons/styles/stack-style-constants';
 
-class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
-
-    constructor(props: LoginScreenProps) {
+class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreenState> {
+    constructor(props: RegisterScreenProps) {
         super(props)
-        this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
+       this.props.navigation.setOptions(getStackStyles(this.props.route.name))
     }
 
     dashboardStackNavigationHandler = () => {
-        console.log("dashboardStackNavigationHandler Handled!")
-    }
+       // console.log("dashboardStackNavigationHandler Handled!")
+    } 
 
     resetCodeScreenNavigationHandler = () => {
         // @ts-ignore
@@ -25,18 +24,11 @@ class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
         this.props.navigation.navigate("resetCode")
     }
 
-    handleNavigateRegister = () => {
-        console.log("trigerred !!!")
-        this.props.navigation.navigate("register", {
-            title: "Register"
-        })
-    }
-
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
-                <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
-                    <Logo />
+                
+                 <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
                     <Card>
                         <PhoneNumber
                             data={{
@@ -57,22 +49,26 @@ class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
                                 setPassword: this.props.setPassword
                             }}
                         />
-                        <RButton name={this.props.route.params.title} onPress={this.props.signInUser} />
-                        <View style={Styles.forgotPasswordContainer}>
-                            <Button title="Forgot your Password?" onPress={this.resetCodeScreenNavigationHandler} />
-                        </View>
+                        <PasswordInput
+                            data={{
+                                password: this.props.data.password,
+                                inputHelperText: "Re enter your Password"
+                            }}
+                            operations={{
+                                setPassword: this.props.setPassword
+                            }}
+                        />
+                        <RButton name={this.props.route.name} onPress={this.props.signInUser} />
+                        
                     </Card>
                 </KeyboardAvoidingView>
-                <Card>
-                    <RText>Want to try out our product?</RText>
-                    <RButton name="Register" onPress={this.handleNavigateRegister} />
-                </Card>
+                 
             </ScrollView>
         )
     }
 }
 
-const mapStatetoProps = (state: AppState, localProps: LoginScreenProps): LoginScreenProps => {
+const mapStatetoProps = (state: AppState, localProps: RegisterScreenProps): RegisterScreenProps => {
     return {
         ...localProps,
         data: {
@@ -83,7 +79,7 @@ const mapStatetoProps = (state: AppState, localProps: LoginScreenProps): LoginSc
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): LoginDetailsDispatchProps => {
+const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): RegisterDetailsDispatchProps => {
     return {
         signInUser: () => dispatch(signInUser()),
         setCountry: (countryCode: string) => dispatch(setCountry(countryCode)),
@@ -92,4 +88,4 @@ const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): LoginDetailsDis
     }
 }
 
-export default connect(mapStatetoProps, mapDispatchToProps)(LoginScreen)
+export default connect(mapStatetoProps, mapDispatchToProps)(RegisterScreen)

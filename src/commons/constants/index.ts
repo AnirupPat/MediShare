@@ -66,6 +66,7 @@ const Constants = {
         },
         screenNames: {
             login: "login",
+            // register: "register",
             resetCode: "resetCode",
             resetPassword: "resetPassword",
             finishedReset: "finishedReset",

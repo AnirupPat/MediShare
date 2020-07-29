@@ -7,6 +7,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             login: {
                 title: "Login"
             },
+            register: {
+                title: "Register"
+            },
             resetCode: {
                 title: "Reset Code"
             },
