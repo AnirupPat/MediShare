@@ -17,6 +17,7 @@ import { SettingsStackNavigation } from './stacks/settings-stack';
 import { MedicineStackNavigation } from './stacks/medicine-stack';
 import { RequestStackNavigation } from './stacks/request-stack';
 import RegisterScreen from '../scenes/register-screen/view';
+import VerifyCodeScreen from '../scenes/verify-code-screen/view';
 
 const TabNavigator = createBottomTabNavigator<RootStackParamsType>();
 
@@ -71,6 +72,11 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
                                 name="register"
                                 component={RegisterScreen}
                                 initialParams={this.props.core.rootStackParams.authStack.register}
+                            />
+                            <AuthStackNavigator.Screen
+                                name="verifyCode"
+                                component={VerifyCodeScreen}
+                                initialParams={this.props.core.rootStackParams.authStack.verifyCode}
                             />
                             <AuthStackNavigator.Screen
                                 name="resetCode"

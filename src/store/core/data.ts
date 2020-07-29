@@ -10,6 +10,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             register: {
                 title: "Register"
             },
+            verifyCode: {
+                title: 'Verify Code'
+            },
             resetCode: {
                 title: "Reset Code"
             },
@@ -66,7 +69,13 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             authnToken: "",
             authzToken: ""
         },
+        latitude: 0,
+        longitude: 0,
+        location: '',
         username: "Administrator",
+        verifyCode: {
+            otp: ""
+        },
         resetPassword: {
             otp: "",
             newPassword: ""

@@ -76,6 +76,13 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
         this.props.navigation.navigate("resetCode")
     }
 
+    handleVerifyUser = () => {
+        this.props.signInUser
+        this.props.navigation.navigate("verifyCode", {
+            title: 'Verify Code'
+        })
+    }
+
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
@@ -109,7 +116,7 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
                                 setPassword: this.props.setPassword
                             }}
                         />
-                        <RButton name={this.props.route.name} onPress={this.props.signInUser} />
+                        <RButton name="Proceed" onPress={this.handleVerifyUser} />
                     </Card>
                 </KeyboardAvoidingView>
             </ScrollView>

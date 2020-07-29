@@ -13,6 +13,9 @@ export type AuthStackNavigationParamsType = {
     register: {
         title: string
     },
+    verifyCode: {
+        title: string
+    },
     resetCode: {
         title: string
     },
@@ -82,6 +85,9 @@ export type CoreReduxStateType = {
         latitude: number,
         longitude: number,
         location: string,
+        verifyCode: {
+            otp: string
+        },
         resetPassword: {
             otp: string
             newPassword: string
