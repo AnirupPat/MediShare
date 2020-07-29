@@ -2,17 +2,13 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { AuthStackNavigationParamsType } from '../../store/core/types'
 import { Country } from '@virtuelabs-io/rapido-modules/src/models/country';
 
-// type font = {
-//     id: string
-//     name: string
-// }
-
-// export type LoginDetailsHolder = {
-//     dialCode: string
-//     countryCode: string
-//     phoneNumber: string
-//     password: string
-// }
+const EXAMPLES = [
+    '1 Hacker Way',
+    { latitude: 49.28, longitude: -123.12 },
+    'Palo Alto Caltrain Station (this one will error)',
+    'Rogers Arena, Vancouver',
+    { latitude: 0, longitude: 0 },
+];
 
 export type RegisterScreenParamProps = StackScreenProps<AuthStackNavigationParamsType, 'register'>
 
@@ -24,7 +20,14 @@ export type RegisterScreenDataProps = {
     }
 }
 
-export type RegisterScreenState = { }
+export type RegisterScreenState = {
+    selectedExample: {
+        latitude: number,
+        longitude: number
+    },
+    result: '',
+    inProgress: boolean,
+ }
 
 export type RegisterDetailsDispatchProps = {
     signInUser: () => void

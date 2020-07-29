@@ -1,4 +1,4 @@
-import React, { Dispatch }  from 'react';
+import React, { Dispatch } from 'react';
 import { View, Text, ScrollView, KeyboardAvoidingView, Button } from 'react-native';
 import { Card, PhoneNumber, PasswordInput, RButton, RHeadingText, RText, Logo } from '../../components/atoms';
 import { RegisterScreenProps, RegisterScreenState, RegisterDetailsDispatchProps } from './types'
@@ -7,16 +7,66 @@ import { AppState, AppActionTypes } from '../../store';
 import { signInUser, setCountry, setPhoneNumber, setPassword, signOutUser } from '../../store/core/actions';
 import Styles from './styles';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
+import Constants from 'expo-constants';
+import * as Location from 'expo-location';
+import Geolocation from 'react-native-geolocation-service';
+import * as Permissions from 'expo-permissions';
+
+const EXAMPLES = { latitude: 20.241189949999992, longitude: 85.80121611999998 };
 
 class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreenState> {
     constructor(props: RegisterScreenProps) {
         super(props)
-       this.props.navigation.setOptions(getStackStyles(this.props.route.name))
+        this.state = {
+            selectedExample: {
+                latitude: EXAMPLES.latitude,
+                longitude: EXAMPLES.longitude
+            },
+            result: '',
+            inProgress: false,
+        };
+        this.props.navigation.setOptions(getStackStyles(this.props.route.name))
     }
 
+    componentDidMount() {
+        console.log(this.state.selectedExample);
+        this.getPermissionAsync()
+    }
+
+    getPermissionAsync = async () => {
+        // Constants.platform?.ios
+        if (Constants.platform?.ios) {
+            const { status } = await Permissions.askAsync(Permissions.LOCATION);
+            // Location.requestPermissionsAsync();
+            if (status !== 'granted') {
+                console.log('Permission to access location was denied');
+            }
+            let location = await Location.getCurrentPositionAsync({});
+            console.log(location)
+
+             this._attemptReverseGeocodeAsync()
+
+        }
+    }
+
+    _attemptReverseGeocodeAsync = async () => {
+        this.setState({ inProgress: true });
+        try {
+            let result = await Location.reverseGeocodeAsync(
+                this.state.selectedExample
+            );
+            console.log('Result is ')
+            console.log(result)
+        } catch (e) {
+            console.log(e)
+        } finally {
+            this.setState({ inProgress: false });
+        }
+    };
+
     dashboardStackNavigationHandler = () => {
-       // console.log("dashboardStackNavigationHandler Handled!")
-    } 
+        // console.log("dashboardStackNavigationHandler Handled!")
+    }
 
     resetCodeScreenNavigationHandler = () => {
         // @ts-ignore
@@ -27,8 +77,8 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
-                
-                 <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
+
+                <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
                     <Card>
                         <PhoneNumber
                             data={{
@@ -59,10 +109,10 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
                             }}
                         />
                         <RButton name={this.props.route.name} onPress={this.props.signInUser} />
-                        
+
                     </Card>
                 </KeyboardAvoidingView>
-                 
+
             </ScrollView>
         )
     }
