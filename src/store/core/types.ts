@@ -42,6 +42,9 @@ export type MedicineStackNavigationParamsType = {
 export type RequestStackNavigationParamsType = {
     request: {
         title: string
+    },
+    chatbot: {
+        title: string
     }
 }
 

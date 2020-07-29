@@ -60,6 +60,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
         requestStack: {
             request: {
                 title: 'Request'
+            },
+            chatbot: {
+                title: 'ChatBot'
             }
         }
     },

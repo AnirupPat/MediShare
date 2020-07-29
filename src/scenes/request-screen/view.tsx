@@ -40,11 +40,11 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
         //     }
         // })
         var options = getStackStyles(
-            'Request'
-            // "plus",
-            // () => {
-            //     this.handleNavigateToNewProduct()
-            // }
+            'Request',
+            "plus",
+            () => {
+                this.handleNavigateToNewProduct()
+            }
         )
         options = {
             ...options,
@@ -70,7 +70,9 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
     }
 
     handleNavigateToNewProduct = () => {
-
+        this.props.navigation.navigate("chatbot", {
+            title: 'ChatBot'
+        })
     }
 
     render(): React.ReactNode {

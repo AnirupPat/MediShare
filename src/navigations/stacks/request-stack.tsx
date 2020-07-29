@@ -2,7 +2,7 @@ import React from 'react'
 import { RequestStackNavigationParamsType, RootStackParamsType } from '../../store/core/types'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import RequestScreen  from '../../scenes/request-screen/view'
-
+import CharBotScreen from '../../scenes/chat-bot-screen/view'
 
 const RequestStackNavigator = createStackNavigator<RequestStackNavigationParamsType>();
 
@@ -20,6 +20,11 @@ export class RequestStackNavigation extends React.Component<RequestStackScreenPr
                     name="request"
                     component={RequestScreen}
                     initialParams={this.props.route.params.request}
+                />
+				<RequestStackNavigator.Screen
+                    name="chatbot"
+                    component={CharBotScreen}
+                    initialParams={this.props.route.params.chatbot}
                 />
 			</RequestStackNavigator.Navigator>
 		)
