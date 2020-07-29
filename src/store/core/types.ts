@@ -24,6 +24,9 @@ export type AuthStackNavigationParamsType = {
     },
     finishedReset: {
         title: string
+    },
+    finishedRegisteration: {
+        title: string
     }
 }
 

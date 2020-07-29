@@ -18,6 +18,7 @@ import { MedicineStackNavigation } from './stacks/medicine-stack';
 import { RequestStackNavigation } from './stacks/request-stack';
 import RegisterScreen from '../scenes/register-screen/view';
 import VerifyCodeScreen from '../scenes/verify-code-screen/view';
+import FinishedRegisterationScreen from '../scenes/registeration-success-screen/view';
 
 const TabNavigator = createBottomTabNavigator<RootStackParamsType>();
 
@@ -92,6 +93,11 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
                                 name="finishedReset"
                                 component={FinishedResetScreen}
                                 initialParams={this.props.core.rootStackParams.authStack.finishedReset}
+                            />
+                            <AuthStackNavigator.Screen
+                                name="finishedRegisteration"
+                                component={FinishedRegisterationScreen}
+                                initialParams={this.props.core.rootStackParams.authStack.finishedRegisteration}
                             />
                         </AuthStackNavigator.Navigator>
                     )

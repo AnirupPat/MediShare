@@ -21,6 +21,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             finishedReset: {
                 title: "Reset Successful"
+            },
+            finishedRegisteration: {
+                title: "Success"
             }
         },
         

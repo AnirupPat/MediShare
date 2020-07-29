@@ -7,17 +7,18 @@ export const Styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        // paddingVertical: 10
+        // paddingTop: 20
     },
     logo: {
-        marginTop: 20,
+        // marginTop: 20,
         width: 110,
-        height: 90
+        height: 110
     },
     headingText: {
         fontFamily: Utils.getHeadingFontFamily(),
         fontSize: 30,
-        color: Colors.primary
+        color: Colors.primary,
+        marginTop: -40
     }
 });
 

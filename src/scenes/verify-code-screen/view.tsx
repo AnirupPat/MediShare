@@ -19,7 +19,7 @@ class VerifyCodeScreen extends React.Component<VerifyCodeScreenProps, VerifyCode
     VerifyPasswordScreenNavigationHandler = () => {
         // @ts-ignore
         // REASON: state picked up from redux
-        this.props.navigation.navigate("finishedReset")
+        this.props.navigation.navigate("finishedRegisteration")
     }
 
     render(): React.ReactNode {
