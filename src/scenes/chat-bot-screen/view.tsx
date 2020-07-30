@@ -22,7 +22,7 @@ class ChatBotScreen extends React.Component<CharBotScreenProps, CharBotScreenSta
                     text: `Hi! I am the MediShare Bot. How can I help you today ?`,
                     createdAt: new Date(),
                     user: {
-                        _id: 2,
+                        _id: 11,
                         name: 'MediShare Bot',
                         avatar: require('../../assets/images/MediShare_logo.png')
                     }
@@ -32,32 +32,33 @@ class ChatBotScreen extends React.Component<CharBotScreenProps, CharBotScreenSta
     }
 
 
-    onSend = (messages : []) => {
+    onSend = (messages: any) => {
         console.log(messages)
         console.log('---------------------------')
         console.log(this.state.messages)
-        // this.state.messages.push(messages)
-        GiftedChat.append(this.state.messages, messages)
+        // this.state.messages.push({
+        //     _id: 2,
+        //     text: messages[0].text,
+        //     createdAt: new Date(),
+        //     user: {
+        //         _id: 22,
+        //         name: 'Human',
+        //         avatar: require('../../assets/images/MediShare_logo.png')
+        //     }
+        // })
+        // GiftedChat.append(this.state.messages, messages)
+        this.setState((msg: any) => {
+            messages: this.state.messages
+            GiftedChat.append(msg, messages)
+        })
+        
 
-            this.state = {
-                messages: [
-                    {
-                        _id: 1,
-                        text: `Hi! I am doing well !!`,
-                        createdAt: new Date(),
-                        user: {
-                            _id: 2,
-                            name: 'FAQ Bot',
-                            avatar: 'https://i.imgur.com/7k12EPD.png'
-                        }
-                    }  
-                ]
-            }
-            GiftedChat.append(this.state.messages, messages)
+        
+        // GiftedChat.append(this.state.messages, messages)
 
 
         // setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
-      }
+    }
 
 
     render(): React.ReactNode {
@@ -71,7 +72,7 @@ class ChatBotScreen extends React.Component<CharBotScreenProps, CharBotScreenSta
                 messages={this.state.messages}
                 onSend={(messages: any) => this.onSend(messages)}
                 user={{
-                    _id: 1,
+                    _id: 4,
                 }}
             />
         )
