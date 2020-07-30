@@ -5,9 +5,20 @@ import { CharBotScreenProps, CharBotScreenState, CharBotScreenDispatchProps } fr
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
+import ChatBot from 'react-native-chatbot';
 
-
-
+const steps = [
+    {
+      id: '0',
+      message: 'Welcome to react chatbot!',
+      trigger: '1',
+    },
+    {
+      id: '1',
+      message: 'Bye!',
+      end: true,
+    },
+  ];
 class ChatBotScreen extends React.Component<CharBotScreenProps, CharBotScreenState> {
 
     constructor(props: CharBotScreenProps, state: CharBotScreenState) {
@@ -17,9 +28,8 @@ class ChatBotScreen extends React.Component<CharBotScreenProps, CharBotScreenSta
 
     render(): React.ReactNode {
         return (
-            <View style={Styles.screen}>
-                <Text>ChatBot !</Text>
-            </View>
+            <ChatBot steps={steps} />
+            
 
         )
     }
