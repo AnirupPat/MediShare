@@ -33,46 +33,24 @@ class ChatBotScreen extends React.Component<CharBotScreenProps, CharBotScreenSta
 
 
     onSend = (messages: any) => {
-        console.log(messages)
         console.log('---------------------------')
-        console.log(this.state.messages)
-        // this.state.messages.push({
-        //     _id: 2,
-        //     text: messages[0].text,
-        //     createdAt: new Date(),
-        //     user: {
-        //         _id: 22,
-        //         name: 'Human',
-        //         avatar: require('../../assets/images/MediShare_logo.png')
-        //     }
-        // })
-        // GiftedChat.append(this.state.messages, messages)
-        this.setState((msg: any) => {
-            messages: this.state.messages
-            GiftedChat.append(msg, messages)
+        GiftedChat.append(this.state.messages, messages)
+        
+        this.setState({
+            messages: messages.concat(this.state.messages)
         })
-        
-
-        
-        // GiftedChat.append(this.state.messages, messages)
-
-
-        // setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
     }
 
 
     render(): React.ReactNode {
 
         return (
-            // <View style={{ flex: 1, backgroundColor: '#fff' }}>
-            //     <Text>ChatBot !</Text>
-            // </View>
-
             <GiftedChat
                 messages={this.state.messages}
                 onSend={(messages: any) => this.onSend(messages)}
                 user={{
                     _id: 4,
+                    name: 'Anirup'
                 }}
             />
         )
