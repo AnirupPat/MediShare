@@ -8,7 +8,21 @@ import { getStackStyles } from '../../commons/styles/stack-style-constants';
 // import ChatBot from 'react-native-chatbot';
 import { GiftedChat } from 'react-native-gifted-chat';
 
+const BOT = {
+    _id: 11,
+    name: 'MediShare Bot',
+    avatar: require('../../assets/images/MediShare_logo.png')
+}
 
+const HUMAN_BOT = {
+    _id: 4,
+    name: 'Human Bot',
+    avatar: require('../../assets/images/MediShare_logo.png')
+}
+const messageQueue: {
+    text: string,
+    username: string
+}[] = []
 
 class ChatBotScreen extends React.Component<CharBotScreenProps, CharBotScreenState> {
 
@@ -21,24 +35,62 @@ class ChatBotScreen extends React.Component<CharBotScreenProps, CharBotScreenSta
                     _id: 1,
                     text: `Hi! I am the MediShare Bot. How can I help you today ?`,
                     createdAt: new Date(),
-                    user: {
-                        _id: 11,
-                        name: 'MediShare Bot',
-                        avatar: require('../../assets/images/MediShare_logo.png')
-                    }
+                    user: BOT
                 }
             ]
         }
+        messageQueue.push({
+            text: 'Hi! I am the MediShare Bot. How can I help you today ?',
+            username: 'Medishare BOT'
+        }) 
     }
 
 
     onSend = (messages: any) => {
-        console.log('---------------------------')
         GiftedChat.append(this.state.messages, messages)
         
-        this.setState({
-            messages: messages.concat(this.state.messages)
+        // this.setState({
+        //     messages: messages.concat(this.state.messages)
+        // })
+        messageQueue.push({
+            text: messages[0].text,
+            username: 'Human BOT'
+        }) 
+        this.sendBotResponse(messages);
+    }
+
+    sendBotResponse = (messages: any) => {
+        console.log('Bot trigerred !!')
+        // console.log(messageQueue)
+        console.log("--------------------------------")
+        this.state.messages.push({
+            _id: this.state.messages.length + 1,
+            text: messages[0].text,
+            createdAt: new Date(),
+            user: HUMAN_BOT
         })
+
+        this.state.messages.push({
+            _id: this.state.messages.length + 1,
+            text:'Are u satisfied now ?',
+            createdAt: new Date(),
+            user: BOT
+        })
+
+        console.log(this.state.messages)
+
+
+
+        // let msg = [{
+        //     _id: this.state.messages.length + 1,
+        //     text:'Are u satisfied now ?',
+        //     createdAt: new Date(),
+        //     user: BOT
+        //   }];
+      
+        //   GiftedChat.append(this.state.messages, msg)
+        
+        
     }
 
 
@@ -48,10 +100,7 @@ class ChatBotScreen extends React.Component<CharBotScreenProps, CharBotScreenSta
             <GiftedChat
                 messages={this.state.messages}
                 onSend={(messages: any) => this.onSend(messages)}
-                user={{
-                    _id: 4,
-                    name: 'Anirup'
-                }}
+                user={HUMAN_BOT}
             />
         )
     }
