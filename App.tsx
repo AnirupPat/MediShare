@@ -7,6 +7,8 @@ import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import Constants from './src/commons/constants';
 import { enableScreens } from 'react-native-screens';
+import { Dialogflow_V2 } from 'react-native-dialogflow';
+import { dialogflowConfig } from './env';
 
 enableScreens()
 
