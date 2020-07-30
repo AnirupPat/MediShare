@@ -39,10 +39,10 @@ class ChatBotScreen extends React.Component<CharBotScreenProps, CharBotScreenSta
                 }
             ]
         }
-        messageQueue.push({
-            text: 'Hi! I am the MediShare Bot. How can I help you today ?',
-            username: 'Medishare BOT'
-        }) 
+        // messageQueue.push({
+        //     text: 'Hi! I am the MediShare Bot. How can I help you today ?',
+        //     username: 'Medishare BOT'
+        // }) 
     }
 
 
@@ -61,34 +61,29 @@ class ChatBotScreen extends React.Component<CharBotScreenProps, CharBotScreenSta
 
     sendBotResponse = (messages: any) => {
         console.log('Bot trigerred !!')
-        // console.log(messageQueue)
+        
         console.log("--------------------------------")
-        this.state.messages.push({
-            _id: this.state.messages.length + 1,
-            text: messages[0].text,
-            createdAt: new Date(),
-            user: HUMAN_BOT
-        })
-
-        this.state.messages.push({
-            _id: this.state.messages.length + 1,
-            text:'Are u satisfied now ?',
-            createdAt: new Date(),
-            user: BOT
-        })
-
+        // console.log(messageQueue)
+        
         console.log(this.state.messages)
+        messageQueue.forEach((element, index) => {
+            this.state.messages.unshift({
+                _id: this.state.messages.length + 1,
+                text: element.text,
+                createdAt: new Date(),
+                user: element.username === 'Medishare BOT' ? BOT : HUMAN_BOT
+            })
+            
+        });
+        console.log('----lets watch state------')
+        console.log(this.state.messages)
+        
+
+        
 
 
 
-        // let msg = [{
-        //     _id: this.state.messages.length + 1,
-        //     text:'Are u satisfied now ?',
-        //     createdAt: new Date(),
-        //     user: BOT
-        //   }];
-      
-        //   GiftedChat.append(this.state.messages, msg)
+        
         
         
     }
