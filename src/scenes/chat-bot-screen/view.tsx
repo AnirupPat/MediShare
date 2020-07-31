@@ -114,12 +114,12 @@ const BOT_USER = {
 class ChatBotScreen extends React.Component {
   constructor(props: CharBotScreenProps) {
     super(props)
-    Dialogflow_V2.setConfiguration(
-      dialogflowConfig.client_email,
-      dialogflowConfig.private_key,
-      Dialogflow_V2.LANG_ENGLISH_US,
-      dialogflowConfig.project_id
-    );
+    // Dialogflow_V2.setConfiguration(
+    //   dialogflowConfig.client_email,
+    //   dialogflowConfig.private_key,
+    //   Dialogflow_V2.LANG_ENGLISH_US,
+    //   dialogflowConfig.project_id
+    // );
 
   }
   state = {
