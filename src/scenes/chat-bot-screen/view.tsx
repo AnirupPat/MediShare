@@ -104,6 +104,7 @@ import { GiftedChat } from 'react-native-gifted-chat';
 import { Dialogflow_V2 } from 'react-native-dialogflow';
 import { dialogflowConfig } from '../../../env';
 import { connect } from 'react-redux';
+import { CharBotScreenProps } from './types';
 
 const BOT_USER = {
     _id: 2,
@@ -111,7 +112,16 @@ const BOT_USER = {
     avatar: require('../../assets/images/MediShare_logo.png')
   };
 class ChatBotScreen extends React.Component {
-  
+  constructor(props: CharBotScreenProps) {
+    super(props)
+    Dialogflow_V2.setConfiguration(
+      dialogflowConfig.client_email,
+      dialogflowConfig.private_key,
+      Dialogflow_V2.LANG_ENGLISH_US,
+      dialogflowConfig.project_id
+    );
+
+  }
   state = {
     messages: [
       {
