@@ -2,7 +2,7 @@ import React, { Dispatch } from 'react'
 import { KeyboardAvoidingView, ScrollView, View } from 'react-native'
 import Styles from './styles'
 import { VerifyCodeScreenProps, VerifyCodeScreenState, VerifyCodeScreenDispatchProps } from './types'
-import { Card, PhoneNumber, RHeadingText, RButton, RText, Logo } from '@virtuelabs-io/rapido-modules/src/components/atoms'
+import { Card, PhoneNumber, RHeadingText, RButton, RText, Logo } from '../../../src/components/atoms'
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { setCountry, setPhoneNumber, setOTP, setNewPassword } from '../../store/core/actions';

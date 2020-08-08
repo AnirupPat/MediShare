@@ -131,6 +131,7 @@ import {
 import { Icon } from 'native-base';
 import { GiftedChat } from 'react-native-gifted-chat';
 import Expo from 'expo';
+import { connect } from 'react-redux';
 // import {googleAuth} from 'google-oauth-jwt';
 
 interface stateMan  {
@@ -151,9 +152,10 @@ interface stateMan  {
 
 let window = Dimensions.get('window');
 const contentHeight = window.height - 80;
-const avatarBot = "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg";
+const avatarBot = require('../../assets/images/MediShare_logo.png')
+// "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg";
 
-export default class ChatBotScreen extends React.Component<{}, stateMan> {
+class ChatBotScreen extends React.Component<{}, stateMan> {
   static navigationOptions = {
     title: 'ChatBot'
   }
@@ -166,15 +168,15 @@ export default class ChatBotScreen extends React.Component<{}, stateMan> {
     this.state = { gifted: [], answers: [], height: contentHeight };
   }
 
-  componentDidMount () {
-    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
-    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
-  }
+  // componentDidMount () {
+  //   this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
+  //   this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
+  // }
 
   componentWillUnmount () {
     this.keyboardDidShowListener.remove();
     this.keyboardDidHideListener.remove();
-    Expo.Speech.stop();
+    // Expo.Speech.stop();
   }
 
   _keyboardDidShow = (e) => {
@@ -187,12 +189,14 @@ export default class ChatBotScreen extends React.Component<{}, stateMan> {
     // console.log(this.state.contentHeight, 'Keyboard Hidden');
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
     this.setState({
       gifted: [
         {
           _id: 1,
-          text: 'Hi! Im TourBot! There is  a lot in store for you on your trip, so ask me if you need anything!',
+          text: 'Hi! Im MediShareBot! How can I help you!',
           createdAt: new Date(),
           user: {
             _id: 2,
@@ -320,3 +324,5 @@ export default class ChatBotScreen extends React.Component<{}, stateMan> {
     }
   }
 }
+
+export default (ChatBotScreen)

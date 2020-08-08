@@ -21,6 +21,7 @@
     "expo-constants": "~9.0.0",
     "expo-image-picker": "~8.1.0",
     "expo-location": "~8.1.0",
+    "expo-speech": "^8.2.1",
     "google-oauth-jwt": "^0.2.0",
     "npx": "^10.2.2",
     "react": "~16.9.0",

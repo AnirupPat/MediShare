@@ -41,7 +41,7 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
         // })
         var options = getStackStyles(
             'Request',
-            "plus",
+            "message-square",
             () => {
                 this.handleNavigateToNewProduct()
             }
