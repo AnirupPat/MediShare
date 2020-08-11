@@ -19,8 +19,14 @@ export type CharBotScreenState = {
     //   ]
 }
 
+export type CharBotScreenDataProps = {
+    data: {
+        name: string
+    }
+}
+
 export type CharBotScreenDispatchProps = {
 
 }
 
-export type CharBotScreenProps = CharBotScreenParamProps & CharBotScreenDispatchProps
+export type CharBotScreenProps = CharBotScreenDataProps & CharBotScreenParamProps & CharBotScreenDispatchProps
