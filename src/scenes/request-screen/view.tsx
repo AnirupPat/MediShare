@@ -81,7 +81,7 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                 {/* <View > */}
                 <MapView
                     style={{ flex: 1 }}
-                    provider={PROVIDER_GOOGLE}
+                    provider="google"
                     showsUserLocation
                     initialRegion={{
                         latitude: 12.9275,
