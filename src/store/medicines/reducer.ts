@@ -54,7 +54,7 @@ export const MedicineReducer = (state = MedicineInitialState, action: ProductsAc
         case SET_SKU_NUMBER_FILTERS:
             return setSKUNumberFilter(state, action.SKUNumber)
         case SET_MEDICINE_PICS:
-            return addMedPics(state, action.type)
+            return addMedPics(state, action.image)
         case GET_MEDICINE_PICS:
             return getMedicinePics(state)    
         default:

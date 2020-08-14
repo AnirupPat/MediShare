@@ -15,7 +15,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RButton } from '../../../src/components/atoms';
 import { DoubleTap } from '../../components/organisms/double-tap/view';
 import AnimatedView from '../../components/organisms/animated-view/view';
-import { addMedicinePics, ProductsActionTypes } from '../../store/medicines/actions';
+import { addMedicinePics, ProductsActionTypes, getMedicinePics } from '../../store/medicines/actions';
+import { MedicinePics } from '../../store/medicines/types';
 
 
 const { width, height } = Dimensions.get('screen');
@@ -96,6 +97,7 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
     };
 
     componentDidMount() {
+        this.props.getMedicinePics()
         this.getPermissionAsync()
     }
 
@@ -163,7 +165,7 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
                             </TouchableOpacity>
                         </View>
                         <View style={Styles.imageView}>
-                        {this.props.image.map((image, index) => {
+                        {this.props.image2.map((image, index) => {
                                     return (
                                         <View style={Styles.imageTouchableOpacity}>
                                                 <AnimatedView key={index} image={image} values={123} /> 
@@ -176,9 +178,9 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
 
                     
 
-                    <DoubleTap onDoubleTap={this.toggleLike}>
+                    {/* <DoubleTap onDoubleTap={this.toggleLike}>
                         <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
-                    </DoubleTap>
+                    </DoubleTap> */}
                 </View>
             </ScrollView>
         )
@@ -186,16 +188,25 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
 }
 
 const mapStatetoProps = (state: AppState, localProps: ProductAddScreenProps): ProductAddScreenProps => {
-
+    var a: string[] = []
+    console.log('----------raw----------')
+    console.log(state.medicine.medicinePics)
+    state.medicine.medicinePics.map(image => {
+        a.push(image.image.toString())
+    })
+    console.log('---------lets see-----------')
+    console.log(a)
     return {
         ...localProps,
-        image: [ "file:///var/mobile/Containers/Data/Application/A679248F-6D32-4552-BB8C-922FEC4EF740/Library/Caches/ExponentExperienceData/%2540anirupp%252Fmedi-share/ImagePicker/4E7DF888-F91D-4E2B-8010-7E1712AFDC85.jpg", "file:///var/mobile/Containers/Data/Application/A679248F-6D32-4552-BB8C-922FEC4EF740/Library/Caches/ExponentExperienceData/%2540anirupp%252Fmedi-share/ImagePicker/4E7DF888-F91D-4E2B-8010-7E1712AFDC85.jpg"]
+        image2: a
+        //[ "file:///var/mobile/Containers/Data/Application/A679248F-6D32-4552-BB8C-922FEC4EF740/Library/Caches/ExponentExperienceData/%2540anirupp%252Fmedi-share/ImagePicker/4E7DF888-F91D-4E2B-8010-7E1712AFDC85.jpg", "file:///var/mobile/Containers/Data/Application/A679248F-6D32-4552-BB8C-922FEC4EF740/Library/Caches/ExponentExperienceData/%2540anirupp%252Fmedi-share/ImagePicker/4E7DF888-F91D-4E2B-8010-7E1712AFDC85.jpg"]
     }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): ProductAddScreenDispatchProps => {
     return {
-        addMedicinePics: (image: any) => dispatch(addMedicinePics(image.uri))
+        addMedicinePics: (image: any) => dispatch(addMedicinePics(image.uri)),
+        getMedicinePics: () => dispatch(getMedicinePics())
     }
 }
 

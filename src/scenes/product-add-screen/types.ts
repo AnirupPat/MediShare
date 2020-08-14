@@ -11,11 +11,12 @@ export type ProductAddScreenState = {
 }
 
 export type ProductAddScreenDataProps = {
-    image: string[]
+    image2: string[]
  }
 
 export type ProductAddScreenDispatchProps = {
     addMedicinePics: (image: any) => void
+    getMedicinePics: () => void
 }
 
 export type ProductAddScreenProps =
