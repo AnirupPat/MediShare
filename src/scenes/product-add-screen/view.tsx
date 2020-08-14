@@ -15,16 +15,18 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RButton } from '../../../src/components/atoms';
 import { DoubleTap } from '../../components/organisms/double-tap/view';
 import AnimatedView from '../../components/organisms/animated-view/view';
+import { addMedicinePics, ProductsActionTypes } from '../../store/medicines/actions';
 
 
 const { width, height } = Dimensions.get('screen');
-const images = [
+let images = [
     "https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
     "https://images.unsplash.com/photo-1485550409059-9afb054cada4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80",
     "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
     "https://images.unsplash.com/photo-1429087969512-1e85aab2683d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
     "https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
 ];
+
 
 class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAddScreenState> {
     _isMounted = false;
@@ -41,9 +43,10 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
     constructor(props: ProductAddScreenProps, state: ProductAddScreenState) {
         super(props)
         this.animatedValue = new Animated.Value(0)
-        // this.props.navigation.setOptions(getStackStyles(
-        //     this.props.route.params.title
-        // ))
+        // images = this.props.image
+        this.props.navigation.setOptions(getStackStyles(
+            this.props.route.params.title
+        ))
     }
 
     _pickImage = async () => {
@@ -88,6 +91,7 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
                 this.setState({ image: image.uri });
             }
             console.log(image);
+            this.props.addMedicinePics(image)
         }
     };
 
@@ -142,53 +146,6 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
         return (
             <ScrollView style={Styles.screen}>
                 <View>
-                    {/* <MultiLineInput 
-                    value=""
-                    placeHolder="Product Title"
-                    numberOfLines={0}
-                    onChange={() => console.log('Prouduct Title Added')} /> */}
-
-                    <TextInput
-                        style={Styles.input}
-                        placeholder="Product Title"
-                        multiline={true}
-                        onChangeText={() => console.log('Prouduct Title Added')} />
-
-                    <TextInput
-                        style={Styles.input}
-                        placeholder="Product Description"
-                        multiline={true}
-                        onChangeText={() => console.log('Prouduct Desc Added')} />
-
-
-                    <Card>
-                        <Text style={Styles.pointsTitle}>Pricing Details</Text>
-                        <View style={Styles.cardPrice}>
-                            <Text style={Styles.priceLabel}>Currency</Text>
-                            <TextInput
-                                style={Styles.inputPrice}
-                                placeholder="Currency" />
-                        </View>
-                        <View style={Styles.cardPrice}>
-                            <Text style={Styles.priceLabel}>MRP</Text>
-                            <TextInput
-                                style={Styles.inputPrice}
-                                placeholder="MRP" />
-                        </View>
-                        <View style={Styles.cardPrice}>
-                            <Text style={Styles.priceLabel}>Price</Text>
-                            <TextInput
-                                style={Styles.inputPrice}
-                                placeholder="Price" />
-                        </View>
-                        <View style={Styles.cardPrice}>
-                            <Text style={Styles.priceLabel}>Discount %</Text>
-                            <TextInput
-                                style={Styles.inputPrice}
-                                placeholder="Discount" />
-                        </View>
-                    </Card>
-
                     <Card>
                         <Text style={Styles.pointsTitle}>Images</Text>
                         <View style={Styles.picButtonsView}>
@@ -206,74 +163,39 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
                             </TouchableOpacity>
                         </View>
                         <View style={Styles.imageView}>
-                            {images.map((image, index) => {
-                                return (
-                                    <View style={Styles.imageTouchableOpacity}>
-                                        {/* <TouchableOpacity
-                                        onLongPress={() => this.handlerLongClick(image, index)}
-                                        activeOpacity={0.6}> */}
-
-
-                                        
-                                            <AnimatedView key={index} image={image} values={123} />
-
-                                         {/* <Animated.Image 
-                                            key={index} 
-                                            // resizeMode='contain'
-                                            source={{ uri: image }} 
-                                            style={[
-                                                Styles.image,{
-                                                transform: [{
-                                                  rotate: this.animatedValue.interpolate({
-                                                    inputRange: [-1, 1],
-                                                    outputRange: ['-0.1rad', '0.1rad']
-                                                  })
-                                                }]
-                                              }]
-                                              } />  */}
-
-
-
-                                    {/* </TouchableOpacity> */}
-                                    </View>    
-
-                                )
-                            })}
+                        {this.props.image.map((image, index) => {
+                                    return (
+                                        <View style={Styles.imageTouchableOpacity}>
+                                                <AnimatedView key={index} image={image} values={123} /> 
+                                                {/* <Image source={{ uri: image }} />  */}
+                                        </View>    
+                                    )
+                                })}
                         </View>
                     </Card>
 
-
-
-
+                    
 
                     <DoubleTap onDoubleTap={this.toggleLike}>
                         <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
                     </DoubleTap>
-
-
-
                 </View>
             </ScrollView>
         )
     }
 }
 
-
-
-
-
-
-
 const mapStatetoProps = (state: AppState, localProps: ProductAddScreenProps): ProductAddScreenProps => {
 
     return {
-        ...localProps
+        ...localProps,
+        image: [ "file:///var/mobile/Containers/Data/Application/A679248F-6D32-4552-BB8C-922FEC4EF740/Library/Caches/ExponentExperienceData/%2540anirupp%252Fmedi-share/ImagePicker/4E7DF888-F91D-4E2B-8010-7E1712AFDC85.jpg", "file:///var/mobile/Containers/Data/Application/A679248F-6D32-4552-BB8C-922FEC4EF740/Library/Caches/ExponentExperienceData/%2540anirupp%252Fmedi-share/ImagePicker/4E7DF888-F91D-4E2B-8010-7E1712AFDC85.jpg"]
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): ProductAddScreenDispatchProps => {
+const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): ProductAddScreenDispatchProps => {
     return {
-
+        addMedicinePics: (image: any) => dispatch(addMedicinePics(image.uri))
     }
 }
 

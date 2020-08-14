@@ -8,6 +8,8 @@ export const ADD_SUB_CATEGORY = 'ADD_SUB_CATEGORY'
 export const SET_PRODUCT_CATEGORY_FILTER = 'SET_PRODUCT_CATEGORY_FILTER'
 export const SET_FILTERS = 'SET_FILTERS'
 export const SET_SKU_NUMBER_FILTERS = 'SET_SKU_NUMBER_FILTERS'
+export const SET_MEDICINE_PICS = 'SET_MEDICINE_PICS'
+export const GET_MEDICINE_PICS = 'GET_MEDICINE_PICS'
 
 export interface SetAllProductHeaders {
     type: typeof SET_ALL_PRODUCT_HEADERS
@@ -48,6 +50,30 @@ export interface SetFilter {
 export interface SetSKUNumberFilter {
     type: typeof SET_SKU_NUMBER_FILTERS,
     SKUNumber: number
+}
+
+export interface addMedicinePics {
+    type: typeof SET_MEDICINE_PICS,
+    image: any
+}
+
+export const addMedicinePics = (image: any): ProductsActionTypes => {
+    return {
+        type: SET_MEDICINE_PICS,
+        image: image
+    }
+}
+
+
+
+export interface getMedicinePics {
+    type: typeof GET_MEDICINE_PICS
+}
+
+export const getMedicinePics = (): ProductsActionTypes => {
+    return {
+        type: GET_MEDICINE_PICS
+    }
 }
 
 export const SetAllProductHeaders = (data: any): ProductsActionTypes => {
@@ -116,3 +142,5 @@ export type ProductsActionTypes =
     | SetProductCategoryFilter
     | SetFilter
     | SetSKUNumberFilter
+    | addMedicinePics
+    | getMedicinePics
