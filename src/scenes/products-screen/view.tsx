@@ -9,8 +9,9 @@ import { Product } from '../../components/organisms/product/view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RAntIconButton } from '../../components/atoms/r-ant-icon-button/view';
 import navigations from '../../navigations';
-import { Ionicons, AntDesign } from '@expo/vector-icons'; 
+import { Ionicons, AntDesign } from '@expo/vector-icons';
 
+var med = []
 class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreenState> {
 
     constructor(props: MedicineScreenProps, state: MedicineScreenState) {
@@ -28,14 +29,14 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         options = {
             ...options,
             headerRight: () => (
-                <Ionicons name="md-notifications" style={{marginRight: 15}} size={28} color="black"
+                <Ionicons name="md-notifications" style={{ marginRight: 15 }} size={28} color="black"
                     onPress={this.handleNavigateToNotifications}
                 />
             ),
             headerLeft: () => (
-                <AntDesign name="plus" style={{marginLeft: 10}}
-                onPress={this.handleNavigateToNewProduct}
-                 size={28} color="black" />
+                <AntDesign name="plus" style={{ marginLeft: 10 }}
+                    onPress={this.handleNavigateToNewProduct}
+                    size={28} color="black" />
             )
         }
         this.props.navigation.setOptions(options)
@@ -54,18 +55,18 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     handleNavigateToDetail = () => {
-        
+
     }
 
     render(): React.ReactNode {
         return (
             <SafeAreaView style={Styles.screen}>
                 <FlatList
-                style={Styles.screen}
-                data={this.props.data}
-                renderItem={(product) => <Product data={product.item} onPress={this.handleNavigateToDetail.bind(this, product.item.id)} />}
-                keyExtractor={(product) => product.id.toString()}
-            />
+                    style={Styles.screen}
+                    data={this.props.data}
+                    renderItem={(product) => <Product data={product.item} onPress={this.handleNavigateToDetail.bind(this, product.item.id)} />}
+                    keyExtractor={(product) => product.id.toString()}
+                />
             </SafeAreaView>
         )
     }
@@ -81,7 +82,7 @@ const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): Medi
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): MedicineScreenDispatchProps => {
     return {
-        
+
     }
 }
 

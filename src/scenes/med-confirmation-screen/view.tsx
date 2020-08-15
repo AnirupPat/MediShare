@@ -13,6 +13,21 @@ class MedConfirmationScreen extends React.Component<MedConfirmationScreenProps, 
         this.props.navigation.setOptions(getStackStyles(this.props.data.title))
     }
 
+    componentDidMount() {
+        this.MedList();
+    }
+
+    MedList = () => {
+        return fetch('https://medishare.azurewebsites.net/api/getmedicine?newMedicine=true')
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json)
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
     render(): React.ReactNode {
         return (
             <View style={Styles.screen}>
