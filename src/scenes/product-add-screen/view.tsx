@@ -6,7 +6,6 @@ import { getStackStyles } from '../../commons/styles';
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { Card } from '@virtuelabs-io/rapido-modules/src/components/atoms/card/view';
-
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
@@ -61,6 +60,7 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
             });
             if (!result.cancelled) {
                 this.setState({ image: result.uri });
+                this.props.addMedicinePics(result)
             }
         } catch (E) {
             console.log(E);
@@ -142,6 +142,10 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
         console.log('Double tapped !')
     }
 
+    handleIntelligentMac = () => {
+        console.log("clicked !!!")
+    }
+
 
     render(): React.ReactNode {
         let { image } = this.state;
@@ -167,7 +171,7 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
                         <View style={Styles.imageView}>
                         {this.props.image2.map((image, index) => {
                                     return (
-                                        <View style={Styles.imageTouchableOpacity}>
+                                        <View key={index} style={Styles.imageTouchableOpacity}>
                                                 <AnimatedView key={index} image={image} values={123} /> 
                                                 {/* <Image source={{ uri: image }} />  */}
                                         </View>    
@@ -175,6 +179,11 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
                                 })}
                         </View>
                     </Card>
+                    {this.props.image2.length > 1 ? 
+                        <RButton name="Submit" onPress={() => this.handleIntelligentMac()} />
+                        : null
+                    }
+                    
 
                     
 
