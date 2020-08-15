@@ -16,11 +16,14 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     constructor(props: MedicineScreenProps, state: MedicineScreenState) {
         super(props)
         var options = getStackStyles(
-            this.props.title
-            // "plus",
-            // () => {
-            //      this.handleNavigateToNewProduct()
-            // }
+            this.props.title,
+            "plus",
+            () => {
+                this.props.navigation.navigate("medicineAdd", {
+                    title: "New Medicine"
+                })
+                //  this.handleNavigateToNewProduct()
+            }
         )
         options = {
             ...options,
@@ -30,7 +33,9 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                 />
             ),
             headerLeft: () => (
-                <AntDesign name="plus" style={{marginLeft: 10}} size={28} color="black" />
+                <AntDesign name="plus" style={{marginLeft: 10}}
+                onPress={this.handleNavigateToNewProduct}
+                 size={28} color="black" />
             )
         }
         this.props.navigation.setOptions(options)
@@ -39,6 +44,12 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     handleNavigateToNotifications = (id: any) => {
         this.props.navigation.navigate("notifications", {
             title: "Notifications"
+        })
+    }
+
+    handleNavigateToNewProduct = () => {
+        this.props.navigation.navigate("medicineAdd", {
+            title: "New Medicine"
         })
     }
 

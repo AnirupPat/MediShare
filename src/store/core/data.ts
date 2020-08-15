@@ -54,6 +54,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             notifications: {
                 title: 'Notifications'
+            },
+            medicineAdd: {
+                title: 'Medicine Add'
             }
         },
 

@@ -7,5 +7,6 @@ export const MedicineInitialState: MedicineStateType = {
     ProductsFilters: {
         filterProductCategories: 0,
         filterSKUNumber: 0
-    }
+    },
+    medicinePics: []
 }

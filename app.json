@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/MediShare_logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,10 +17,15 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "medi-share.ios"
+      "config": {
+         "googleMapsApiKey": "AIzaSyD2I9SyiywjYFLSIbctFOecB-upAfJKAcM" 
+      },
+      "bundleIdentifier": "medi-share.ios",
+      "supportsTablet": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": ""
   }
 }

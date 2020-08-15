@@ -36,6 +36,9 @@ export type MedicineStackNavigationParamsType = {
     },
     notifications: {
         title: string
+    },
+    medicineAdd: {
+        title: string
     }
 }
 

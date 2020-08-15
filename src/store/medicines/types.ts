@@ -6,7 +6,12 @@ export type MedicineFilters = {
     filterSKUNumber: number
 }
 
+export type MedicinePics = {
+    image: string
+}
+
 export type MedicineStateType = {
     medicines: Medicine[]
-    ProductsFilters: MedicineFilters
+    ProductsFilters: MedicineFilters,
+    medicinePics: MedicinePics[]
 }
