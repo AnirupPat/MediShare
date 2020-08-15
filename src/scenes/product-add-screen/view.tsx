@@ -143,7 +143,9 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
     }
 
     handleIntelligentMac = () => {
-        console.log("clicked !!!")
+        this.props.navigation.navigate("medConfirmation", {
+            title: 'Confirmation'
+        })
     }
 
 
