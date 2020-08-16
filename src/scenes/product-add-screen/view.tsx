@@ -91,7 +91,7 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
             if (!image.cancelled) {
                 this.setState({ image: image.uri });
             }
-            console.log(image);
+            // console.log(image);
             this.props.addMedicinePics(image)
         }
     };
@@ -200,13 +200,11 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
 
 const mapStatetoProps = (state: AppState, localProps: ProductAddScreenProps): ProductAddScreenProps => {
     var a: string[] = []
-    console.log('----------raw----------')
-    console.log(state.medicine.medicinePics)
+    
     state.medicine.medicinePics.map(image => {
         a.push(image.image.toString())
     })
-    console.log('---------lets see-----------')
-    console.log(a)
+    
     return {
         ...localProps,
         image2: a
