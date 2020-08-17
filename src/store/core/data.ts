@@ -57,6 +57,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             medicineAdd: {
                 title: 'Medicine Add'
+            },
+            medConfirmation: {
+                title: 'Confirmation'
             }
         },
 

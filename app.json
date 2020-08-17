@@ -23,6 +23,12 @@
       "bundleIdentifier": "medi-share.ios",
       "supportsTablet": true
     },
+    "android": {
+      "package": "medi.share",
+      "config": {
+        "googleMaps": { "apiKey": "AIzaSyB3pJvhm8Fbxo0Gf--V7DZZdx07ix79FkU" }
+        }
+    },
     "web": {
       "favicon": "./assets/favicon.png"
     },

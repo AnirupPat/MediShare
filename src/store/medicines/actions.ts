@@ -1,4 +1,4 @@
-import { MedicineFilters } from "./types"
+import { MedicineFilters, MedConfirm } from "./types"
 
 export const SET_ALL_PRODUCT_HEADERS = 'SET_ALL_PRODUCT_HEADERS'
 export const ADD_MAIN_CATEGORY = 'ADD_MAIN_CATEGORY'
@@ -10,6 +10,8 @@ export const SET_FILTERS = 'SET_FILTERS'
 export const SET_SKU_NUMBER_FILTERS = 'SET_SKU_NUMBER_FILTERS'
 export const SET_MEDICINE_PICS = 'SET_MEDICINE_PICS'
 export const GET_MEDICINE_PICS = 'GET_MEDICINE_PICS'
+export const GET_MED_CONFIRM = 'GET_MED_CONFIRM'
+export const SET_MED_CONFIRM = 'SET_MED_CONFIRM'
 
 export interface SetAllProductHeaders {
     type: typeof SET_ALL_PRODUCT_HEADERS
@@ -55,6 +57,28 @@ export interface SetSKUNumberFilter {
 export interface addMedicinePics {
     type: typeof SET_MEDICINE_PICS,
     image: any
+}
+
+export interface getMedConfirm {
+    type: typeof GET_MED_CONFIRM
+}
+
+export const getMedConfirm = (): ProductsActionTypes => {
+    return {
+        type: GET_MED_CONFIRM
+    }
+}
+
+export interface setMedConfirm {
+    type: typeof SET_MED_CONFIRM,
+    details: MedConfirm
+}
+
+export const setMedConfirm = (details: MedConfirm): ProductsActionTypes => {
+    return {
+        type: SET_MED_CONFIRM,
+        details: details
+    }
 }
 
 export const addMedicinePics = (image: any): ProductsActionTypes => {
@@ -144,3 +168,5 @@ export type ProductsActionTypes =
     | SetSKUNumberFilter
     | addMedicinePics
     | getMedicinePics
+    | getMedConfirm
+    | setMedConfirm

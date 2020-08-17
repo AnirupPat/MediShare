@@ -91,7 +91,7 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
             if (!image.cancelled) {
                 this.setState({ image: image.uri });
             }
-            console.log(image);
+            // console.log(image);
             this.props.addMedicinePics(image)
         }
     };
@@ -143,7 +143,9 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
     }
 
     handleIntelligentMac = () => {
-        console.log("clicked !!!")
+        this.props.navigation.navigate("medConfirmation", {
+            title: 'Confirmation'
+        })
     }
 
 
@@ -179,6 +181,8 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
                                 })}
                         </View>
                     </Card>
+                    <Text style={Styles.hintFont}>** Add images of both sides of the medicine and 
+                    let the AI engine detect the Medicine details for you</Text>
                     {this.props.image2.length > 1 ? 
                         <RButton name="Submit" onPress={() => this.handleIntelligentMac()} />
                         : null
@@ -198,13 +202,11 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
 
 const mapStatetoProps = (state: AppState, localProps: ProductAddScreenProps): ProductAddScreenProps => {
     var a: string[] = []
-    console.log('----------raw----------')
-    console.log(state.medicine.medicinePics)
-    state.medicine.medicinePics.map(image => {
-        a.push(image.image.toString())
-    })
-    console.log('---------lets see-----------')
-    console.log(a)
+        state.medicine.medicinePics.map(image => {
+            if(image.image)
+                a.push(image.image.toString())
+        })
+    
     return {
         ...localProps,
         image2: a

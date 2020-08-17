@@ -10,8 +10,19 @@ export type MedicinePics = {
     image: string
 }
 
+export type MedConfirm = {
+ "composition": string,
+  "count": number,
+  "drugName": string,
+  "expiry": string,
+  "id": null,
+  "indication": string,
+  "mobileNumber": null
+}
+
 export type MedicineStateType = {
     medicines: Medicine[]
     ProductsFilters: MedicineFilters,
-    medicinePics: MedicinePics[]
+    medicinePics: MedicinePics[],
+    MedConfirm: MedConfirm
 }

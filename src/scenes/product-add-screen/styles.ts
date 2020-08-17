@@ -10,6 +10,9 @@ const Styles = StyleSheet.create({
         paddingHorizontal: "5%",
         paddingVertical: 10
     },
+    hintFont: {
+        fontFamily: Utils.getFontFamily()
+    },
     input: {
         borderRadius: 10,
         borderWidth: 2,
