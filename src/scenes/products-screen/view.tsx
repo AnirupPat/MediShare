@@ -173,24 +173,6 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
 
     render(): React.ReactNode {
         return (
-            // <ScrollView style={Styles.screen}>
-
-
-
-            //     {/* <TouchableOpacity onPress={() => this.sendPushNotification(this.state.token)}>
-            //         <Text>Send me a notification!</Text>
-            //     </TouchableOpacity> */}
-            //     <FlatList
-            //          scrollEnabled={false}
-            //         style={Styles.flatlist}
-            //         data={this.props.data}
-            //         renderItem={(product) => <Product data={product.item} onPress={this.handleNavigateToDetail.bind(this, product.item.id)} />}
-            //         keyExtractor={(product) => product.id.toString()}
-            //         ListFooterComponent={this.footer}
-            //     />
-            // </ScrollView>
-
-
             <View style={Styles.MainContainer}>
                 <FlatList
                     data={this.props.data}

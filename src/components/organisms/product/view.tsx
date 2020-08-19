@@ -22,22 +22,33 @@ export class Product extends React.Component<ProductProps, ProductState> {
                         <View style={Styles.medicineNameBox}>
                             <AntDesign name="medicinebox" size={30} color={Colors.primary} />
                             <RTitleText> {this.props.data.fields.name}</RTitleText>
+                            <View style={Styles.qtyBox}>
+                            <RText>(Qty - {this.props.data.fields.InStockQty})</RText>
+                            </View>
                         </View>
-                        <View style={Styles.deleteBox}>
+                        
+                        {/* <View style={Styles.deleteBox}>
                             <TouchableOpacity style={Styles.delete}>
                                 <MaterialIcons name="delete" size={30} color="black" />
                             </TouchableOpacity>
-                        </View>
+                        </View> */}
                     </View>
-
+                    <View style={Styles.orderNumberContainer}>
+                            {/* <AntDesign name="medicinebox" size={30} color={Colors.primary} /> */}
+                            <RText> {this.props.data.fields.points}</RText>
+                        </View>
                     <View style={Styles.orderNumberContainer}>
                         <View style={Styles.medicineNameBox}>
                         <FontAwesome name="calendar" size={24} color="black" />
                             <RText> Expires  {this.props.data.fields.expiresOn}</RText>
                         </View>
                     </View>
+                    <View style={Styles.orderNumberContainer}>
+                            {/* <AntDesign name="medicinebox" size={30} color={Colors.primary} /> */}
+                            <RText> {this.props.data.fields.notes}</RText>
+                        </View>
 
-                    <View style={Styles.lowerBox}>
+                    {/* <View style={Styles.lowerBox}>
                         <View style={Styles.donate}>
                             <TouchableOpacity style={Styles.donateIcon}>
                             <AntDesign name="hearto" size={40} color={Colors.primary} />
@@ -56,7 +67,7 @@ export class Product extends React.Component<ProductProps, ProductState> {
                             </View>
                             <RTitleText>Quantity</RTitleText>
                         </View>
-                    </View>
+                    </View> */}
                 </View>
             </TouchableOpacity>
         )

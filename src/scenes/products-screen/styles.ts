@@ -15,7 +15,7 @@ const Styles = StyleSheet.create({
     MainContainer: {
 
         justifyContent: 'center',
-        flex: 1,
+        flex: 1
         // paddingTop: (Platform.OS === 'iOS') ? 20 : 0
 
     },
@@ -30,7 +30,7 @@ const Styles = StyleSheet.create({
 
         width: '100%',
         height: 60,
-        backgroundColor: '#00BCD4',
+        backgroundColor: '#6e5494',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center'
