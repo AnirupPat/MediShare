@@ -10,11 +10,16 @@ export type MedicineScreenDataProps = {
     title: string
 }
 
-export type MedicineScreenState = { }
+export type MedicineScreenState = {
+    token: string,
+    notification: null,
+    title: 'Hello World',
+    body: 'Say something!',
+}
 
 export type MedicineScreenDispatchProps = {
-    
- }
+    clearMedPics: () => void
+}
 
 export type MedicineScreenProps =
     MedicineScreenParamProps &

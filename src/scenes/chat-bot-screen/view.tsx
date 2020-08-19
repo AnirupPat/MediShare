@@ -293,7 +293,7 @@ class ChatBotScreen extends React.Component<{}, stateMan> {
       return responseJson;
 
     } catch(error) {
-      console.error(error);
+      // console.error(error);
     }
   }
 

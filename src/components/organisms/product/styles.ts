@@ -8,6 +8,7 @@ export const Styles = StyleSheet.create({
         width: "100%",
         justifyContent: 'space-between',
         paddingVertical: 10,
+        marginHorizontal: 15,
         borderBottomWidth: 0.5,
         borderBottomColor: Colors.codes.silver
     },
@@ -81,6 +82,10 @@ export const Styles = StyleSheet.create({
     },
     quantityAction: {
         marginTop: 10
+    },
+    qtyBox: {
+        marginLeft: 10,
+        marginTop: 2
     }
 });
 

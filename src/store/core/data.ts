@@ -50,7 +50,7 @@ export const CoreReduxInitialState: CoreReduxStateType = {
 
         medicineStack: {
             medicine: {
-                title: "Medicines"
+                title: "My Pillbox"
             },
             notifications: {
                 title: 'Notifications'

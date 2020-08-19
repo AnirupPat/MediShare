@@ -63,7 +63,7 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
                 this.props.addMedicinePics(result)
             }
         } catch (E) {
-            console.log(E);
+            // console.log(E);
         }
     }
 
@@ -78,13 +78,13 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
 
         this.setState({ cameraStatus: status.status });
         this.setState({ cameraRollStatus: status2.status })
-        console.log('Permission =>', permissions);
-        console.log('Status => ', status);
+        // console.log('Permission =>', permissions);
+        // console.log('Status => ', status);
 
         if (status.status !== 'granted' && status2.status !== 'granted') {
 
-            console.log(`[ pickFromCamera ] ${permissions} access: ${status.status}`);
-            console.log(`[ pickFromCamera ] ${permissions2} access: ${status2.status}`);
+            // console.log(`[ pickFromCamera ] ${permissions} access: ${status.status}`);
+            // console.log(`[ pickFromCamera ] ${permissions2} access: ${status2.status}`);
 
         } else {
             let image = await ImagePicker.launchCameraAsync();
@@ -102,10 +102,10 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
     }
 
     handlerLongClick = (image: any, index: any) => {
-        console.log('log pressed !')
+        // console.log('log pressed !')
         // console.log(image)
-        console.log(this.animatedValue)
-        console.log(this.animatedValue)
+        // console.log(this.animatedValue)
+        // console.log(this.animatedValue)
         this.handleAnimation(image, index)
     }
 
