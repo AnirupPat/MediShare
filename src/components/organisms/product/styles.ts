@@ -19,8 +19,10 @@ export const Styles = StyleSheet.create({
         flexDirection: 'row',
     },
     rightContainer: {
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
+        width: '100%',
+        marginHorizontal: 20,
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         flexDirection: 'column'
     },
     leftContainer: {
