@@ -16,7 +16,7 @@ export class Product extends React.Component<ProductProps, ProductState> {
 
     render(): React.ReactNode {
         return (
-            <TouchableOpacity style={Styles.orderContainer} onPress={this.props.onPress} activeOpacity={0.5}>
+            <TouchableOpacity style={Styles.orderContainer} activeOpacity={0.5}>
                 <View style={Styles.leftContainer}>
                     <View style={Styles.orderNumberContainer}>
                         <View style={Styles.medicineNameBox}>

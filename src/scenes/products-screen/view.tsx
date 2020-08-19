@@ -15,6 +15,7 @@ import * as Permissions from 'expo-permissions';
 import { Notifications } from 'expo';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { clearMedPics, ProductsActionTypes } from '../../store/medicines/actions';
+import { RButton } from '../../components/atoms/r-button/view';
 
 var med = []
 class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreenState> {
@@ -74,7 +75,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         await this.registerForPushNotifications()
     }
 
-    registerForPushNotifications = async() => {
+    registerForPushNotifications = async () => {
         const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
         let finalStatus = existingStatus
         if (existingStatus !== 'granted') {
@@ -93,6 +94,10 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         this.setState({
             token
         });
+    }
+
+    handleDonate = () => {
+
     }
 
     sendPushNotification(token) {
@@ -119,22 +124,82 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         });
     };
 
+    footer = () => {
+        return (
+            <View>
+                <Text>This is the footer</Text>
+            </View>);
+    }
+
+    FlatListItemSeparator = () => {
+        return (
+            <View
+                style={{
+                    height: 1,
+                    width: "100%",
+                    backgroundColor: "#607D8B",
+                }}
+            />
+        );
+    }
+
+    Render_FlatList_Sticky_header = () => {
+
+        var Sticky_header_View = (
+
+            <View style={Styles.header_style}>
+                <TouchableOpacity style={Styles.button}>
+                    <View>
+                        <Text style={Styles.buttonTextStyle}>Donate</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={Styles.button}>
+                    <View>
+                        <Text style={Styles.buttonTextStyle}>Retain</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={Styles.button}>
+                    <View>
+                        <Text style={Styles.buttonTextStyle}>Discard</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
+
+        );
+
+        return Sticky_header_View;
+
+    };
+
     render(): React.ReactNode {
         return (
-            <SafeAreaView style={Styles.screen}>
-                
+            // <ScrollView style={Styles.screen}>
 
 
-                {/* <TouchableOpacity onPress={() => this.sendPushNotification(this.state.token)}>
-                    <Text>Send me a notification!</Text>
-                </TouchableOpacity> */}
+
+            //     {/* <TouchableOpacity onPress={() => this.sendPushNotification(this.state.token)}>
+            //         <Text>Send me a notification!</Text>
+            //     </TouchableOpacity> */}
+            //     <FlatList
+            //          scrollEnabled={false}
+            //         style={Styles.flatlist}
+            //         data={this.props.data}
+            //         renderItem={(product) => <Product data={product.item} onPress={this.handleNavigateToDetail.bind(this, product.item.id)} />}
+            //         keyExtractor={(product) => product.id.toString()}
+            //         ListFooterComponent={this.footer}
+            //     />
+            // </ScrollView>
+
+
+            <View style={Styles.MainContainer}>
                 <FlatList
-                    style={Styles.screen}
                     data={this.props.data}
+                    ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={(product) => <Product data={product.item} onPress={this.handleNavigateToDetail.bind(this, product.item.id)} />}
-                    keyExtractor={(product) => product.id.toString()}
+                    ListHeaderComponent={this.Render_FlatList_Sticky_header}
+                    stickyHeaderIndices={[0]}
                 />
-            </SafeAreaView>
+            </View>
         )
     }
 }
