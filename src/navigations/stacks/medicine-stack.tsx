@@ -5,6 +5,7 @@ import ProductScreen  from '../../scenes/products-screen/view'
 import NotificationScreen from '../../scenes/notifications-screen/view'
 import ProductAddScreen from '../../scenes/product-add-screen/view'
 import MedConfirmationScreen from '../../scenes/med-confirmation-screen/view'
+import RequestScreen  from '../../scenes/request-screen/view'
 
 const MedicineStackNavigator = createStackNavigator<MedicineStackNavigationParamsType>();
 
@@ -23,6 +24,11 @@ export class MedicineStackNavigation extends React.Component<MedicineStackScreen
                     component={ProductScreen}
                     initialParams={this.props.route.params.medicine}
                 />
+                {/* <MedicineStackNavigator.Screen
+                    name="request"
+                    component={RequestScreen}
+                    initialParams={this.props.route.params.request}
+                /> */}
 				<MedicineStackNavigator.Screen
                     name="notifications"
                     component={NotificationScreen}

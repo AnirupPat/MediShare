@@ -1,5 +1,5 @@
 import React, { Dispatch } from 'react'
-import { ScrollView, View, Dimensions, Text, FlatList, Alert, Platform } from 'react-native'
+import { ScrollView, View, Dimensions, Text, FlatList, Alert, Platform, CheckBox } from 'react-native'
 import Styles from './styles'
 import { MedicineScreenProps, MedicineScreenState, MedicineScreenDispatchProps } from './types'
 import { AppState, AppActionTypes } from '../../store';
@@ -97,7 +97,9 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     handleDonate = () => {
-
+        // this.props.navigation.navigate("medicineAdd", {
+        //     title: "New Medicine"
+        // })
     }
 
     sendPushNotification(token) {
@@ -148,7 +150,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         var Sticky_header_View = (
 
             <View style={Styles.header_style}>
-                <TouchableOpacity style={Styles.button}>
+                <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
                     <View>
                         <Text style={Styles.buttonTextStyle}>Donate</Text>
                     </View>
@@ -175,6 +177,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         return (
             <View style={Styles.MainContainer}>
                 <FlatList
+                    keyExtractor={item => item.id.toString()}
                     data={this.props.data}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={(product) => <Product data={product.item} onPress={this.handleNavigateToDetail.bind(this, product.item.id)} />}

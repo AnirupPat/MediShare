@@ -86,7 +86,14 @@ export const Styles = StyleSheet.create({
     qtyBox: {
         marginLeft: 10,
         marginTop: 2
-    }
+    },
+    checkboxContainer: {
+        flexDirection: "row",
+        marginBottom: 20,
+      },
+      checkbox: {
+        alignSelf: "center",
+      },
 });
 
 export default Styles
