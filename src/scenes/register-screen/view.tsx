@@ -37,7 +37,7 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
             const { status } = await Permissions.askAsync(Permissions.LOCATION);
             // Location.requestPermissionsAsync();
             if (status !== 'granted') {
-                console.log('Permission to access location was denied');
+                // console.log('Permission to access location was denied');
             }
             let location = await Location.getCurrentPositionAsync({});
              this._attemptReverseGeocodeAsync(location.coords.latitude, location.coords.longitude)
@@ -59,12 +59,12 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
             let result = await Location.reverseGeocodeAsync(
                 this.state.selectedExample
             );
-            console.log('Result is ')
-            console.log(result)
+            // console.log('Result is ')
+            // console.log(result)
             this.props.setGeoLocation(lat, lon)
             this.props.setLocation(result[0].city)
         } catch (e) {
-            console.log(e)
+            // console.log(e)
         } finally {
             this.setState({ inProgress: false });
         }

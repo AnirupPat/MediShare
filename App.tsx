@@ -9,6 +9,7 @@ import Constants from './src/commons/constants';
 import { enableScreens } from 'react-native-screens';
 import { Dialogflow_V2 } from 'react-native-dialogflow';
 import { dialogflowConfig } from './env';
+// import { LogBox } from 'react-native';
 
 enableScreens()
 
@@ -17,7 +18,7 @@ const fetchFonts = () => {
 };
 
 export default function App() {
-
+  // LogBox.ignoreAllLogs();
   const [fontLoaded, setFontLoaded] = useState(false);
 
     if (!fontLoaded) {

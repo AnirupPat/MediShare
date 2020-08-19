@@ -16,7 +16,7 @@ class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
     }
 
     dashboardStackNavigationHandler = () => {
-        console.log("dashboardStackNavigationHandler Handled!")
+        // console.log("dashboardStackNavigationHandler Handled!")
     }
 
     resetCodeScreenNavigationHandler = () => {
@@ -26,7 +26,7 @@ class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
     }
 
     handleNavigateRegister = () => {
-        console.log("trigerred !!!")
+        // console.log("trigerred !!!")
         this.props.navigation.navigate("register", {
             title: "Register"
         })

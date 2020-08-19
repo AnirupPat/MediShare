@@ -39,12 +39,12 @@ class MedConfirmationScreen extends React.Component<MedConfirmationScreenProps, 
         return fetch('https://medishare.azurewebsites.net/api/getmedicine?newMedicine=true')
             .then((response) => response.json())
             .then((json) => {
-                console.log(json)
+                // console.log(json)
                 // medObj = json
                 this.props.setMedConfirm(json)
             })
             .catch((error) => {
-                console.error(error);
+                // console.error(error);
             });
     }
 
@@ -94,8 +94,8 @@ class MedConfirmationScreen extends React.Component<MedConfirmationScreenProps, 
 }
 
 const mapStatetoProps = (state: AppState, localProps: MedConfirmationScreenProps): MedConfirmationScreenProps => {
-    console.log('----------lets see')
-    console.log(state.medicine.MedConfirm) 
+    // console.log('----------lets see')
+    // console.log(state.medicine.MedConfirm) 
     return {
         ...localProps,
         data: {

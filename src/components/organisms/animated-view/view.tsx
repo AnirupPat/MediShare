@@ -12,7 +12,7 @@ class AnimatedView extends React.Component<AnimatedViewProps, AnimatedViewState>
     }
 
     startAnimation() {
-        console.log('animation started')
+        // console.log('animation started')
         const animations = [
             Animated.timing(this.state.animation, { toValue: 1.0, duration: 150, easing: Easing.linear, useNativeDriver: true }),
             // rotate in other direction, to minimum value (= twice the duration of above)

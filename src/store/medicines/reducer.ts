@@ -1,4 +1,4 @@
-import { ProductsActionTypes, SET_MED_CONFIRM, GET_MED_CONFIRM, GET_MEDICINE_PICS, SET_ALL_PRODUCT_HEADERS, SET_MEDICINE_PICS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY, SET_PRODUCT_CATEGORY_FILTER, SET_FILTERS, SET_SKU_NUMBER_FILTERS } from './actions';
+import { ProductsActionTypes, CLEAR_MED_PICS, SET_MED_CONFIRM, GET_MEDICINE_PICS, SET_ALL_PRODUCT_HEADERS, SET_MEDICINE_PICS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY, SET_PRODUCT_CATEGORY_FILTER, SET_FILTERS, SET_SKU_NUMBER_FILTERS } from './actions';
 import { MedicineInitialState } from './data'
 import { MedicineStateType, MedicineFilters, MedConfirm } from './types';
 import { DummyData } from '../../models/dummy-data';
@@ -52,9 +52,10 @@ const setMedConfirm = (state: MedicineStateType, details: MedConfirm): MedicineS
     }
 }
 
-const getMedConfirm = (state: MedicineStateType): MedicineStateType => {
+const clearMedPics = (state: MedicineStateType): MedicineStateType => {
     return {
-        ...state
+        ...state,
+        medicinePics: []
     }
 }
 
@@ -72,8 +73,8 @@ export const MedicineReducer = (state = MedicineInitialState, action: ProductsAc
             return getMedicinePics(state)  
         case SET_MED_CONFIRM:
             return setMedConfirm(state, action.details)
-            case GET_MED_CONFIRM:
-                return getMedConfirm(state)  
+            case CLEAR_MED_PICS:
+                return clearMedPics(state)  
         default:
             return state
     }

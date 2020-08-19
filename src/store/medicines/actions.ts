@@ -12,6 +12,7 @@ export const SET_MEDICINE_PICS = 'SET_MEDICINE_PICS'
 export const GET_MEDICINE_PICS = 'GET_MEDICINE_PICS'
 export const GET_MED_CONFIRM = 'GET_MED_CONFIRM'
 export const SET_MED_CONFIRM = 'SET_MED_CONFIRM'
+export const CLEAR_MED_PICS = 'CLEAR_MED_PICS'
 
 export interface SetAllProductHeaders {
     type: typeof SET_ALL_PRODUCT_HEADERS
@@ -59,13 +60,13 @@ export interface addMedicinePics {
     image: any
 }
 
-export interface getMedConfirm {
-    type: typeof GET_MED_CONFIRM
+export interface clearMedPics {
+    type: typeof CLEAR_MED_PICS
 }
 
-export const getMedConfirm = (): ProductsActionTypes => {
+export const clearMedPics = (): ProductsActionTypes => {
     return {
-        type: GET_MED_CONFIRM
+        type: CLEAR_MED_PICS
     }
 }
 
@@ -168,5 +169,5 @@ export type ProductsActionTypes =
     | SetSKUNumberFilter
     | addMedicinePics
     | getMedicinePics
-    | getMedConfirm
     | setMedConfirm
+    | clearMedPics

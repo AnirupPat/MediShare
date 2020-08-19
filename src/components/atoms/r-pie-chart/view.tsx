@@ -15,7 +15,7 @@ export class RPieChart extends React.Component<RPieChartProps, RPieChartState> {
         super(props)
         this.vizWidth = Math.round(Dimensions.get('window').width * this.props.data.pieChartProps.chartBaseProps.widthPercent)
         this.vizPadding = Math.round(Dimensions.get('window').width * this.props.data.pieChartProps.chartBaseProps.paddingPercent)
-        console.log(this.props.data.pieChartProps.dimField)
+        // console.log(this.props.data.pieChartProps.dimField)
         this.totalValue = this.props.data.pieChartProps.data
             .map((datum) => datum[this.props.data.pieChartProps.dimField])
             .reduce((sum, current) => sum + current, 0)
