@@ -61,7 +61,15 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             medConfirmation: {
                 title: 'Confirmation'
             },
-            request: {title: 'Donors'}
+            request: {
+                title: 'Donors'
+            },
+            notifListner: {
+                title: 'Review'
+            },
+            medicineReview: {
+                title: 'PillBox Review'
+            }
         },
 
         requestStack: {

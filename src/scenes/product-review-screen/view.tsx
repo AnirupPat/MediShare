@@ -1,7 +1,7 @@
 import React, { Dispatch } from 'react'
 import { ScrollView, View, Dimensions, Text, FlatList, Alert, Platform, CheckBox } from 'react-native'
 import Styles from './styles'
-import { MedicineScreenProps, MedicineScreenState, MedicineScreenDispatchProps } from './types'
+import { MedicineReviewScreenProps, MedicineReviewScreenState, MedicineReviewScreenDispatchProps } from './types'
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
@@ -16,12 +16,13 @@ import { Notifications } from 'expo';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { clearMedPics, ProductsActionTypes, setCheckBox } from '../../store/medicines/actions';
 import { RButton } from '../../components/atoms/r-button/view';
+import { RText } from '../../components/atoms';
 
 var med = []
-class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreenState> {
+class MedicineReviewScreen extends React.Component<MedicineReviewScreenProps, MedicineReviewScreenState> {
     notificationSubscription: any;
 
-    constructor(props: MedicineScreenProps, state: MedicineScreenState) {
+    constructor(props: MedicineReviewScreenProps, state: MedicineReviewScreenState) {
         super(props)
         // this.state = {
         //     token: null,
@@ -30,27 +31,10 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         //     body: 'Say something!',
         //   };
         var options = getStackStyles(
-            this.props.title,
-            "plus",
-            () => {
-                this.props.navigation.navigate("medicineAdd", {
-                    title: "New Medicine"
-                })
-                //  this.handleNavigateToNewProduct()
-            }
+            this.props.title
         )
         options = {
-            ...options,
-            headerRight: () => (
-                <Ionicons name="md-notifications" style={{ marginRight: 15 }} size={28} color="black"
-                    onPress={this.handleNavigateToNotifications}
-                />
-            ),
-            headerLeft: () => (
-                <AntDesign name="plus" style={{ marginLeft: 10 }}
-                    onPress={this.handleNavigateToNewProduct}
-                    size={28} color="black" />
-            )
+            ...options
         }
         this.props.navigation.setOptions(options)
     }
@@ -62,7 +46,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     handleNavigateToNewProduct = () => {
-        this.props.clearMedPics()
+        // this.props.clearMedPics()
         this.props.navigation.navigate("medicineAdd", {
             title: "New Medicine"
         })
@@ -77,56 +61,13 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         this.props.setCheckBox(id.toString(), !value)
     }
 
-    async componentDidMount() {
-        await this.registerForPushNotifications()
-    }
-
-    registerForPushNotifications = async () => {
-        const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
-        let finalStatus = existingStatus
-        if (existingStatus !== 'granted') {
-            const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-            finalStatus = status
-            if (finalStatus !== 'granted') {
-                return;
-            }
-        }
-
-        const token = await Notifications.getExpoPushTokenAsync();
-        // console.log(token)
-
-        const subscription = Notifications.addListener(this.handleNotification);
-        this.sendPushNotification(token)
-        this.setState({
-            token
-        });
-
-        // this.notificationSubscription = Notifications.addListener(this.handleNotification);
-    }
-
     handleDonate = () => {
         this.props.navigation.navigate("request", {
             title: "Donors"
         })
     }
 
-    sendPushNotification(token) {
-        // console.log(token)
-        // console.log('clicked')
-        let response = fetch('https://exp.host/--/api/v2/push/send', {
-            body: JSON.stringify({
-                to: token,
-                title: 'MediShare: Strive to make a change',
-                body: 'Meds in your PillBox are expiring. This is the time you donate',
-                sound: 'default'
-            }),
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            method: 'POST'
-        });
-    }
+
 
     handleNotification = notification => {
         console.log('----lets see what is there in')
@@ -134,18 +75,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         this.props.navigation.navigate("notifListner", {
             title: "Review"
         })
-        // this.setState({
-        //     notification,
-        // });
-        
     };
-
-    footer = () => {
-        return (
-            <View>
-                <Text>This is the footer</Text>
-            </View>);
-    }
 
     FlatListItemSeparator = () => {
         return (
@@ -163,7 +93,8 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
 
         var Sticky_header_View = (
 
-            <View style={Styles.header_style}>
+            <View>
+                <View style={Styles.header_style}>
                 <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
                     <View>
                         <Text style={Styles.buttonTextStyle}>Donate</Text>
@@ -180,6 +111,8 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                     </View>
                 </TouchableOpacity>
             </View>
+            <Text style={Styles.hintText}>** The following Meds will expire soon.</Text>
+            </View>
 
         );
 
@@ -194,13 +127,17 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                     keyExtractor={item => item.id.toString()}
                     data={this.props.data}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
-                    renderItem={(product) => 
-                    <Product 
-                        data={product.item} 
-                        // onPress={this.handleNavigateToDetail.bind(this, product.item.id)}
-                        onPress={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
-                        onClick={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
-                    />}
+                    renderItem={(product) =>
+                        
+                            
+                            <Product
+                                data={product.item}
+                                // onPress={this.handleNavigateToDetail.bind(this, product.item.id)}
+                                onPress={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
+                                onClick={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
+                            />
+
+                    }
                     ListHeaderComponent={this.Render_FlatList_Sticky_header}
                     stickyHeaderIndices={[0]}
                 />
@@ -209,7 +146,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 }
 
-const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): MedicineScreenProps => {
+const mapStatetoProps = (state: AppState, localProps: MedicineReviewScreenProps): MedicineReviewScreenProps => {
     return {
         ...localProps,
         data: state.medicine.medicines,
@@ -217,11 +154,11 @@ const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): Medi
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): MedicineScreenDispatchProps => {
+const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): MedicineReviewScreenDispatchProps => {
     return {
-        clearMedPics: () => dispatch(clearMedPics()),
+        // clearMedPics: () => dispatch(clearMedPics()),
         setCheckBox: (id: string, value: boolean) => dispatch(setCheckBox(id, value))
     }
 }
 
-export default connect(mapStatetoProps, mapDispatchToProps)(MedicineScreen)
+export default connect(mapStatetoProps, mapDispatchToProps)(MedicineReviewScreen)
