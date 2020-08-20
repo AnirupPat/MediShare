@@ -19,6 +19,7 @@ import { RButton } from '../../components/atoms/r-button/view';
 
 var med = []
 class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreenState> {
+    notificationSubscription: any;
 
     constructor(props: MedicineScreenProps, state: MedicineScreenState) {
         super(props)
@@ -99,6 +100,8 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         this.setState({
             token
         });
+
+        // this.notificationSubscription = Notifications.addListener(this.handleNotification);
     }
 
     handleDonate = () => {
@@ -126,9 +129,14 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     handleNotification = notification => {
+        console.log('----lets see what is there in')
+        console.log(notification)
         this.setState({
             notification,
         });
+        this.props.navigation.navigate("request", {
+            title: "Donors"
+        })
     };
 
     footer = () => {
