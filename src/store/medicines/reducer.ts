@@ -1,7 +1,8 @@
-import { ProductsActionTypes, SET_CHECKBOX, CLEAR_MED_PICS, SET_MED_CONFIRM, GET_MEDICINE_PICS, SET_ALL_PRODUCT_HEADERS, SET_MEDICINE_PICS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY, SET_PRODUCT_CATEGORY_FILTER, SET_FILTERS, SET_SKU_NUMBER_FILTERS } from './actions';
+import { ProductsActionTypes, SET_MED, SET_CHECKBOX, CLEAR_MED_PICS, SET_MED_CONFIRM, GET_MEDICINE_PICS, SET_ALL_PRODUCT_HEADERS, SET_MEDICINE_PICS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY, SET_PRODUCT_CATEGORY_FILTER, SET_FILTERS, SET_SKU_NUMBER_FILTERS } from './actions';
 import { MedicineInitialState } from './data'
 import { MedicineStateType, MedicineFilters, MedConfirm } from './types';
 import { DummyData } from '../../models/dummy-data';
+import { Medicine } from '../../models/medicines';
 
 const updateAllProductHeaderDetails = (state: MedicineStateType, data: any): MedicineStateType => {
     return {
@@ -67,9 +68,17 @@ const setCheckBox = (state: MedicineStateType, id: string, value: boolean): Medi
             if(med.id.toString() == id) {
                 med.fields.selected = value
             }
-            return med
+            return med 
         })
 
+    }
+}
+
+const setMedicine = (state: MedicineStateType, medDetails: Medicine): MedicineStateType => {
+    console.log(medDetails)
+    return {
+        ...state,
+        medicines: [...state.medicines, medDetails ]
     }
 }
 
@@ -91,6 +100,8 @@ export const MedicineReducer = (state = MedicineInitialState, action: ProductsAc
                 return clearMedPics(state)  
             case SET_CHECKBOX:
                 return setCheckBox(state, action.id, action.value)
+            case SET_MED:
+                return setMedicine(state, action.medDetails)
         default:
             return state
     }

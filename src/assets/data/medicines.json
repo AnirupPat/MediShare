@@ -52,10 +52,7 @@
             ],
             "rating": 3.5,
             "offer": 0.1,
-            "details": [
-                "key:value",
-                "key:value"
-            ],
+           
             "tags": [
                 "tag 1",
                 "tag 2",
@@ -86,10 +83,7 @@
             ],
             "rating": 3.5,
             "offer": 0.1,
-            "details": [
-                "key:value",
-                "key:value"
-            ],
+            
             "tags": [
                 "tag 1",
                 "tag 2",
@@ -120,10 +114,7 @@
             ],
             "rating": 3.5,
             "offer": 0.1,
-            "details": [
-                "key:value",
-                "key:value"
-            ],
+            
             "tags": [
                 "tag 1",
                 "tag 2",

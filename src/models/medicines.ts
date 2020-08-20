@@ -15,10 +15,10 @@ export type Medicine =
         "images": string[],
         "rating": number,
         "offer": number,
-        "details": [
-            "key:value",
-            "key:value"
-        ],
+        // "details": [
+        //     "key:value",
+        //     "key:value"
+        // ],
         "tags": string[],
         "category": number,
         "subcategory": string

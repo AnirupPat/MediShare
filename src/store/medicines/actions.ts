@@ -1,4 +1,5 @@
 import { MedicineFilters, MedConfirm } from "./types"
+import { Medicine } from "../../models/medicines"
 
 export const SET_ALL_PRODUCT_HEADERS = 'SET_ALL_PRODUCT_HEADERS'
 export const ADD_MAIN_CATEGORY = 'ADD_MAIN_CATEGORY'
@@ -14,6 +15,7 @@ export const GET_MED_CONFIRM = 'GET_MED_CONFIRM'
 export const SET_MED_CONFIRM = 'SET_MED_CONFIRM'
 export const CLEAR_MED_PICS = 'CLEAR_MED_PICS'
 export const SET_CHECKBOX = 'SET_CHECKBOX'
+export const  SET_MED = 'SET_MED'
 
 export interface SetAllProductHeaders {
     type: typeof SET_ALL_PRODUCT_HEADERS
@@ -80,6 +82,18 @@ export interface setCheckBox {
     type: typeof SET_CHECKBOX,
     id: string,
     value: boolean
+}
+
+export interface setMedicine {
+    type: typeof SET_MED,
+    medDetails: Medicine
+}
+
+export const setMedicine = (medDetails: Medicine): ProductsActionTypes => {
+    return {
+        type: SET_MED,
+        medDetails
+    }
 }
 
 export const setCheckBox = (id: string, value: boolean): ProductsActionTypes => {
@@ -187,3 +201,4 @@ export type ProductsActionTypes =
     | setMedConfirm
     | clearMedPics
     | setCheckBox
+    | setMedicine

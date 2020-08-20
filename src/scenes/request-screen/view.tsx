@@ -70,9 +70,9 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
     }
 
     handleNavigateToNewProduct = () => {
-        this.props.navigation.navigate("chatbot", {
-            title: 'ChatBot'
-        })
+        // this.props.navigation.navigate("chatbot", {
+        //     title: 'ChatBot'
+        // })
     }
 
     render(): React.ReactNode {
