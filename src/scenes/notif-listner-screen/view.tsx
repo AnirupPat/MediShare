@@ -17,7 +17,9 @@ class NotifListnerScreen extends React.Component<NotifListnerScreenProps, NotifL
     }
 
     handleMedReview = () => {
-        console.log('---clicked ---')
+        this.props.navigation.navigate("medicineReview", {
+            title: 'PillBox Review'
+        })
     }
 
     render(): React.ReactNode {

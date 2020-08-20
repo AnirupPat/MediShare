@@ -66,6 +66,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             notifListner: {
                 title: 'Review'
+            },
+            medicineReview: {
+                title: 'PillBox Review'
             }
         },
 

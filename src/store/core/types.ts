@@ -48,6 +48,9 @@ export type MedicineStackNavigationParamsType = {
     },
     notifListner: {
         title: string
+    },
+    medicineReview: {
+        title: string
     }
 }
 

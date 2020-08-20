@@ -24,5 +24,6 @@ export type MedicineStateType = {
     medicines: Medicine[]
     ProductsFilters: MedicineFilters,
     medicinePics: MedicinePics[],
-    MedConfirm: MedConfirm
+    MedConfirm: MedConfirm,
+    medicineReview: Medicine[]
 }
