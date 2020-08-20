@@ -131,12 +131,13 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     handleNotification = notification => {
         console.log('----lets see what is there in')
         console.log(notification)
-        this.setState({
-            notification,
-        });
-        this.props.navigation.navigate("request", {
-            title: "Donors"
+        this.props.navigation.navigate("notifListner", {
+            title: "Review"
         })
+        // this.setState({
+        //     notification,
+        // });
+        
     };
 
     footer = () => {

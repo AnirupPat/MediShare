@@ -8,5 +8,14 @@ export const MedicineInitialState: MedicineStateType = {
         filterProductCategories: 0,
         filterSKUNumber: 0
     },
-    medicinePics: []
+    medicinePics: [],
+    MedConfirm: {
+        "composition": '',
+        "count": 0,
+        "drugName": '',
+        "expiry": '',
+        "id": null,
+        "indication": '',
+        "mobileNumber": null
+    }
 }
