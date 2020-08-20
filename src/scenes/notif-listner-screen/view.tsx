@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import { RText, RButton } from '../../components/atoms';
 import { getStackStyles } from '../../commons/styles';
+import { Ionicons, AntDesign } from '@expo/vector-icons';
 
 const { height } = Dimensions.get("window");
 const _draggedValue = new Animated.Value(180);
@@ -25,6 +26,7 @@ class NotifListnerScreen extends React.Component<NotifListnerScreenProps, NotifL
     render(): React.ReactNode {
         return (
             <View style={Styles.screen}>
+                <Ionicons name="md-notifications" color="#6e5494" size={70} style={{ marginRight: 15 }} />
                 <RText>One or more meds in your pill box are expiring soon. Please review to take action</RText>
                 <RButton name='Review' onPress={() => this.handleMedReview()} />
             </View>

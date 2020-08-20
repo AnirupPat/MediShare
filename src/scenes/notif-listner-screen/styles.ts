@@ -9,9 +9,7 @@ const Styles = StyleSheet.create({
     justifyContent: 'center', 
     alignItems: 'center',
     paddingHorizontal: '2%'
-    },
-    
-   
+    }
 })
 
 export default Styles
