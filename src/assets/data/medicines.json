@@ -3,6 +3,7 @@
         "id": 100001,
         "fields": {
             "name": "Azithral 500",
+            "selected": false,
             "InStockQty": 20,
             "expiresOn": "after 6 months",
             "BlockedQty": 8,
@@ -36,6 +37,7 @@
         "id": 100002,
         "fields": {
             "name": "Limcee",
+            "selected": false,
             "InStockQty": 20,
             "expiresOn": "after 1 months",
             "BlockedQty": 8,
@@ -50,10 +52,7 @@
             ],
             "rating": 3.5,
             "offer": 0.1,
-            "details": [
-                "key:value",
-                "key:value"
-            ],
+           
             "tags": [
                 "tag 1",
                 "tag 2",
@@ -69,6 +68,7 @@
         "id": 100003,
         "fields": {
             "name": "Atocor 20",
+            "selected": false,
             "InStockQty": 30,
             "expiresOn": "after 10 days",
             "BlockedQty": 8,
@@ -83,10 +83,7 @@
             ],
             "rating": 3.5,
             "offer": 0.1,
-            "details": [
-                "key:value",
-                "key:value"
-            ],
+            
             "tags": [
                 "tag 1",
                 "tag 2",
@@ -102,6 +99,7 @@
         "id": 100004,
         "fields": {
             "name": "Dolo 650",
+            "selected": false,
             "InStockQty": 15,
             "expiresOn": "after 6 months",
             "BlockedQty": 8,
@@ -116,10 +114,7 @@
             ],
             "rating": 3.5,
             "offer": 0.1,
-            "details": [
-                "key:value",
-                "key:value"
-            ],
+            
             "tags": [
                 "tag 1",
                 "tag 2",

@@ -60,7 +60,8 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             medConfirmation: {
                 title: 'Confirmation'
-            }
+            },
+            request: {title: 'Donors'}
         },
 
         requestStack: {

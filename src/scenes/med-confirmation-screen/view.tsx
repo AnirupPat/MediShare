@@ -8,16 +8,17 @@ import { connect } from 'react-redux'
 import { AppState, AppActionTypes } from '../../store'
 import { RButton } from '../../components/atoms'
 import { MedConfirm } from '../../store/medicines/types'
-import { setMedConfirm, ProductsActionTypes } from '../../store/medicines/actions'
+import { setMedConfirm, ProductsActionTypes, setMedicine } from '../../store/medicines/actions'
+import { Medicine } from '../../models/medicines'
 
 var medObj = {
-  "composition": "",
-  "count": 0,
-  "drugName": "",
-  "expiry": "",
-  "id": null,
-  "indication": "",
-  "mobileNumber": null,
+    "composition": "",
+    "count": 0,
+    "drugName": "",
+    "expiry": "",
+    "id": null,
+    "indication": "",
+    "mobileNumber": null,
 }
 class MedConfirmationScreen extends React.Component<MedConfirmationScreenProps, MedConfirmationScreenState> {
     constructor(props: MedConfirmationScreenProps) {
@@ -30,6 +31,38 @@ class MedConfirmationScreen extends React.Component<MedConfirmationScreenProps, 
     }
 
     medConfirm = () => {
+        var medDetails = {
+            "id": Math.floor(100000 + Math.random() * 900000),
+            "fields": {
+                "name": this.props.data.medConfirm.drugName,
+                "selected": false,
+                "InStockQty": 20,
+                "expiresOn": "after 6 months",
+                "BlockedQty": 8,
+                "points": this.props.data.medConfirm.composition,
+                "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
+                "price": 57.90,
+                "notes": this.props.data.medConfirm.indication,
+                "currency": "£",
+                "images": [
+                    "link to image 1",
+                    "link to image 2"
+                ],
+                "rating": 3.5,
+                "offer": 0.1,
+
+                "tags": [
+                    "tag 1",
+                    "tag 2",
+                    "tag 3",
+                    "tag 4",
+                    "tag 5"
+                ],
+                "category": 1001,
+                "subcategory": "1001a"
+            }
+        }
+        this.props.setMedicine(medDetails)
         this.props.navigation.navigate("medicine", {
             title: 'Medicines'
         })
@@ -100,17 +133,17 @@ const mapStatetoProps = (state: AppState, localProps: MedConfirmationScreenProps
         ...localProps,
         data: {
             title: state.core.rootStackParams.medicineStack.medConfirmation.title,
-            medConfirm: 
-             state.medicine.MedConfirm != undefined ? state.medicine.MedConfirm : 
-            {
-                "composition": "Paracetamol(650mg)",
-  "count": 10,
-  "drugName": "Dolo 650",
-  "expiry": "2021-01-01T00:00:00",
-  "id": null,
-  "indication": "Fever",
-  "mobileNumber": null,
-            }
+            medConfirm:
+                state.medicine.MedConfirm != undefined ? state.medicine.MedConfirm :
+                    {
+                        "composition": "Paracetamol(650mg)",
+                        "count": 10,
+                        "drugName": "Dolo 650",
+                        "expiry": "2021-01-01T00:00:00",
+                        "id": null,
+                        "indication": "Fever",
+                        "mobileNumber": null,
+                    }
         }
     }
 }
@@ -118,6 +151,7 @@ const mapStatetoProps = (state: AppState, localProps: MedConfirmationScreenProps
 const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): MedConfirmationScreenDispatchProps => {
     return {
         setMedConfirm: (medConfirm: MedConfirm) => dispatch(setMedConfirm(medConfirm)),
+        setMedicine: (medDetails: Medicine) => dispatch(setMedicine(medDetails))
     }
 }
 

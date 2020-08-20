@@ -19,8 +19,10 @@ export const Styles = StyleSheet.create({
         flexDirection: 'row',
     },
     rightContainer: {
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
+        width: '100%',
+        marginHorizontal: 20,
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         flexDirection: 'column'
     },
     leftContainer: {
@@ -86,7 +88,14 @@ export const Styles = StyleSheet.create({
     qtyBox: {
         marginLeft: 10,
         marginTop: 2
-    }
+    },
+    checkboxContainer: {
+        flexDirection: "row",
+        marginBottom: 20,
+      },
+      checkbox: {
+        alignSelf: "center",
+      },
 });
 
 export default Styles

@@ -1,8 +1,9 @@
-import { ProductHeader } from "../../../models/products"
+import { Medicine } from "../../../models/medicines"
 
 export type ProductProps = {
-    data: ProductHeader,
+    data: Medicine,
     onPress: (selectedProduct: any) => void
+    onClick: (id: string, value: boolean) => void
 }
 
 export type ProductState = { }

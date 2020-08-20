@@ -1,5 +1,5 @@
 import React, { Dispatch } from 'react'
-import { ScrollView, View, Dimensions, Text, FlatList, Alert, Platform } from 'react-native'
+import { ScrollView, View, Dimensions, Text, FlatList, Alert, Platform, CheckBox } from 'react-native'
 import Styles from './styles'
 import { MedicineScreenProps, MedicineScreenState, MedicineScreenDispatchProps } from './types'
 import { AppState, AppActionTypes } from '../../store';
@@ -14,11 +14,12 @@ import { Linking } from 'expo';
 import * as Permissions from 'expo-permissions';
 import { Notifications } from 'expo';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { clearMedPics, ProductsActionTypes } from '../../store/medicines/actions';
+import { clearMedPics, ProductsActionTypes, setCheckBox } from '../../store/medicines/actions';
 import { RButton } from '../../components/atoms/r-button/view';
 
 var med = []
 class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreenState> {
+    notificationSubscription: any;
 
     constructor(props: MedicineScreenProps, state: MedicineScreenState) {
         super(props)
@@ -68,7 +69,12 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     handleNavigateToDetail = () => {
+        console.log('trigerred !!')
+    }
 
+    handleOnClick = (id: number, value: boolean) => {
+        console.log('clicked .... hurray !!!!')
+        this.props.setCheckBox(id.toString(), !value)
     }
 
     async componentDidMount() {
@@ -94,10 +100,14 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         this.setState({
             token
         });
+
+        // this.notificationSubscription = Notifications.addListener(this.handleNotification);
     }
 
     handleDonate = () => {
-
+        this.props.navigation.navigate("request", {
+            title: "Donors"
+        })
     }
 
     sendPushNotification(token) {
@@ -119,9 +129,14 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     handleNotification = notification => {
+        console.log('----lets see what is there in')
+        console.log(notification)
         this.setState({
             notification,
         });
+        this.props.navigation.navigate("request", {
+            title: "Donors"
+        })
     };
 
     footer = () => {
@@ -148,7 +163,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         var Sticky_header_View = (
 
             <View style={Styles.header_style}>
-                <TouchableOpacity style={Styles.button}>
+                <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
                     <View>
                         <Text style={Styles.buttonTextStyle}>Donate</Text>
                     </View>
@@ -175,9 +190,16 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         return (
             <View style={Styles.MainContainer}>
                 <FlatList
+                    keyExtractor={item => item.id.toString()}
                     data={this.props.data}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
-                    renderItem={(product) => <Product data={product.item} onPress={this.handleNavigateToDetail.bind(this, product.item.id)} />}
+                    renderItem={(product) => 
+                    <Product 
+                        data={product.item} 
+                        // onPress={this.handleNavigateToDetail.bind(this, product.item.id)}
+                        onPress={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
+                        onClick={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
+                    />}
                     ListHeaderComponent={this.Render_FlatList_Sticky_header}
                     stickyHeaderIndices={[0]}
                 />
@@ -196,7 +218,8 @@ const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): Medi
 
 const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): MedicineScreenDispatchProps => {
     return {
-        clearMedPics: () => dispatch(clearMedPics())
+        clearMedPics: () => dispatch(clearMedPics()),
+        setCheckBox: (id: string, value: boolean) => dispatch(setCheckBox(id, value))
     }
 }
 
