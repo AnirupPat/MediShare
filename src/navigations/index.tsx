@@ -52,10 +52,10 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
                             component={MedicineStackNavigation}
                             initialParams={this.props.core.rootStackParams.medicineStack} />
 
-                        <TabNavigator.Screen
+                        {/* <TabNavigator.Screen
                             name="requestStack"
                             component={RequestStackNavigation}
-                            initialParams={this.props.core.rootStackParams.requestStack} />
+                            initialParams={this.props.core.rootStackParams.requestStack} /> */}
 
                         <TabNavigator.Screen
                             name="settingsStack"

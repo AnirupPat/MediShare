@@ -102,9 +102,9 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     handleDonate = () => {
-        // this.props.navigation.navigate("medicineAdd", {
-        //     title: "New Medicine"
-        // })
+        this.props.navigation.navigate("request", {
+            title: "Donors"
+        })
     }
 
     sendPushNotification(token) {

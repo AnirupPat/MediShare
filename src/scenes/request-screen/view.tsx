@@ -41,26 +41,26 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
         // })
         var options = getStackStyles(
             'Request',
-            "message-square",
-            () => {
-                this.handleNavigateToNewProduct()
-            }
+            // "message-square",
+            // () => {
+            //     this.handleNavigateToNewProduct()
+            // }
         )
         options = {
             ...options,
-            headerLeft: () => (
-                <RAntIconButton
-                    icon="filter"
-                    size={28}
-                    onPress={() => {
-                        // @ts-ignore
-                        // REASON: state picked up from redux
-                        this.props.navigation.navigate('filterProducts', {
-                            title: "Filters"
-                        })
-                    }}
-                />
-            )
+            // headerLeft: () => (
+            //     <RAntIconButton
+            //         icon="filter"
+            //         size={28}
+            //         onPress={() => {
+            //             // @ts-ignore
+            //             // REASON: state picked up from redux
+            //             this.props.navigation.navigate('filterProducts', {
+            //                 title: "Filters"
+            //             })
+            //         }}
+            //     />
+            // )
         }
         this.props.navigation.setOptions(options)
     }

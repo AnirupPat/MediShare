@@ -24,11 +24,11 @@ export class MedicineStackNavigation extends React.Component<MedicineStackScreen
                     component={ProductScreen}
                     initialParams={this.props.route.params.medicine}
                 />
-                {/* <MedicineStackNavigator.Screen
+                <MedicineStackNavigator.Screen
                     name="request"
                     component={RequestScreen}
                     initialParams={this.props.route.params.request}
-                /> */}
+                />
 				<MedicineStackNavigator.Screen
                     name="notifications"
                     component={NotificationScreen}
