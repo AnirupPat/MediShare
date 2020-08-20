@@ -14,7 +14,7 @@ import { Linking } from 'expo';
 import * as Permissions from 'expo-permissions';
 import { Notifications } from 'expo';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { clearMedPics, ProductsActionTypes } from '../../store/medicines/actions';
+import { clearMedPics, ProductsActionTypes, setCheckBox } from '../../store/medicines/actions';
 import { RButton } from '../../components/atoms/r-button/view';
 
 var med = []
@@ -68,7 +68,12 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     handleNavigateToDetail = () => {
+        console.log('trigerred !!')
+    }
 
+    handleOnClick = (id: number, value: boolean) => {
+        console.log('clicked .... hurray !!!!')
+        this.props.setCheckBox(id.toString(), !value)
     }
 
     async componentDidMount() {
@@ -180,7 +185,13 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                     keyExtractor={item => item.id.toString()}
                     data={this.props.data}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
-                    renderItem={(product) => <Product data={product.item} onPress={this.handleNavigateToDetail.bind(this, product.item.id)} />}
+                    renderItem={(product) => 
+                    <Product 
+                        data={product.item} 
+                        // onPress={this.handleNavigateToDetail.bind(this, product.item.id)}
+                        onPress={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
+                        onClick={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
+                    />}
                     ListHeaderComponent={this.Render_FlatList_Sticky_header}
                     stickyHeaderIndices={[0]}
                 />
@@ -199,7 +210,8 @@ const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): Medi
 
 const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): MedicineScreenDispatchProps => {
     return {
-        clearMedPics: () => dispatch(clearMedPics())
+        clearMedPics: () => dispatch(clearMedPics()),
+        setCheckBox: (id: string, value: boolean) => dispatch(setCheckBox(id, value))
     }
 }
 

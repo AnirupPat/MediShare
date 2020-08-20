@@ -13,6 +13,7 @@ export const GET_MEDICINE_PICS = 'GET_MEDICINE_PICS'
 export const GET_MED_CONFIRM = 'GET_MED_CONFIRM'
 export const SET_MED_CONFIRM = 'SET_MED_CONFIRM'
 export const CLEAR_MED_PICS = 'CLEAR_MED_PICS'
+export const SET_CHECKBOX = 'SET_CHECKBOX'
 
 export interface SetAllProductHeaders {
     type: typeof SET_ALL_PRODUCT_HEADERS
@@ -73,6 +74,20 @@ export const clearMedPics = (): ProductsActionTypes => {
 export interface setMedConfirm {
     type: typeof SET_MED_CONFIRM,
     details: MedConfirm
+}
+
+export interface setCheckBox {
+    type: typeof SET_CHECKBOX,
+    id: string,
+    value: boolean
+}
+
+export const setCheckBox = (id: string, value: boolean): ProductsActionTypes => {
+    return {
+        type: SET_CHECKBOX,
+        id: id,
+        value: value
+    }
 }
 
 export const setMedConfirm = (details: MedConfirm): ProductsActionTypes => {
@@ -171,3 +186,4 @@ export type ProductsActionTypes =
     | getMedicinePics
     | setMedConfirm
     | clearMedPics
+    | setCheckBox

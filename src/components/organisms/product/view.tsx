@@ -17,12 +17,13 @@ export class Product extends React.Component<ProductProps, ProductState> {
 
     render(): React.ReactNode {
         return (
-            <TouchableOpacity style={Styles.orderContainer} activeOpacity={0.5}>
+            <TouchableOpacity onPress={this.props.onPress} style={Styles.orderContainer} activeOpacity={0.5}>
                 {/* <View style={Styles.rightContainer}> */}
                 <View style={Styles.checkboxContainer}>
                     <CheckBox
                         leftText={"CheckBox"}
-                        isChecked={true}
+                        isChecked={this.props.data.fields.selected}
+                        onClick={this.props.onClick}
                         style={Styles.checkbox}
                     />
                 </View>

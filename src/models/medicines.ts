@@ -3,6 +3,7 @@ export type Medicine =
     "id": number,
     "fields": {
         "name": string,
+        "selected": boolean,
         "InStockQty": number,
         "BlockedQty": number,
         "expiresOn": string,
