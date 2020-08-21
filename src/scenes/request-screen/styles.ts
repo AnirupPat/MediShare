@@ -39,10 +39,16 @@ const Styles = StyleSheet.create({
           height: '60%',
           borderWidth: 1,
           borderRadius: 10,
-          backgroundColor: 'green'
+          backgroundColor: 'green',
+          paddingHorizontal: 5,
+          paddingBottom: 2
       },
       verifiedFont: {
           paddingHorizontal: 5
+      },
+      shareBox: {
+        display: 'flex',
+        flexDirection: 'row'
       },
       distanceActionBox: {
         flexDirection: 'row',

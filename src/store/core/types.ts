@@ -51,6 +51,9 @@ export type MedicineStackNavigationParamsType = {
     },
     medicineReview: {
         title: string
+    },
+    mail: {
+        title: string
     }
 }
 
