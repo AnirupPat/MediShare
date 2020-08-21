@@ -15,6 +15,9 @@ import { LogoImage } from '../../components/molecules/logo-image/view';
 import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Entypo } from '@expo/vector-icons'; 
+import { RButton } from '../../components/atoms/r-button/view';
+import { RText } from '../../components/atoms/r-text/view';
+import { Ionicons } from '@expo/vector-icons'; 
 
 const { height } = Dimensions.get("window");
 const _draggedValue = new Animated.Value(180);
@@ -40,7 +43,7 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
         //     }
         // })
         var options = getStackStyles(
-            'Request',
+            'Donors',
             // "message-square",
             // () => {
             //     this.handleNavigateToNewProduct()
@@ -73,6 +76,10 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
         // this.props.navigation.navigate("chatbot", {
         //     title: 'ChatBot'
         // })
+    }
+
+    handleShare = () => {
+        console.log('shared')
     }
 
     render(): React.ReactNode {
@@ -122,18 +129,21 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                                         <View style={Styles.nameBox}>
                                             <RTitleText>{donor.item.name}</RTitleText>
                                             <View style={Styles.verifiedBox}>
-                                                <Text style={Styles.verifiedFont}>{donor.item.status}</Text>
+                                                <RText>{donor.item.status}</RText>
                                             </View>
                                         </View>
+                                        {/* style={Styles.verifiedFont} */}
 
                                         <Text style={Styles.donorAddress}>{donor.item.address}</Text>
                                         <View style={Styles.distanceActionBox}>
-                                            <Text style={{fontSize: 15}}>Distance: {donor.item.distance}</Text>
+                                            <RText>Distance: {donor.item.distance}</RText>
                                             <View style={Styles.requestAction}>
-                                            <TouchableOpacity>
-                                                <Entypo name="hand" size={24} color="black" />
+                                            {/* <RButton name={this.props.route.params.title} onPress={() => this.handleShare()} /> */}
+                                            <TouchableOpacity style={Styles.shareBox}>
+                                            <Ionicons style={{marginRight: 5}} name="md-share" size={24} color="black" />
+                                            <RText>Share</RText>
                                             </TouchableOpacity>
-                                            <Text>Request</Text>
+                                            
                                             </View>
                                             
                                         </View>
