@@ -69,6 +69,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             medicineReview: {
                 title: 'PillBox Review'
+            },
+            mail: {
+                title: ''
             }
         },
 

@@ -20,7 +20,7 @@ var medObj = {
     "indication": "",
     "mobileNumber": null,
 }
-class MedConfirmationScreen extends React.Component<MedConfirmationScreenProps, MedConfirmationScreenState> {
+class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirmationScreenState> {
     constructor(props: MedConfirmationScreenProps) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(this.props.data.title))
@@ -155,4 +155,4 @@ const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): MedConfirm
     }
 }
 
-export default connect(mapStatetoProps, mapDispatchToProps)(MedConfirmationScreen)
+export default connect(mapStatetoProps, mapDispatchToProps)(MailScreen)

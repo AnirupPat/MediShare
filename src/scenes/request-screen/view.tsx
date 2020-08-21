@@ -79,7 +79,9 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
     }
 
     handleShare = () => {
-        console.log('shared')
+        this.props.navigation.navigate("mail", {
+            title: ''
+        })
     }
 
     render(): React.ReactNode {
@@ -139,7 +141,7 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                                             <RText>Distance: {donor.item.distance}</RText>
                                             <View style={Styles.requestAction}>
                                             {/* <RButton name={this.props.route.params.title} onPress={() => this.handleShare()} /> */}
-                                            <TouchableOpacity style={Styles.shareBox}>
+                                            <TouchableOpacity style={Styles.shareBox} onPress={() => this.handleShare()}>
                                             <Ionicons style={{marginRight: 5}} name="md-share" size={24} color="black" />
                                             <RText>Share</RText>
                                             </TouchableOpacity>
