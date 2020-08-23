@@ -27,5 +27,6 @@ export type MedicineStateType = {
     medicinePics: MedicinePics[],
     MedConfirm: MedConfirm,
     medicineReview: Medicine[],
-    notifications: Notifications[]
+    notifications: Notifications[],
+    searchMeds: Medicine[]
 }

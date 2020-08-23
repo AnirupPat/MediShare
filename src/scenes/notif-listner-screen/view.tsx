@@ -25,8 +25,11 @@ class NotifListnerScreen extends React.Component<NotifListnerScreenProps, NotifL
 
     render(): React.ReactNode {
         return (
+            
+
+
             <View style={Styles.screen}>
-                <Ionicons name="md-notifications" color="#6e5494" size={70} style={{ marginRight: 15 }} />
+                <Ionicons name="md-notifications" color={this.props.entity !== 'NGO' ? '#6e5494' : 'pink'} size={70} style={{ marginRight: 15 }} />
                 <RText>One or more meds in your pill box are expiring soon. Please review to take action</RText>
                 <RButton name='Review' onPress={() => this.handleMedReview()} />
             </View>
@@ -38,6 +41,7 @@ class NotifListnerScreen extends React.Component<NotifListnerScreenProps, NotifL
 const mapStatetoProps = (state: AppState, localProps: NotifListnerScreenProps): NotifListnerScreenProps => {
     return {
         ...localProps,
+        entity: state.core.coreData.entity
     }
 }
 

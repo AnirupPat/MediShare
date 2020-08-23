@@ -6,7 +6,7 @@ const { height } = Dimensions.get("window");
 export type NotifListnerScreenParamProps = StackScreenProps<MedicineStackNavigationParamsType, 'notifListner'>
 
 export type NotifListnerScreenDataProps = {
-   
+    entity: string
 }
 
 export type NotifListnerScreenState = { 

@@ -41,6 +41,18 @@ const Styles = StyleSheet.create({
         justifyContent: 'center'
 
     },
+
+    header_style2: {
+
+        width: '100%',
+        height: 60,
+        backgroundColor: 'pink',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center'
+
+    },
+
     button: {
         backgroundColor: Colors.primary,
         marginVertical: '5%',

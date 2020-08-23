@@ -88,7 +88,7 @@ export const CoreReduxInitialState: CoreReduxStateType = {
         country: Constants.COUNTRY_CODES.find(country => country.code === Constants.DEFAULT_COUNTRY_CODE)!,
         phoneNumber: "",
         password: "",
-        entity: "",
+        entity: "NGO",
         auth: {
             signedIn: false,
             authnToken: "",

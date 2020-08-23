@@ -93,25 +93,28 @@ class MedicineReviewScreen extends React.Component<MedicineReviewScreenProps, Me
 
         var Sticky_header_View = (
 
+            // <View>
+            //     <View style={Styles.header_style}>
+            //     <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
+            //         <View>
+            //             <Text style={Styles.buttonTextStyle}>Donate</Text>
+            //         </View>
+            //     </TouchableOpacity>
+            //     <TouchableOpacity style={Styles.button}>
+            //         <View>
+            //             <Text style={Styles.buttonTextStyle}>Retain</Text>
+            //         </View>
+            //     </TouchableOpacity>
+            //     <TouchableOpacity style={Styles.button}>
+            //         <View>
+            //             <Text style={Styles.buttonTextStyle}>Discard</Text>
+            //         </View>
+            //     </TouchableOpacity>
+            // </View>
+            // <Text style={Styles.hintText}>** The following Meds will expire soon.</Text>
+            // </View>
             <View>
-                <View style={Styles.header_style}>
-                <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
-                    <View>
-                        <Text style={Styles.buttonTextStyle}>Donate</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={Styles.button}>
-                    <View>
-                        <Text style={Styles.buttonTextStyle}>Retain</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={Styles.button}>
-                    <View>
-                        <Text style={Styles.buttonTextStyle}>Discard</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
-            <Text style={Styles.hintText}>** The following Meds will expire soon.</Text>
+
             </View>
 
         );
@@ -139,8 +142,29 @@ class MedicineReviewScreen extends React.Component<MedicineReviewScreenProps, Me
 
                     }
                     ListHeaderComponent={this.Render_FlatList_Sticky_header}
-                    stickyHeaderIndices={[0]}
+                    // stickyHeaderIndices={[0]}
                 />
+
+<View>
+                <View style={this.props.entity !== 'NGO' ? Styles.header_style : Styles.header_style2}>
+                <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
+                    <View>
+                        <Text style={Styles.buttonTextStyle}>Donate</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={Styles.button}>
+                    <View>
+                        <Text style={Styles.buttonTextStyle}>Retain</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={Styles.button}>
+                    <View>
+                        <Text style={Styles.buttonTextStyle}>Discard</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
+            {/* <Text style={Styles.hintText}>** The following Meds will expire soon.</Text> */}
+            </View>
             </View>
         )
     }
@@ -150,7 +174,8 @@ const mapStatetoProps = (state: AppState, localProps: MedicineReviewScreenProps)
     return {
         ...localProps,
         data: state.medicine.medicines,
-        title: localProps.route.params.title
+        title: localProps.route.params.title,
+        entity: state.core.coreData.entity
     }
 }
 
