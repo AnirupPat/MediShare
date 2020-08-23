@@ -41,43 +41,46 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
         return (
             <ScrollView>
                 {this.props.data.notification.map((notif) => {
-                return (
-                    <View style={Styles.screen}>
-                        <Card key={notif.id}>
-                        <View style={Styles.notifHolder}>
-                            <View style={Styles.notifHeaderContainer}>
-                                <View style={Styles.medicineContainer}>
-                                <RTitleText>{notif.medicine} (Qty: {notif.quantity} )</RTitleText>
+                    return (
+                        <View key={notif.id} style={Styles.screen}>
+                            <Card key={notif.id}>
+                                <View style={Styles.notifHolder}>
+                                    <View style={Styles.notifHeaderContainer}>
+                                        <View style={Styles.medicineContainer}>
+                                            <RTitleText>{notif.medicine} (Qty: {notif.quantity} )</RTitleText>
+                                        </View>
+                                        <View style={Styles.ackContainer}>
+                                            <TouchableOpacity>
+                                                <Feather name="thumbs-up" size={24} color="black" />
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>
+                                    <View style={Styles.requestorContainer}>
+                                        <MaterialIcons style={{ marginRight: 10 }} name="person" size={24} color="black" />
+                                        <Text style={Styles.requestorTextContainer}>
+                                            {notif.requestor}
+
+                                        </Text>
+                                    </View>
+                                    <View style={Styles.requestorContainer}>
+                                        <Entypo style={{ marginRight: 10 }} name="address" size={24} color="black" />
+                                        <Text style={Styles.requestorTextContainer}>
+                                            {notif.address}
+                                        </Text>
+                                    </View>
                                 </View>
-                                <View style={Styles.ackContainer}>
-                                    <TouchableOpacity>
-                                        <Feather name="thumbs-up" size={24} color="black" />
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                            <View style={Styles.requestorContainer}>
-                                <MaterialIcons style={{marginRight: 10}} name="person" size={24} color="black" />
-                                <Text style={Styles.requestorTextContainer}>
-                                {notif.requestor}
-                                    
-                                </Text>
-                            </View>
-                            <View style={Styles.requestorContainer}>
-                            <Entypo style={{marginRight: 10}} name="address" size={24} color="black" />
-                                <Text style={Styles.requestorTextContainer}>
-                                    {notif.address}
-                                </Text>
-                            </View>
+                            </Card>
                         </View>
-                    </Card>
-                    </View>
-                )
-            })}
-            <InsightAllAck
+                    )
+                })}
+                <View style={Styles.mainContainer}>
+                    {/* <RText>Hello</RText> */}
+                <InsightAllAck
                     icon="rocket1"
                     text1={Constants.DEFAULT_TEXT.insightsText1}
                     text2={Constants.DEFAULT_TEXT.insightsText2}
                 />
+                </View>
             </ScrollView>
         )
     }

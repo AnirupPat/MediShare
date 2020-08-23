@@ -50,7 +50,7 @@ const Styles = StyleSheet.create({
 
     button: {
         backgroundColor: Colors.primary,
-        marginVertical: '5%',
+        marginTop: '3%',
 
         marginHorizontal: '10%',
         paddingBottom: '10%',

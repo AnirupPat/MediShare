@@ -4,11 +4,7 @@ import { Colors } from '../../../commons/styles/colors';
 
 export const Styles = StyleSheet.create({
     insightAllAckContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        width: "100%",
-        flexDirection: 'column',
+        textAlign: 'center',
         padding: 30
     },
     mediumText: {

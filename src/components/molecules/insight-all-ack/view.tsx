@@ -17,8 +17,8 @@ export class InsightAllAck extends React.Component<InsightAllAckProps, InsightAl
 
     render(): React.ReactNode {
         return (
-            <View style={Styles.insightAllAckContainer}>
-                <AntDesign name={this.props.icon} size={128} color={Colors.primary} />
+            <View>
+                <AntDesign style={Styles.insightAllAckContainer} name={this.props.icon} size={128} color={Colors.primary} />
                 <Text style={Styles.mediumText}>{this.props.text1}</Text>
                 <Text style={Styles.normalText}>{this.props.text2}</Text>
             </View>
