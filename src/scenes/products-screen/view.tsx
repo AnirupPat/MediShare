@@ -51,11 +51,12 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                         style={{ marginRight: 15 }}
                         size={35}
                     />
-                    <Badge
+                    {this.props.notifCount > 0 ? <Badge
                         status="primary"
-                        value="5"
+                        value={this.props.notifCount}
                         containerStyle={{ marginRight: 12, position: 'absolute', top: -4, right: -4 }}
-                    />
+                    /> : null}
+                    
                 </View>
             ),
             headerLeft: () => (
@@ -250,11 +251,13 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
 }
 
 const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): MedicineScreenProps => {
+    // console.log(state.medicine.notifications.length)
     return {
         ...localProps,
         data: state.medicine.medicines,
         title: localProps.route.params.title,
-        entity: state.core.coreData.entity
+        entity: state.core.coreData.entity,
+        notifCount: state.medicine.notifications.length
     }
 }
 

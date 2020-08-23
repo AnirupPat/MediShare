@@ -9,7 +9,7 @@ export type MedicineScreenDataProps = {
     data: Medicine[],
     title: string,
     entity: string,
-    // searchText: ''
+    notifCount: number
 }
 
 export type MedicineScreenState = {
