@@ -14,10 +14,10 @@ import SlidingUpPanel from 'rn-sliding-up-panel';
 import { LogoImage } from '../../components/molecules/logo-image/view';
 import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Entypo } from '@expo/vector-icons'; 
+import { Entypo } from '@expo/vector-icons';
 import { RButton } from '../../components/atoms/r-button/view';
 import { RText } from '../../components/atoms/r-text/view';
-import { Ionicons } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons';
 
 const { height } = Dimensions.get("window");
 const _draggedValue = new Animated.Value(180);
@@ -105,9 +105,6 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                     <Marker coordinate={{ latitude: 12.9569, longitude: 77.7011 }} />
                 </MapView>
                 <Button title='SHOW LIST' onPress={() => this._panel?.show(360)} />
-                {/* </View> */}
-
-
 
                 <SlidingUpPanel
                     draggableRange={this.state.draggableRange}
@@ -140,29 +137,20 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                                         <View style={Styles.distanceActionBox}>
                                             <RText>Distance: {donor.item.distance}</RText>
                                             <View style={Styles.requestAction}>
-                                            {/* <RButton name={this.props.route.params.title} onPress={() => this.handleShare()} /> */}
-                                            <TouchableOpacity style={Styles.shareBox} onPress={() => this.handleShare()}>
-                                            <Ionicons style={{marginRight: 5}} name="md-share" size={24} color="black" />
-                                            <RText>Share</RText>
-                                            </TouchableOpacity>
-                                            
+                                                <TouchableOpacity style={Styles.shareBox} onPress={() => this.handleShare()}>
+                                                    <Ionicons style={{ marginRight: 5 }} name="md-share" size={24} color="black" />
+                                                    <RText>Share</RText>
+                                                </TouchableOpacity>
                                             </View>
-                                            
                                         </View>
-                                        
                                     </View>
-
                                 }
                                 keyExtractor={(donor) => donor.id.toString()}
                             />
                         </SafeAreaView>
-
-                        {/* <Text style={Styles.text}>Here is the content inside panel</Text>
-                        <Button title='Hide' onPress={() => this._panel?.hide()} /> */}
                     </View>
                 </SlidingUpPanel>
             </View>
-
         )
     }
 }
