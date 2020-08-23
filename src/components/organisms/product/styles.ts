@@ -95,6 +95,7 @@ export const Styles = StyleSheet.create({
       },
       checkbox: {
         alignSelf: "center",
+        width: '5%'
       },
 });
 

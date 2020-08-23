@@ -1,12 +1,12 @@
-export const dialogflowConfig = {
-  "type": "service_account",
-  "project_id": "medisharebot-jlkr",
-  "private_key_id": "7861f6ede0edfdf56bc93a39040e34d774bc17b2",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCa12XouB+3ZD1G\nK6aFrVeorGZruI74NqTmPqnjzTTOE1GDM8tAszks/1BVEVBLtJ28k+bO688F5snN\nyQBvI+S+b05CvRgpTLp36O2PivWx2WNmyPrhXQUZ5ZrxcrSTs6Wj4goitaOBhlmX\n9rXSGTESIIfcgmE87V7546a970WfVd2SmxawHn6oEBcSpCV63L/l1tQXbx0/G2cr\nrjXwBCzXCmGFEH50k8Jc9+oapLurCOwMwpN7hJqTcaj9cE9G0cncKWNVcTTdNFB1\nszurv+9Hsm38h5Pbr6xSBcMCTt698rbeb3QOk1yoOERmPySmc0bAZPX67xReBvDQ\n8+0Mdy9PAgMBAAECggEAPGWGR6cCIAuGZweBtaSui4lrjdr4UVMnMPQCWmvhi/w3\nEEE0p7EAvU99KyFMu6rg1/ysy8to/flOf+lGNRPAFpPd5+RQN1PJbBo8B4CBY3TS\n8/Wy/hLFeZt4u3MtgmtRUcJKh81n0I7yBXdi5meTH2n29IkamqRQJpKoqG9bLdG5\nh74Gmlxy23nc0t97CoZD2WUMBFgyKecar1UGUeuQNWZsZDIcNhXIYb38lcXp6PsX\nBJdM6tGY0i7NxJDEILI/fEIAMPW2/8ZZ3CAt63WM9oXjPvav3vnXVX/CEG4cfVrm\nP7Co1HxnKDIG8E9Mbqg8ICm3l7dMevRDevR595GMcQKBgQDXP8Y3LX0rT9pTiLYE\ngNDrqZAR3QaJZ9LGu1h8Gi0IHuYb8y0+SsrB8i1FhEaEzb/xrYWbgnxaCM2EiSrO\nXlAbSFNdSFpVd4exsIWzSadLfIkSpvKPOAM38JMrovr2KlU+3Xcp8PXBQtWSGghh\n2AGa2z0PWi1rbEM+3s0XYMFluQKBgQC4J+n4WjDzclxRCTN620nnr91P60WhxSUR\nxzu96WjsP4BBvPcGcBY6hBB9l+pPWdCndJNokweYQrNx7CZAXs3FJSGUDohJdy+k\nqfpojQDpSxaDCH3JRFQnZV9T7Eos3FOJLsbptwPZLencSPeDGtPn1nnpcAwTVev4\nDheu/ABBRwKBgBGT+7P12wr2cnXv7C1h963HIyTST/5YpDXmhstbt+G55EDUExXL\nNdOw21GaA8hEpTAvY4HXniAcJ+xy5zQDL7eKqIQtrHLeWA6Cw+hoU2kuumLzj0ty\n35Bp7RrbLHN98Yg4vcqHCwrFUnuj9JtI8Jic3teqHZtwM+2mdEk8dY7BAoGAOrjv\nkLQh299htK18bvayMGER70QUpisZUPv4/uwI+xycp1m8Y58mV255W7MvkjIPqPYx\ncy0/RLwwQGmPIQOaFf1rIa0opFSPKrDRGrmryriY6xuwEJfrRcy7gyVb2cZAFQSH\nhUtIvN45LndOBc5uOAVaRqfmEdxaLHVB9BiDdE0CgYBjbU12NLWNmbD7Xxyh1Zb2\n6G/APvj8bqlz1cUQfL+p/ShYN8Y+COo2lXU65trYD1Hf1Fol8wAf1xGDLp/hqo7M\nj+VjW4V+9zh2x9fteaDSrJ9u5XS0NaMmqSeSh56qfo1PZYVvJFSptgnxPrDvdGbl\nKzXeyn/JGq46hraAJLpihw==\n-----END PRIVATE KEY-----\n",
-  "client_email": "dialogflow-eknvpt@medisharebot-jlkr.iam.gserviceaccount.com",
-  "client_id": "104709551372572439743",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-eknvpt%40medisharebot-jlkr.iam.gserviceaccount.com"
-};
+// export const dialogflowConfig = {
+//   "type": "service_account",
+//   "project_id": "medisharebot-jlkr",
+//   "private_key_id": "7861f6ede0edfdf56bc93a39040e34d774bc17b2",
+//   "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCa12XouB+3ZD1G\nK6aFrVeorGZruI74NqTmPqnjzTTOE1GDM8tAszks/1BVEVBLtJ28k+bO688F5snN\nyQBvI+S+b05CvRgpTLp36O2PivWx2WNmyPrhXQUZ5ZrxcrSTs6Wj4goitaOBhlmX\n9rXSGTESIIfcgmE87V7546a970WfVd2SmxawHn6oEBcSpCV63L/l1tQXbx0/G2cr\nrjXwBCzXCmGFEH50k8Jc9+oapLurCOwMwpN7hJqTcaj9cE9G0cncKWNVcTTdNFB1\nszurv+9Hsm38h5Pbr6xSBcMCTt698rbeb3QOk1yoOERmPySmc0bAZPX67xReBvDQ\n8+0Mdy9PAgMBAAECggEAPGWGR6cCIAuGZweBtaSui4lrjdr4UVMnMPQCWmvhi/w3\nEEE0p7EAvU99KyFMu6rg1/ysy8to/flOf+lGNRPAFpPd5+RQN1PJbBo8B4CBY3TS\n8/Wy/hLFeZt4u3MtgmtRUcJKh81n0I7yBXdi5meTH2n29IkamqRQJpKoqG9bLdG5\nh74Gmlxy23nc0t97CoZD2WUMBFgyKecar1UGUeuQNWZsZDIcNhXIYb38lcXp6PsX\nBJdM6tGY0i7NxJDEILI/fEIAMPW2/8ZZ3CAt63WM9oXjPvav3vnXVX/CEG4cfVrm\nP7Co1HxnKDIG8E9Mbqg8ICm3l7dMevRDevR595GMcQKBgQDXP8Y3LX0rT9pTiLYE\ngNDrqZAR3QaJZ9LGu1h8Gi0IHuYb8y0+SsrB8i1FhEaEzb/xrYWbgnxaCM2EiSrO\nXlAbSFNdSFpVd4exsIWzSadLfIkSpvKPOAM38JMrovr2KlU+3Xcp8PXBQtWSGghh\n2AGa2z0PWi1rbEM+3s0XYMFluQKBgQC4J+n4WjDzclxRCTN620nnr91P60WhxSUR\nxzu96WjsP4BBvPcGcBY6hBB9l+pPWdCndJNokweYQrNx7CZAXs3FJSGUDohJdy+k\nqfpojQDpSxaDCH3JRFQnZV9T7Eos3FOJLsbptwPZLencSPeDGtPn1nnpcAwTVev4\nDheu/ABBRwKBgBGT+7P12wr2cnXv7C1h963HIyTST/5YpDXmhstbt+G55EDUExXL\nNdOw21GaA8hEpTAvY4HXniAcJ+xy5zQDL7eKqIQtrHLeWA6Cw+hoU2kuumLzj0ty\n35Bp7RrbLHN98Yg4vcqHCwrFUnuj9JtI8Jic3teqHZtwM+2mdEk8dY7BAoGAOrjv\nkLQh299htK18bvayMGER70QUpisZUPv4/uwI+xycp1m8Y58mV255W7MvkjIPqPYx\ncy0/RLwwQGmPIQOaFf1rIa0opFSPKrDRGrmryriY6xuwEJfrRcy7gyVb2cZAFQSH\nhUtIvN45LndOBc5uOAVaRqfmEdxaLHVB9BiDdE0CgYBjbU12NLWNmbD7Xxyh1Zb2\n6G/APvj8bqlz1cUQfL+p/ShYN8Y+COo2lXU65trYD1Hf1Fol8wAf1xGDLp/hqo7M\nj+VjW4V+9zh2x9fteaDSrJ9u5XS0NaMmqSeSh56qfo1PZYVvJFSptgnxPrDvdGbl\nKzXeyn/JGq46hraAJLpihw==\n-----END PRIVATE KEY-----\n",
+//   "client_email": "dialogflow-eknvpt@medisharebot-jlkr.iam.gserviceaccount.com",
+//   "client_id": "104709551372572439743",
+//   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+//   "token_uri": "https://oauth2.googleapis.com/token",
+//   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+//   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-eknvpt%40medisharebot-jlkr.iam.gserviceaccount.com"
+// };

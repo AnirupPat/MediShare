@@ -21,7 +21,7 @@ export class Product extends React.Component<ProductProps, ProductState> {
                 {/* <View style={Styles.rightContainer}> */}
                 <View style={Styles.checkboxContainer}>
                     <CheckBox
-                        leftText={"CheckBox"}
+                        // leftText={"CheckBox"}
                         isChecked={this.props.data.fields.selected}
                         onClick={this.props.onClick}
                         style={Styles.checkbox}
