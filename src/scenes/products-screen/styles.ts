@@ -1,8 +1,7 @@
 import { StyleSheet, Platform, Dimensions } from 'react-native';
 import { Colors } from '../../commons/styles';
 import Utils from '../../commons/utils';
-
-const { width, height } = Dimensions.get('window')
+import device from 'react-native-device-detection'
 
 const Styles = StyleSheet.create({
     screen: {
@@ -41,7 +40,7 @@ const Styles = StyleSheet.create({
     header_style2: {
 
         width: '100%',
-        height: 60,
+        height: device.isTablet ? 90 : 60,
         backgroundColor: 'pink',
         display: 'flex',
         flexDirection: 'row',
@@ -59,7 +58,7 @@ const Styles = StyleSheet.create({
         borderRadius: 5
     },
     buttonTextStyle: {
-        fontSize: 18,
+        fontSize: device.isTablet ? 25 : 18,
         color: Colors.secondary,
         alignSelf: 'center',
         fontFamily: Utils.getFontFamily()
