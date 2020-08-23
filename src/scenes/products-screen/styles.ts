@@ -1,6 +1,8 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, Dimensions } from 'react-native';
 import { Colors } from '../../commons/styles';
 import Utils from '../../commons/utils';
+
+const { width, height } = Dimensions.get('window')
 
 const Styles = StyleSheet.create({
     screen: {
@@ -34,7 +36,6 @@ const Styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center'
-
     },
 
     header_style2: {
@@ -45,13 +46,11 @@ const Styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center'
-
     },
 
     button: {
         backgroundColor: Colors.primary,
         marginTop: '3%',
-
         marginHorizontal: '10%',
         paddingBottom: '10%',
         alignItems: 'stretch',
@@ -63,7 +62,7 @@ const Styles = StyleSheet.create({
         fontSize: 18,
         color: Colors.secondary,
         alignSelf: 'center',
-        fontFamily: Utils.getFontFamily(),
+        fontFamily: Utils.getFontFamily()
     },
 })
 
