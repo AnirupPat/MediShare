@@ -112,9 +112,9 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                 <SlidingUpPanel
                     draggableRange={this.state.draggableRange}
                     animatedValue={_draggedValue}
-                    snappingPoints={[360]}
+                    // snappingPoints={[360]}
                     height={height + 180}
-                    friction={0.5}
+                    friction={0.7}
                     ref={c => this._panel = c}>
                     <View style={Styles.container}>
                         <View style={Styles.logoBox}>
