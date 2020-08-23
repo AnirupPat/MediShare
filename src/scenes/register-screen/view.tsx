@@ -26,8 +26,8 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
         super(props)
         this.countrycodes = Constants.COUNTRY_CODES
         this.entity = [
-            {"name": "Individual","code": "I"},
-            {"name": "NGO","code": "N"}
+            {"name": "NGO","code": "N"},
+            {"name": "Individual","code": "I"}
         ]
         this.state = {
             selectedExample: {

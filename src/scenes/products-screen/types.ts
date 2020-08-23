@@ -8,19 +8,22 @@ export type MedicineScreenParamProps = StackScreenProps<MedicineStackNavigationP
 export type MedicineScreenDataProps = {
     data: Medicine[],
     title: string,
-    entity: string
+    entity: string,
+    notifCount: number
 }
 
 export type MedicineScreenState = {
     token: string,
     notification: null,
-    title: 'Hello World',
-    body: 'Say something!',
+    title: string,
+    body: string,
+    searchText: string
 }
 
 export type MedicineScreenDispatchProps = {
     clearMedPics: () => void,
-    setCheckBox: (id: string, value: boolean) => void
+    setCheckBox: (id: string, value: boolean) => void,
+    searchMeds: (text: string) => void
 }
 
 export type MedicineScreenProps =

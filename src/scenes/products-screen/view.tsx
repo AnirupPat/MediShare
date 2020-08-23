@@ -15,14 +15,20 @@ import { Linking } from 'expo';
 import * as Permissions from 'expo-permissions';
 import { Notifications } from 'expo';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { clearMedPics, ProductsActionTypes, setCheckBox } from '../../store/medicines/actions';
+import { clearMedPics, ProductsActionTypes, setCheckBox, searchMeds } from '../../store/medicines/actions';
 import { RButton } from '../../components/atoms/r-button/view';
 
 var med = []
 const MessagesBadge = withBadge(5)(Icon)
 class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreenState> {
     notificationSubscription: any;
-
+    state = {
+        token: '',
+    notification: null,
+    title: 'Hello World',
+    body: 'Say something!',
+    searchText: ''
+    }
     constructor(props: MedicineScreenProps, state: MedicineScreenState) {
         super(props)
         var options = getStackStyles(
@@ -45,11 +51,12 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                         style={{ marginRight: 15 }}
                         size={35}
                     />
-                    <Badge
+                    {this.props.notifCount > 0 ? <Badge
                         status="primary"
-                        value="5"
+                        value={this.props.notifCount}
                         containerStyle={{ marginRight: 12, position: 'absolute', top: -4, right: -4 }}
-                    />
+                    /> : null}
+                    
                 </View>
             ),
             headerLeft: () => (
@@ -84,7 +91,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     async componentDidMount() {
-        // await this.registerForPushNotifications()
+        await this.registerForPushNotifications()
     }
 
     registerForPushNotifications = async () => {
@@ -153,6 +160,12 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
             </View>);
     }
 
+    searchText = (value) => {
+        console.log(value)
+        this.setState({ searchText: value })
+        this.props.searchMeds(value)
+    }
+
     FlatListItemSeparator = () => {
         return (
             <View
@@ -188,10 +201,11 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
             // </View>
             <View style={this.props.entity == 'NGO' ? { display: 'flex' } : { display: 'none' }}>
                 <SearchBar
+                    onChangeText={this.searchText}
+                    value={this.state.searchText}
+                    // onChangeText={(value) => console.log(value)}
                     placeholder="Search your Meds..." />
             </View>
-
-
         );
 
         return Sticky_header_View;
@@ -237,19 +251,21 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
 }
 
 const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): MedicineScreenProps => {
-    console.log(state.core.coreData.entity)
+    // console.log(state.medicine.notifications.length)
     return {
         ...localProps,
         data: state.medicine.medicines,
         title: localProps.route.params.title,
-        entity: state.core.coreData.entity
+        entity: state.core.coreData.entity,
+        notifCount: state.medicine.notifications.length
     }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): MedicineScreenDispatchProps => {
     return {
         clearMedPics: () => dispatch(clearMedPics()),
-        setCheckBox: (id: string, value: boolean) => dispatch(setCheckBox(id, value))
+        setCheckBox: (id: string, value: boolean) => dispatch(setCheckBox(id, value)),
+        searchMeds: (text: string) => dispatch(searchMeds(text))
     }
 }
 

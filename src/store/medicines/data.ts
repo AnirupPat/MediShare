@@ -1,6 +1,6 @@
 import { MedicineStateType } from './types'
 import { DummyData } from '../../models/dummy-data';
-
+import { Medicine } from "../../models/medicines";
 
 export const MedicineInitialState: MedicineStateType = {
     medicines: DummyData.medicine,
@@ -19,5 +19,6 @@ export const MedicineInitialState: MedicineStateType = {
         "indication": '',
         "mobileNumber": null
     },
-    notifications: DummyData.notifications
+    notifications: DummyData.notifications,
+    searchMeds: DummyData.medicine
 }
