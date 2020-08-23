@@ -9,7 +9,13 @@ export const Styles = StyleSheet.create({
     },
     forgotPasswordContainer: {
         padding: 5
-    }
+    },
+    picker: {
+        height: 200,
+        width: "100%",
+        alignSelf: 'stretch',
+        marginBottom: 15
+    },
 })
 
 export default Styles

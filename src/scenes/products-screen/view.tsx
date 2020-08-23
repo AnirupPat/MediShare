@@ -78,7 +78,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     async componentDidMount() {
-        await this.registerForPushNotifications()
+        // await this.registerForPushNotifications()
     }
 
     registerForPushNotifications = async () => {
