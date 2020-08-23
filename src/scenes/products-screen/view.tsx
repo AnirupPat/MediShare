@@ -1,5 +1,5 @@
 import React, { Dispatch } from 'react'
-import { SearchBar, withBadge, Icon } from 'react-native-elements';
+import { SearchBar, withBadge, Icon, Badge } from 'react-native-elements';
 import { ScrollView, View, Dimensions, Text, FlatList, Alert, Platform, CheckBox } from 'react-native'
 import Styles from './styles'
 import { MedicineScreenProps, MedicineScreenState, MedicineScreenDispatchProps } from './types'
@@ -37,16 +37,18 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         options = {
             ...options,
             headerRight: () => (
-                <Ionicons name="md-notifications" style={{ marginRight: 15 }} size={35} color="black"
-                    onPress={this.handleNavigateToNotifications}
-                />
-                // <MessagesBadge
-                //     type="ionicon"
-                //     // style={{ marginRight: 15 }}
-                //     name="md-notifications"
-                //     size={25}
-                // />
-
+                <View>
+                    <Icon
+                        type="ionicon"
+                        name="md-notifications"
+                        style={{ marginRight: 15 }}
+                        size={35}
+                    />
+                    <Badge
+                        value="5"
+                        containerStyle={{ marginRight: 12, position: 'absolute', top: -4, right: -4 }}
+                    />
+                </View>
             ),
             headerLeft: () => (
                 <AntDesign name="plus" style={{ marginLeft: 10 }}

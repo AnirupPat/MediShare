@@ -5,13 +5,8 @@ import { NotificationsScreenProps, NotificationsScreenState, NotificationsScreen
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
-import { Product } from '../../components/organisms/product/view';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { RAntIconButton } from '../../components/atoms/r-ant-icon-button/view';
-import navigations from '../../navigations';
 import { Ionicons, AntDesign, Feather, Entypo, MaterialIcons } from '@expo/vector-icons';
-import { Card } from '@virtuelabs-io/rapido-modules/src/components/atoms/card/view';
-import { RText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-text/view';
+import { Card } from '../../../src/components/atoms/card/view';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
 import { InsightAllAck } from '../../components/molecules/insight-all-ack/view';
@@ -74,7 +69,6 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
                     )
                 })}
                 <View style={Styles.mainContainer}>
-                    {/* <RText>Hello</RText> */}
                 <InsightAllAck
                     icon="rocket1"
                     text1={Constants.DEFAULT_TEXT.insightsText1}

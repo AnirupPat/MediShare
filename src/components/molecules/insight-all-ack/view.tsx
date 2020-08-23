@@ -2,12 +2,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { InsightAllAckProps, InsightAllAckState } from './types';
 import { Styles } from './styles';
-import { OrderStatus } from '../../atoms/order-status/view';
-import { Feather, AntDesign } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import { Colors } from '../../../commons/styles/colors';
-import { RMediumText } from '../../atoms/r-medium-text/view';
-import { RText } from '../../atoms/r-text/view';
-
 
 export class InsightAllAck extends React.Component<InsightAllAckProps, InsightAllAckState> {
 
