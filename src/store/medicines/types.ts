@@ -1,5 +1,6 @@
 import { Medicine } from "../../models/medicines";
 import { DummyData } from "../../models/dummy-data";
+import { Notifications } from "../../models/notifications";
 
 export type MedicineFilters = {
     filterProductCategories: number,
@@ -25,5 +26,6 @@ export type MedicineStateType = {
     ProductsFilters: MedicineFilters,
     medicinePics: MedicinePics[],
     MedConfirm: MedConfirm,
-    medicineReview: Medicine[]
+    medicineReview: Medicine[],
+    notifications: Notifications[]
 }

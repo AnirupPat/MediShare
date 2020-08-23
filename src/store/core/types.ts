@@ -105,6 +105,7 @@ export type CoreReduxStateType = {
         phoneNumber: string
         password: string
         auth: Authentication
+        entity: string
         username: string,
         latitude: number,
         longitude: number,

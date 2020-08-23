@@ -7,7 +7,8 @@ export type MedicineScreenParamProps = StackScreenProps<MedicineStackNavigationP
 
 export type MedicineScreenDataProps = {
     data: Medicine[],
-    title: string
+    title: string,
+    entity: string
 }
 
 export type MedicineScreenState = {

@@ -18,5 +18,6 @@ export const MedicineInitialState: MedicineStateType = {
         "id": null,
         "indication": '',
         "mobileNumber": null
-    }
+    },
+    notifications: DummyData.notifications
 }

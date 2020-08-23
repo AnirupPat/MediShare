@@ -36,19 +36,33 @@ const Styles = StyleSheet.create({
         justifyContent: 'center'
 
     },
+
+    header_style2: {
+
+        width: '100%',
+        height: 60,
+        backgroundColor: 'pink',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center'
+
+    },
+
     button: {
         backgroundColor: Colors.primary,
-        marginVertical: '5%',
+        marginTop: '3%',
+
         marginHorizontal: '10%',
-        paddingVertical: '10%',
-        // width: "100%",
+        paddingBottom: '10%',
+        alignItems: 'stretch',
+        justifyContent: 'center',
         height: "80%",
         borderRadius: 5
     },
     buttonTextStyle: {
-        fontSize: 15,
+        fontSize: 18,
         color: Colors.secondary,
-        textAlign: 'center',
+        alignSelf: 'center',
         fontFamily: Utils.getFontFamily(),
     },
 })

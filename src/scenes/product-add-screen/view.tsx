@@ -182,7 +182,7 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
                         </View>
                     </Card>
                     <Text style={Styles.hintFont}>** Add images of both sides of the medicine and 
-                    let the AI engine detect the Medicine details for you</Text>
+                    let the Dawaai AI detect the Medicine details for you</Text>
                     {this.props.image2.length > 1 ? 
                         <RButton name="Submit" onPress={() => this.handleIntelligentMac()} />
                         : null

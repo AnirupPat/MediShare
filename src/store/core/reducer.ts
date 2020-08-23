@@ -1,5 +1,5 @@
 import { CoreReduxStateType } from './types'
-import { SET_PHONE_NUMBER, SET_COUNTRY, CoreActionTypes, USER_SIGNED_IN, USER_SIGNED_OUT, SET_PASSWORD, SET_NEW_PASSWORD, SET_OTP, GEO_LOCATION, LOCATION } from './actions';
+import { SET_PHONE_NUMBER, SET_ENTITY, SET_COUNTRY, CoreActionTypes, USER_SIGNED_IN, USER_SIGNED_OUT, SET_PASSWORD, SET_NEW_PASSWORD, SET_OTP, GEO_LOCATION, LOCATION } from './actions';
 import Constants from '../../commons/constants';
 import { Country } from '../../models/country';
 import { CoreReduxInitialState } from './data'
@@ -121,6 +121,16 @@ const updateLocation = (state: CoreReduxStateType, location: string): CoreReduxS
     }
 }
 
+const setEntity = (state: CoreReduxStateType, entity: string): CoreReduxStateType => {
+    return {
+        ...state,
+        coreData: {
+            ...state.coreData,
+            entity
+        }
+    }
+}
+
 export const coreReducer = (state = CoreReduxInitialState, action: CoreActionTypes): CoreReduxStateType => {
     switch (action.type) {
         case USER_SIGNED_IN:
@@ -141,6 +151,8 @@ export const coreReducer = (state = CoreReduxInitialState, action: CoreActionTyp
             return updateGeoLocation(state, action.latitude, action.longitude)
         case LOCATION:
             return updateLocation(state, action.location)
+        case SET_ENTITY:
+            return setEntity(state, action.entity)
         default:
             return state
     }

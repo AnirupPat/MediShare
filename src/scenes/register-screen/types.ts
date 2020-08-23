@@ -15,6 +15,7 @@ export type RegisterScreenParamProps = StackScreenProps<AuthStackNavigationParam
 export type RegisterScreenDataProps = {
     data: {
         country: Country
+        entity: string
         phoneNumber: string
         password: string,
         location: string,
@@ -34,6 +35,7 @@ export type RegisterScreenState = {
 
 export type RegisterDetailsDispatchProps = {
     signInUser: () => void
+    setEntity: (entity: string) => void
     setPhoneNumber: (phoneNumber: string) => void
     setPassword: (password: string) => void
     setCountry: (countryCode: string) => void

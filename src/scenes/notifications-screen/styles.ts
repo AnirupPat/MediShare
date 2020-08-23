@@ -2,6 +2,13 @@ import { StyleSheet } from 'react-native';
 import Utils from '../../commons/utils';
 
 const Styles = StyleSheet.create({
+    mainContainer: {
+        // display: 'flex',
+        width: '100%',
+        alignContent: 'stretch',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     screen: {
         marginHorizontal: '3%'
     },

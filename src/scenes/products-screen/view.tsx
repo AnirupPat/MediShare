@@ -1,4 +1,5 @@
 import React, { Dispatch } from 'react'
+import { SearchBar, withBadge, Icon, Badge } from 'react-native-elements';
 import { ScrollView, View, Dimensions, Text, FlatList, Alert, Platform, CheckBox } from 'react-native'
 import Styles from './styles'
 import { MedicineScreenProps, MedicineScreenState, MedicineScreenDispatchProps } from './types'
@@ -18,17 +19,12 @@ import { clearMedPics, ProductsActionTypes, setCheckBox } from '../../store/medi
 import { RButton } from '../../components/atoms/r-button/view';
 
 var med = []
+const MessagesBadge = withBadge(5)(Icon)
 class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreenState> {
     notificationSubscription: any;
 
     constructor(props: MedicineScreenProps, state: MedicineScreenState) {
         super(props)
-        // this.state = {
-        //     token: null,
-        //     notification: null,
-        //     title: 'Hello World',
-        //     body: 'Say something!',
-        //   };
         var options = getStackStyles(
             this.props.title,
             "plus",
@@ -36,20 +32,30 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                 this.props.navigation.navigate("medicineAdd", {
                     title: "New Medicine"
                 })
-                //  this.handleNavigateToNewProduct()
             }
         )
         options = {
             ...options,
             headerRight: () => (
-                <Ionicons name="md-notifications" style={{ marginRight: 15 }} size={28} color="black"
-                    onPress={this.handleNavigateToNotifications}
-                />
+                <View>
+                    <Icon
+                        onPress={this.handleNavigateToNotifications}
+                        type="ionicon"
+                        name="md-notifications"
+                        style={{ marginRight: 15 }}
+                        size={35}
+                    />
+                    <Badge
+                        status="primary"
+                        value="5"
+                        containerStyle={{ marginRight: 12, position: 'absolute', top: -4, right: -4 }}
+                    />
+                </View>
             ),
             headerLeft: () => (
                 <AntDesign name="plus" style={{ marginLeft: 10 }}
                     onPress={this.handleNavigateToNewProduct}
-                    size={28} color="black" />
+                    size={35} color="black" />
             )
         }
         this.props.navigation.setOptions(options)
@@ -78,7 +84,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     async componentDidMount() {
-        await this.registerForPushNotifications()
+        // await this.registerForPushNotifications()
     }
 
     registerForPushNotifications = async () => {
@@ -137,7 +143,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         // this.setState({
         //     notification,
         // });
-        
+
     };
 
     footer = () => {
@@ -163,23 +169,28 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
 
         var Sticky_header_View = (
 
-            <View style={Styles.header_style}>
-                <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
-                    <View>
-                        <Text style={Styles.buttonTextStyle}>Donate</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={Styles.button}>
-                    <View>
-                        <Text style={Styles.buttonTextStyle}>Retain</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={Styles.button}>
-                    <View>
-                        <Text style={Styles.buttonTextStyle}>Discard</Text>
-                    </View>
-                </TouchableOpacity>
+            // <View style={this.props.entity !== 'NGO' ? Styles.header_style: Styles.header_style2}>
+            //     <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
+            //         <View>
+            //             <Text style={Styles.buttonTextStyle}>Donate</Text>
+            //         </View>
+            //     </TouchableOpacity>
+            //     <TouchableOpacity style={Styles.button}>
+            //         <View>
+            //             <Text style={Styles.buttonTextStyle}>Retain</Text>
+            //         </View>
+            //     </TouchableOpacity>
+            //     <TouchableOpacity style={Styles.button}>
+            //         <View>
+            //             <Text style={Styles.buttonTextStyle}>Discard</Text>
+            //         </View>
+            //     </TouchableOpacity>
+            // </View>
+            <View style={this.props.entity == 'NGO' ? { display: 'flex' } : { display: 'none' }}>
+                <SearchBar
+                    placeholder="Search your Meds..." />
             </View>
+
 
         );
 
@@ -194,26 +205,44 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                     keyExtractor={item => item.id.toString()}
                     data={this.props.data}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
-                    renderItem={(product) => 
-                    <Product 
-                        data={product.item} 
-                        // onPress={this.handleNavigateToDetail.bind(this, product.item.id)}
-                        onPress={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
-                        onClick={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
-                    />}
+                    renderItem={(product) =>
+                        <Product
+                            data={product.item}
+                            onPress={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
+                            onClick={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
+                        />}
                     ListHeaderComponent={this.Render_FlatList_Sticky_header}
-                    stickyHeaderIndices={[0]}
+                // stickyHeaderIndices={[0]}
                 />
+                <View style={this.props.entity !== 'NGO' ? Styles.header_style : Styles.header_style2}>
+                    <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
+                        <View>
+                            <Text style={Styles.buttonTextStyle}>Donate</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={Styles.button}>
+                        <View>
+                            <Text style={Styles.buttonTextStyle}>Retain</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={Styles.button}>
+                        <View>
+                            <Text style={Styles.buttonTextStyle}>Discard</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
 }
 
 const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): MedicineScreenProps => {
+    console.log(state.core.coreData.entity)
     return {
         ...localProps,
         data: state.medicine.medicines,
-        title: localProps.route.params.title
+        title: localProps.route.params.title,
+        entity: state.core.coreData.entity
     }
 }
 

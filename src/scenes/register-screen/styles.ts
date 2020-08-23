@@ -9,6 +9,16 @@ export const Styles = StyleSheet.create({
     },
     forgotPasswordContainer: {
         padding: 5
+    },
+    picker: {
+        width: "70%",
+        alignSelf: 'flex-end'
+    },
+    entityBox: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: 50,
+        height: 120
     }
 })
 

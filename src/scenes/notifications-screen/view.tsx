@@ -5,17 +5,13 @@ import { NotificationsScreenProps, NotificationsScreenState, NotificationsScreen
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
-import { Product } from '../../components/organisms/product/view';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { RAntIconButton } from '../../components/atoms/r-ant-icon-button/view';
-import navigations from '../../navigations';
-import { Ionicons, AntDesign, Feather, Entypo, MaterialIcons } from '@expo/vector-icons';
-import { Card } from '@virtuelabs-io/rapido-modules/src/components/atoms/card/view';
-import { RText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-text/view';
+import { Ionicons, AntDesign, Feather, Entypo, MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { Card } from '../../../src/components/atoms/card/view';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
 import { InsightAllAck } from '../../components/molecules/insight-all-ack/view';
 import Constants from '../../commons/constants';
+import { clearNotif, ProductsActionTypes } from '../../store/medicines/actions';
 
 
 class NotificationsScreen extends React.Component<NotificationsScreenProps, NotificationsScreenState> {
@@ -41,43 +37,40 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
         return (
             <ScrollView>
                 {this.props.data.notification.map((notif) => {
-                return (
-                    <View style={Styles.screen}>
-                        <Card key={notif.id}>
-                        <View style={Styles.notifHolder}>
-                            <View style={Styles.notifHeaderContainer}>
-                                <View style={Styles.medicineContainer}>
-                                <RTitleText>{notif.medicine} (Qty: {notif.quantity} )</RTitleText>
+                    return (
+                        <View key={notif.id} style={Styles.screen}>
+                            <Card key={notif.id}>
+                                <View style={Styles.notifHolder}>
+                                    <View style={Styles.notifHeaderContainer}>
+                                        <View style={Styles.medicineContainer}>
+                                            <RTitleText>{notif.medicine} (Qty: {notif.quantity} )</RTitleText>
+                                        </View>
+                                        <View style={Styles.ackContainer}>
+                                            <TouchableOpacity onPress={() => this.props.clearNotif(notif.id)}>
+                                                <Feather name="thumbs-up" size={24} color="black" />
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>
+                                    <View style={Styles.requestorContainer}>
+                                        {/* <MaterialIcons style={{ marginRight: 10 }} name="person" size={24} color="black" /> */}
+                                        <FontAwesome style={{ marginRight: 10 }} name="calendar" size={24} color="black" />
+                                        <Text style={Styles.requestorTextContainer}>
+                                            {notif.expiryDate}
+
+                                        </Text>
+                                    </View>
                                 </View>
-                                <View style={Styles.ackContainer}>
-                                    <TouchableOpacity>
-                                        <Feather name="thumbs-up" size={24} color="black" />
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                            <View style={Styles.requestorContainer}>
-                                <MaterialIcons style={{marginRight: 10}} name="person" size={24} color="black" />
-                                <Text style={Styles.requestorTextContainer}>
-                                {notif.requestor}
-                                    
-                                </Text>
-                            </View>
-                            <View style={Styles.requestorContainer}>
-                            <Entypo style={{marginRight: 10}} name="address" size={24} color="black" />
-                                <Text style={Styles.requestorTextContainer}>
-                                    {notif.address}
-                                </Text>
-                            </View>
+                            </Card>
                         </View>
-                    </Card>
-                    </View>
-                )
-            })}
-            <InsightAllAck
+                    )
+                })}
+                <View style={Styles.mainContainer}>
+                <InsightAllAck
                     icon="rocket1"
                     text1={Constants.DEFAULT_TEXT.insightsText1}
                     text2={Constants.DEFAULT_TEXT.insightsText2}
                 />
+                </View>
             </ScrollView>
         )
     }
@@ -87,15 +80,15 @@ const mapStatetoProps = (state: AppState, localProps: NotificationsScreenProps):
     return {
         ...localProps,
         data: {
-            notification: require('../../assets/data/notifications.json')
+            notification: state.medicine.notifications
         },
         title: localProps.route.params.title
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): NotificationsScreenDispatchProps => {
+const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): NotificationsScreenDispatchProps => {
     return {
-
+        clearNotif: (id: string) => dispatch(clearNotif(id))
     }
 }
 

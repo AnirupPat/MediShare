@@ -15,7 +15,7 @@ export type NotificationsScreenDataProps = {
 export type NotificationsScreenState = { }
 
 export type NotificationsScreenDispatchProps = {
-    
+    clearNotif: (id: string) => void
  }
 
 export type NotificationsScreenProps =
