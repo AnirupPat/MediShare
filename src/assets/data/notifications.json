@@ -1,10 +1,20 @@
 [   
-    
     {
-        "id": "N0002",
-        "requestor": "Anirup Patnaik",
+        "id": "N0001",
         "medicine": "Brufen",
         "quantity": 3,
-        "address": "B-104, Euphoria Corporate Leisure Apartment, Bellandur, Bangalore"
+        "expiryDate": "Expires in 3 months"
+    },
+    {
+        "id": "N0002",
+        "medicine": "Dolo 650",
+        "quantity": 20,
+        "expiryDate": "Expires in 2 months"
+    },
+    {
+        "id": "N0003",
+        "medicine": "Limcee",
+        "quantity": 15,
+        "expiryDate": "Expires in 3 months"
     }
 ]

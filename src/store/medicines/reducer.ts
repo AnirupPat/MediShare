@@ -1,4 +1,4 @@
-import { ProductsActionTypes, SET_MED, SET_CHECKBOX, CLEAR_MED_PICS, SET_MED_CONFIRM, GET_MEDICINE_PICS, SET_ALL_PRODUCT_HEADERS, SET_MEDICINE_PICS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY, SET_PRODUCT_CATEGORY_FILTER, SET_FILTERS, SET_SKU_NUMBER_FILTERS } from './actions';
+import { ProductsActionTypes, CLEAR_NOTIF, SET_MED, SET_CHECKBOX, CLEAR_MED_PICS, SET_MED_CONFIRM, GET_MEDICINE_PICS, SET_ALL_PRODUCT_HEADERS, SET_MEDICINE_PICS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY, SET_PRODUCT_CATEGORY_FILTER, SET_FILTERS, SET_SKU_NUMBER_FILTERS } from './actions';
 import { MedicineInitialState } from './data'
 import { MedicineStateType, MedicineFilters, MedConfirm } from './types';
 import { DummyData } from '../../models/dummy-data';
@@ -82,6 +82,14 @@ const setMedicine = (state: MedicineStateType, medDetails: Medicine): MedicineSt
     }
 }
 
+const clearNotif = (state: MedicineStateType, id: string): MedicineStateType => {
+    console.log(id)
+    return {
+        ...state,
+        notifications: state.notifications.filter((notif) => id != notif.id)
+    }
+}
+
 export const MedicineReducer = (state = MedicineInitialState, action: ProductsActionTypes): MedicineStateType => {
     switch (action.type) {
         case SET_ALL_PRODUCT_HEADERS:
@@ -102,6 +110,8 @@ export const MedicineReducer = (state = MedicineInitialState, action: ProductsAc
                 return setCheckBox(state, action.id, action.value)
             case SET_MED:
                 return setMedicine(state, action.medDetails)
+            case CLEAR_NOTIF:
+                return clearNotif(state, action.id)
         default:
             return state
     }

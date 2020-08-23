@@ -15,6 +15,7 @@ export const GET_MED_CONFIRM = 'GET_MED_CONFIRM'
 export const SET_MED_CONFIRM = 'SET_MED_CONFIRM'
 export const CLEAR_MED_PICS = 'CLEAR_MED_PICS'
 export const SET_CHECKBOX = 'SET_CHECKBOX'
+export const CLEAR_NOTIF = 'CLEAR_NOTIF'
 export const  SET_MED = 'SET_MED'
 
 export interface SetAllProductHeaders {
@@ -87,6 +88,18 @@ export interface setCheckBox {
 export interface setMedicine {
     type: typeof SET_MED,
     medDetails: Medicine
+}
+
+export interface clearNotif {
+    type: typeof CLEAR_NOTIF,
+    id: string
+}
+
+export const clearNotif = (id: string): ProductsActionTypes => {
+    return {
+        type: CLEAR_NOTIF,
+        id
+    }
 }
 
 export const setMedicine = (medDetails: Medicine): ProductsActionTypes => {
@@ -202,3 +215,4 @@ export type ProductsActionTypes =
     | clearMedPics
     | setCheckBox
     | setMedicine
+    | clearNotif

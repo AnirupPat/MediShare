@@ -39,12 +39,14 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
             headerRight: () => (
                 <View>
                     <Icon
+                        onPress={this.handleNavigateToNotifications}
                         type="ionicon"
                         name="md-notifications"
                         style={{ marginRight: 15 }}
                         size={35}
                     />
                     <Badge
+                        status="primary"
                         value="5"
                         containerStyle={{ marginRight: 12, position: 'absolute', top: -4, right: -4 }}
                     />
