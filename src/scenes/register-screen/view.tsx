@@ -112,16 +112,6 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
                                 setPhoneNumber: this.props.setPhoneNumber
                             }}
                         />
-                        <Picker
-                        selectedValue={this.props.data.entity}
-                        onValueChange={(value) => this.props.setEntity(value)}
-                        style={Styles.picker}>
-                        {this.entity.map(item => {
-                            return (
-                                <Picker.Item key={item.code} label={item.name} value={item.name} />
-                            )
-                        })}
-                    </Picker>
                         <PasswordInput
                             data={{
                                 password: this.props.data.password,
@@ -140,6 +130,22 @@ class RegisterScreen extends React.Component<RegisterScreenProps, RegisterScreen
                                 setPassword: this.props.setPassword
                             }}
                         />
+                        <View style={Styles.entityBox}>
+                            <View style={{width: '30%'}}>
+                            <RText>Entity</RText>
+                            </View>
+                        
+                        <Picker
+                        selectedValue={this.props.data.entity}
+                        onValueChange={(value) => this.props.setEntity(value)}
+                        style={Styles.picker}>
+                        {this.entity.map(item => {
+                            return (
+                                <Picker.Item key={item.code} label={item.name} value={item.name} />
+                            )
+                        })}
+                    </Picker>
+                        </View>
                         <RButton name="Proceed" onPress={this.handleVerifyUser} />
                     </Card>
                 </KeyboardAvoidingView>

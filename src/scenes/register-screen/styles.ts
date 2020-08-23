@@ -11,11 +11,15 @@ export const Styles = StyleSheet.create({
         padding: 5
     },
     picker: {
-        height: 200,
-        width: "100%",
-        alignSelf: 'stretch',
-        marginBottom: 15
+        width: "70%",
+        alignSelf: 'flex-end'
     },
+    entityBox: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: 50,
+        height: 120
+    }
 })
 
 export default Styles
