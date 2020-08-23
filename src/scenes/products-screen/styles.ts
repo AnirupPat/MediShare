@@ -30,7 +30,7 @@ const Styles = StyleSheet.create({
     header_style: {
 
         width: '100%',
-        height: 60,
+        height: device.isTablet ? 90 : 60,
         backgroundColor: '#6e5494',
         display: 'flex',
         flexDirection: 'row',
