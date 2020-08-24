@@ -10,12 +10,12 @@ import { Product } from '../../components/organisms/product/view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RAntIconButton } from '../../components/atoms/r-ant-icon-button/view';
 import navigations from '../../navigations';
-import { Ionicons, AntDesign } from '@expo/vector-icons';
+import { Ionicons, AntDesign, MaterialIcons, FontAwesome } from '@expo/vector-icons';
 import { Linking } from 'expo';
 import * as Permissions from 'expo-permissions';
 import { Notifications } from 'expo';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { clearMedPics, ProductsActionTypes, setCheckBox, searchMeds } from '../../store/medicines/actions';
+import { clearMedPics, ProductsActionTypes, setCheckBox, searchMeds, reduceMedCount } from '../../store/medicines/actions';
 import { RButton } from '../../components/atoms/r-button/view';
 
 var med = []
@@ -24,10 +24,10 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     notificationSubscription: any;
     state = {
         token: '',
-    notification: null,
-    title: 'Hello World',
-    body: 'Say something!',
-    searchText: ''
+        notification: null,
+        title: 'Hello World',
+        body: 'Say something!',
+        searchText: ''
     }
     constructor(props: MedicineScreenProps, state: MedicineScreenState) {
         super(props)
@@ -56,7 +56,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                         value={this.props.notifCount}
                         containerStyle={{ marginRight: 12, position: 'absolute', top: -4, right: -4 }}
                     /> : null}
-                    
+
                 </View>
             ),
             headerLeft: () => (
@@ -90,8 +90,12 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         this.props.setCheckBox(id.toString(), !value)
     }
 
+    handleOnDelete = (id: number) => {
+        this.props.reduceMedCount(id.toString())
+    }
+
     async componentDidMount() {
-        await this.registerForPushNotifications()
+        // await this.registerForPushNotifications()
     }
 
     registerForPushNotifications = async () => {
@@ -121,6 +125,10 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         this.props.navigation.navigate("request", {
             title: "Donors"
         })
+    }
+
+    handleDiscardAction = () => {
+        
     }
 
     sendPushNotification(token) {
@@ -222,6 +230,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                     renderItem={(product) =>
                         <Product
                             data={product.item}
+                            onDelete={this.handleOnDelete.bind(this, product.item.id)}
                             onPress={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
                             onClick={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
                         />}
@@ -230,18 +239,21 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                 />
                 <View style={this.props.entity !== 'NGO' ? Styles.header_style : Styles.header_style2}>
                     <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
-                        <View>
+                        <View style={{ display: 'flex', flexDirection: 'row' }}>
                             <Text style={Styles.buttonTextStyle}>Donate</Text>
+                            <FontAwesome style={Styles.buttonIconSeparator} name="share-alt" size={24} color="white" />
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={Styles.button}>
-                        <View>
+                        <View style={{ display: 'flex', flexDirection: 'row' }}>
                             <Text style={Styles.buttonTextStyle}>Retain</Text>
+                            <AntDesign style={Styles.buttonIconSeparator} name="CodeSandbox" size={24} color="white" />
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={Styles.button}>
-                        <View>
+                    <TouchableOpacity style={Styles.button} onPress={this.handleDiscardAction}>
+                        <View style={{ display: 'flex', flexDirection: 'row' }}>
                             <Text style={Styles.buttonTextStyle}>Discard</Text>
+                            <MaterialIcons style={Styles.buttonIconSeparator} name="delete" size={24} color="white" />
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -265,7 +277,8 @@ const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): MedicineSc
     return {
         clearMedPics: () => dispatch(clearMedPics()),
         setCheckBox: (id: string, value: boolean) => dispatch(setCheckBox(id, value)),
-        searchMeds: (text: string) => dispatch(searchMeds(text))
+        searchMeds: (text: string) => dispatch(searchMeds(text)),
+        reduceMedCount: (key: string) => dispatch(reduceMedCount(key))
     }
 }
 

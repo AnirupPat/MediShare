@@ -5,14 +5,17 @@ import { Styles } from './styles';
 import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
 import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { AntDesign } from '@expo/vector-icons';
-import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome, AntDesign } from '@expo/vector-icons';
 import { RText } from '../../atoms/r-text/view';
 import CheckBox from 'react-native-check-box';
 
 export class Product extends React.Component<ProductProps, ProductState> {
     constructor(props: ProductProps) {
         super(props)
+    }
+
+    handleConsumption = (key) => {
+        console.log(key)
     }
 
     render(): React.ReactNode {
@@ -49,6 +52,16 @@ export class Product extends React.Component<ProductProps, ProductState> {
                     </View>
                     <View style={Styles.orderNumberContainer}>
                         <RText> {this.props.data.fields.notes}</RText>
+                    </View>
+                    <View style={Styles.buttonStack}>
+                        <TouchableOpacity onPress={this.props.onDelete}>
+                        <AntDesign style={Styles.iconSeparator} name="minuscircle" size={24} color="#8B0000" />
+                        </TouchableOpacity>
+                        <MaterialIcons style={Styles.iconSeparator} name="delete" size={24} color="black" />
+                        <AntDesign style={Styles.iconSeparator} name="CodeSandbox" size={24} color="black" />
+                        <FontAwesome style={Styles.iconSeparator} name="share-alt" size={24} color="black" />
+
+
                     </View>
                 </View>
             </TouchableOpacity>

@@ -23,7 +23,8 @@ export type MedicineScreenState = {
 export type MedicineScreenDispatchProps = {
     clearMedPics: () => void,
     setCheckBox: (id: string, value: boolean) => void,
-    searchMeds: (text: string) => void
+    searchMeds: (text: string) => void,
+    reduceMedCount: (key: string) => void
 }
 
 export type MedicineScreenProps =

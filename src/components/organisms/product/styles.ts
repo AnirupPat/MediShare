@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 
 export const Styles = StyleSheet.create({
-	orderContainer: {
+    orderContainer: {
         flexWrap: 'nowrap',
         flexDirection: 'row',
         width: "100%",
@@ -64,14 +64,14 @@ export const Styles = StyleSheet.create({
     },
     delete: {
         marginLeft: 10,
-        
+
     },
     deleteBox: {
-         width: '20%',
+        width: '20%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'flex-end' 
+        justifyContent: 'flex-end'
     },
     medicineNameBox: {
         width: '80%',
@@ -92,11 +92,19 @@ export const Styles = StyleSheet.create({
     checkboxContainer: {
         flexDirection: "row",
         marginBottom: 20,
-      },
-      checkbox: {
+    },
+    checkbox: {
         alignSelf: "center",
         width: '5%'
-      },
+    },
+    buttonStack: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignSelf: 'stretch'
+    },
+    iconSeparator: {
+        marginHorizontal: '1%'
+    }
 });
 
 export default Styles
