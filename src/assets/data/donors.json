@@ -9,18 +9,18 @@
     },
     {
         "id": "P003",
-        "name": "Rescue Foundation",
+        "name": "Apollo Pharmacy",
         "status": "Verified",
         "donationPoints": 1000,
         "distance": "4.3 km",
-        "address": "15, Cock Burn Rd, Sulthangunta, Shivaji Nagar, Bengaluru, Karnataka 560051"
+        "address": "Laxman Reddy Building, No 56, DB Halli, Bellandur, Bengaluru, Karnataka 560103"
     },
     {
         "id": "P002",
-        "name": "Child In Need Institute",
+        "name": "Sakra World Hospital",
         "status": "Verified",
         "donationPoints": 420,
         "distance": "6 km",
-        "address": "1st Block, Siddapura, Jayanagar, Bengaluru, Karnataka 560029"
+        "address": "SY NO 52/2 & 52/3, Devarabeesanahalli, Varthur Hobli Opp Intel, Outer Ring Rd, Marathahalli, Bengaluru, Karnataka 560103"
     }
 ]

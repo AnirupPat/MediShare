@@ -10,7 +10,7 @@ import { Product } from '../../components/organisms/product/view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RAntIconButton } from '../../components/atoms/r-ant-icon-button/view';
 import navigations from '../../navigations';
-import { Ionicons, AntDesign, MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { Ionicons, AntDesign, MaterialIcons, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { Linking } from 'expo';
 import * as Permissions from 'expo-permissions';
 import { Notifications } from 'expo';
@@ -240,7 +240,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                 <View style={this.props.entity !== 'NGO' ? Styles.header_style : Styles.header_style2}>
                     <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
                         <View style={{ display: 'flex', flexDirection: 'column', marginVertical: '5%' }}>
-                            <FontAwesome style={Styles.buttonIconSeparator} name="share-alt" size={24} color="white" />
+                            <FontAwesome5 name="hand-holding-heart" style={Styles.buttonIconSeparator}  size={24} color="white" />
                             <Text style={Styles.buttonTextStyle}>Donate</Text>
                         </View>
                     </TouchableOpacity>

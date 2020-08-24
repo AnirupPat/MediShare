@@ -34,7 +34,8 @@ const Styles = StyleSheet.create({
         backgroundColor: '#6e5494',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        paddingHorizontal: '20%'
     },
 
     header_style2: {
@@ -55,6 +56,7 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         height: "80%",
+        width: '90%',
         borderRadius: 5,
         paddingVertical: '12%'
     },
