@@ -45,8 +45,10 @@ const Styles = StyleSheet.create({
     requestorTextContainer: {
         fontFamily: Utils.getFontFamily(),
         fontSize: 18,
+    },
+    buttonIconSeparator: {
+        margin: '5%'
     }
-   
 })
 
 export default Styles

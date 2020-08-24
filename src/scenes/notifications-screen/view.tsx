@@ -33,6 +33,12 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
 
     }
 
+    handleDonate = () => {
+        this.props.navigation.navigate("request", {
+            title: "Donors"
+        })
+    }
+
     render(): React.ReactNode {
         return (
             <ScrollView>
@@ -46,8 +52,14 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
                                             <RTitleText>{notif.medicine} (Qty: {notif.quantity} )</RTitleText>
                                         </View>
                                         <View style={Styles.ackContainer}>
+                                            <TouchableOpacity onPress={() => this.handleDonate()}>
+                                                <FontAwesome style={Styles.buttonIconSeparator} name="share-alt" size={30} color="black" />
+                                            </TouchableOpacity>
                                             <TouchableOpacity onPress={() => this.props.clearNotif(notif.id)}>
-                                                <Feather name="thumbs-up" size={24} color="black" />
+                                                <AntDesign style={Styles.buttonIconSeparator} name="CodeSandbox" size={30} color="black" />
+                                            </TouchableOpacity>
+                                            <TouchableOpacity>
+                                                <MaterialIcons style={Styles.buttonIconSeparator} name="delete" size={30} color="black" />
                                             </TouchableOpacity>
                                         </View>
                                     </View>
@@ -56,7 +68,6 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
                                         <FontAwesome style={{ marginRight: 10 }} name="calendar" size={24} color="black" />
                                         <Text style={Styles.requestorTextContainer}>
                                             {notif.expiryDate}
-
                                         </Text>
                                     </View>
                                 </View>
@@ -65,11 +76,11 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
                     )
                 })}
                 <View style={Styles.mainContainer}>
-                <InsightAllAck
-                    icon="rocket1"
-                    text1={Constants.DEFAULT_TEXT.insightsText1}
-                    text2={Constants.DEFAULT_TEXT.insightsText2}
-                />
+                    <InsightAllAck
+                        icon="rocket1"
+                        text1={Constants.DEFAULT_TEXT.insightsText1}
+                        text2={Constants.DEFAULT_TEXT.insightsText2}
+                    />
                 </View>
             </ScrollView>
         )
