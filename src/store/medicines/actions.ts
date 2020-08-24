@@ -18,6 +18,7 @@ export const SET_CHECKBOX = 'SET_CHECKBOX'
 export const CLEAR_NOTIF = 'CLEAR_NOTIF'
 export const  SET_MED = 'SET_MED'
 export const SEARCH_MEDS = 'SEARCH_MEDS'
+export const REDUCE_MED_COUNT = 'REDUCE_MED_COUNT'
 
 export interface SetAllProductHeaders {
     type: typeof SET_ALL_PRODUCT_HEADERS
@@ -99,6 +100,18 @@ export interface clearNotif {
 export interface searchMeds {
     type: typeof SEARCH_MEDS,
     text: string
+}
+
+export interface reduceMedCount {
+    type: typeof REDUCE_MED_COUNT,
+    key: string
+}
+
+export const reduceMedCount = (key: string): ProductsActionTypes => {
+    return {
+        type: REDUCE_MED_COUNT,
+        key
+    }
 }
 
 export const searchMeds = (text: string): ProductsActionTypes => {
@@ -230,3 +243,4 @@ export type ProductsActionTypes =
     | setMedicine
     | clearNotif
     | searchMeds
+    | reduceMedCount
