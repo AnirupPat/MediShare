@@ -47,7 +47,7 @@ const Styles = StyleSheet.create({
         fontSize: 18,
     },
     buttonIconSeparator: {
-        margin: '5%'
+        margin: '4%'
     }
 })
 

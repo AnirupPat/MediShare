@@ -5,7 +5,7 @@ import { NotificationsScreenProps, NotificationsScreenState, NotificationsScreen
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { getStackStyles } from '../../commons/styles/stack-style-constants';
-import { Ionicons, AntDesign, Feather, Entypo, MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { Ionicons, AntDesign, Feather, Entypo, MaterialIcons, FontAwesome5, FontAwesome  } from '@expo/vector-icons';
 import { Card } from '../../../src/components/atoms/card/view';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
@@ -53,7 +53,7 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
                                         </View>
                                         <View style={Styles.ackContainer}>
                                             <TouchableOpacity onPress={() => this.handleDonate()}>
-                                                <FontAwesome style={Styles.buttonIconSeparator} name="share-alt" size={30} color="black" />
+                                                <FontAwesome5 name="hand-holding-heart" style={Styles.buttonIconSeparator} size={30} color="black" />
                                             </TouchableOpacity>
                                             <TouchableOpacity onPress={() => this.props.clearNotif(notif.id)}>
                                                 <AntDesign style={Styles.buttonIconSeparator} name="CodeSandbox" size={30} color="black" />
