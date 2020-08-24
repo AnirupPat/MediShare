@@ -10,7 +10,7 @@ import { Product } from '../../components/organisms/product/view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RAntIconButton } from '../../components/atoms/r-ant-icon-button/view';
 import navigations from '../../navigations';
-import { Ionicons, AntDesign } from '@expo/vector-icons';
+import { Ionicons, AntDesign, MaterialIcons, FontAwesome } from '@expo/vector-icons';
 import { Linking } from 'expo';
 import * as Permissions from 'expo-permissions';
 import { Notifications } from 'expo';
@@ -24,10 +24,10 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     notificationSubscription: any;
     state = {
         token: '',
-    notification: null,
-    title: 'Hello World',
-    body: 'Say something!',
-    searchText: ''
+        notification: null,
+        title: 'Hello World',
+        body: 'Say something!',
+        searchText: ''
     }
     constructor(props: MedicineScreenProps, state: MedicineScreenState) {
         super(props)
@@ -56,7 +56,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                         value={this.props.notifCount}
                         containerStyle={{ marginRight: 12, position: 'absolute', top: -4, right: -4 }}
                     /> : null}
-                    
+
                 </View>
             ),
             headerLeft: () => (
@@ -91,7 +91,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     async componentDidMount() {
-        await this.registerForPushNotifications()
+        // await this.registerForPushNotifications()
     }
 
     registerForPushNotifications = async () => {
@@ -230,18 +230,21 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                 />
                 <View style={this.props.entity !== 'NGO' ? Styles.header_style : Styles.header_style2}>
                     <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
-                        <View>
+                        <View style={{ display: 'flex', flexDirection: 'row' }}>
                             <Text style={Styles.buttonTextStyle}>Donate</Text>
+                            <FontAwesome style={Styles.buttonIconSeparator} name="share-alt" size={24} color="white" />
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={Styles.button}>
-                        <View>
+                        <View style={{ display: 'flex', flexDirection: 'row' }}>
                             <Text style={Styles.buttonTextStyle}>Retain</Text>
+                            <AntDesign style={Styles.buttonIconSeparator} name="CodeSandbox" size={24} color="white" />
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={Styles.button}>
-                        <View>
+                        <View style={{ display: 'flex', flexDirection: 'row' }}>
                             <Text style={Styles.buttonTextStyle}>Discard</Text>
+                            <MaterialIcons style={Styles.buttonIconSeparator} name="delete" size={24} color="white" />
                         </View>
                     </TouchableOpacity>
                 </View>

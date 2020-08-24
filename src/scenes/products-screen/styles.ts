@@ -44,15 +44,15 @@ const Styles = StyleSheet.create({
         backgroundColor: 'pink',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        paddingHorizontal: '20%'
     },
 
     button: {
         backgroundColor: Colors.primary,
         marginTop: '3%',
         marginHorizontal: '10%',
-        paddingBottom: '10%',
-        alignItems: 'stretch',
+        alignItems: 'center',
         justifyContent: 'center',
         height: "80%",
         borderRadius: 5
@@ -63,6 +63,9 @@ const Styles = StyleSheet.create({
         alignSelf: 'center',
         fontFamily: Utils.getFontFamily()
     },
+    buttonIconSeparator: {
+        marginLeft: '2%'
+    }
 })
 
 export default Styles
