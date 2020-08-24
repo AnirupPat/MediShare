@@ -127,6 +127,10 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
         })
     }
 
+    handleDiscardAction = () => {
+        
+    }
+
     sendPushNotification(token) {
         // console.log(token)
         // console.log('clicked')
@@ -246,7 +250,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                             <AntDesign style={Styles.buttonIconSeparator} name="CodeSandbox" size={24} color="white" />
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={Styles.button}>
+                    <TouchableOpacity style={Styles.button} onPress={this.handleDiscardAction}>
                         <View style={{ display: 'flex', flexDirection: 'row' }}>
                             <Text style={Styles.buttonTextStyle}>Discard</Text>
                             <MaterialIcons style={Styles.buttonIconSeparator} name="delete" size={24} color="white" />
