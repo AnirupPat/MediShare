@@ -45,26 +45,29 @@ const Styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
+        alignItems: 'center',
         paddingHorizontal: '20%'
     },
 
     button: {
         backgroundColor: Colors.primary,
-        marginTop: '3%',
         marginHorizontal: '10%',
         alignItems: 'center',
         justifyContent: 'center',
         height: "80%",
-        borderRadius: 5
+        borderRadius: 5,
+        paddingVertical: '12%'
     },
     buttonTextStyle: {
-        fontSize: device.isTablet ? 25 : 18,
+        fontSize: device.isTablet ? 25 : 15,
         color: Colors.secondary,
         alignSelf: 'center',
         fontFamily: Utils.getFontFamily()
     },
     buttonIconSeparator: {
-        marginLeft: '2%'
+        // marginLeft: '2%',
+        justifyContent: 'center',
+        alignSelf: 'center'
     }
 })
 

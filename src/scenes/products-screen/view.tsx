@@ -239,21 +239,21 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                 />
                 <View style={this.props.entity !== 'NGO' ? Styles.header_style : Styles.header_style2}>
                     <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
-                        <View style={{ display: 'flex', flexDirection: 'row' }}>
-                            <Text style={Styles.buttonTextStyle}>Donate</Text>
+                        <View style={{ display: 'flex', flexDirection: 'column', marginVertical: '5%' }}>
                             <FontAwesome style={Styles.buttonIconSeparator} name="share-alt" size={24} color="white" />
+                            <Text style={Styles.buttonTextStyle}>Donate</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={Styles.button}>
-                        <View style={{ display: 'flex', flexDirection: 'row' }}>
-                            <Text style={Styles.buttonTextStyle}>Retain</Text>
+                        <View style={{ display: 'flex', flexDirection: 'column' }}>
                             <AntDesign style={Styles.buttonIconSeparator} name="CodeSandbox" size={24} color="white" />
+                            <Text style={Styles.buttonTextStyle}>Retain</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={Styles.button} onPress={this.handleDiscardAction}>
-                        <View style={{ display: 'flex', flexDirection: 'row' }}>
-                            <Text style={Styles.buttonTextStyle}>Discard</Text>
+                        <View style={{ display: 'flex', flexDirection: 'column' }}>
                             <MaterialIcons style={Styles.buttonIconSeparator} name="delete" size={24} color="white" />
+                            <Text style={Styles.buttonTextStyle}>Discard</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
