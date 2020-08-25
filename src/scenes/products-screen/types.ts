@@ -25,6 +25,7 @@ export type MedicineScreenDispatchProps = {
     setCheckBox: (id: string, value: boolean) => void,
     searchMeds: (text: string) => void,
     reduceMedCount: (key: string) => void
+    setDecision: (label: string) => void
 }
 
 export type MedicineScreenProps =

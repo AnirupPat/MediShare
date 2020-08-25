@@ -20,7 +20,10 @@ export class Product extends React.Component<ProductProps, ProductState> {
 
     render(): React.ReactNode {
         return (
-            <TouchableOpacity onPress={this.props.onPress} style={Styles.orderContainer} activeOpacity={0.5}>
+            <TouchableOpacity onPress={this.props.onPress}
+                style={[Styles.orderContainer, (this.props.data.fields.decision == 'Retain' ? { backgroundColor: 'blue' }
+                    : (this.props.data.fields.decision == 'Discard' ? { backgroundColor: 'red' } 
+                    : (this.props.data.fields.decision == 'Donate' ? { backgroundColor: 'green' } : null)))]} activeOpacity={0.5}>
                 {/* <View style={Styles.rightContainer}> */}
                 <View style={Styles.checkboxContainer}>
                     <CheckBox
@@ -55,11 +58,24 @@ export class Product extends React.Component<ProductProps, ProductState> {
                     </View>
                     <View style={Styles.buttonStack}>
                         <TouchableOpacity onPress={this.props.onDelete}>
-                        <AntDesign style={Styles.iconSeparator} name="minuscircle" size={24} color="#8B0000" />
+                            <AntDesign style={Styles.iconSeparator} name="minuscircle" size={24} color="#8B0000" />
                         </TouchableOpacity>
-                        <MaterialIcons style={Styles.iconSeparator} name="delete" size={24} color="black" />
-                        <AntDesign style={Styles.iconSeparator} name="CodeSandbox" size={24} color="black" />
-                        <FontAwesome5 name="hand-holding-heart" style={Styles.iconSeparator}  size={24} color="black" />
+
+
+                        {this.props.data.fields.decision == 'Retain' ?
+                            <AntDesign style={Styles.iconSeparator} name="CodeSandbox" size={24} color="black" />
+                            : null
+                        }
+
+                        {this.props.data.fields.decision == 'Discard' ?
+                            <MaterialIcons style={Styles.iconSeparator} name="delete" size={24} color="black" />
+                            : null
+                        }
+
+                        {this.props.data.fields.decision == 'Donate' ?
+                            <FontAwesome5 name="hand-holding-heart" style={Styles.iconSeparator} size={24} color="black" />
+                            : null
+                        }
                     </View>
                 </View>
             </TouchableOpacity>
