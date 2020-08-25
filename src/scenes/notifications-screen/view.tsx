@@ -11,7 +11,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
 import { InsightAllAck } from '../../components/molecules/insight-all-ack/view';
 import Constants from '../../commons/constants';
-import { clearNotif, ProductsActionTypes } from '../../store/medicines/actions';
+import { clearNotif, ProductsActionTypes, setDecision } from '../../store/medicines/actions';
+import { RText } from '../../components/atoms';
+import { Medicine } from '../../models/medicines';
 
 
 class NotificationsScreen extends React.Component<NotificationsScreenProps, NotificationsScreenState> {
@@ -34,6 +36,7 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
     }
 
     handleDonate = () => {
+        this.props.setDecision('Donate') // D -> Donate
         this.props.navigation.navigate("request", {
             title: "Donors"
         })
@@ -49,16 +52,21 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
                                 <View style={Styles.notifHolder}>
                                     <View style={Styles.notifHeaderContainer}>
                                         <View style={Styles.medicineContainer}>
-                                            <RTitleText>{notif.medicine} (Qty: {notif.quantity} )</RTitleText>
+                                            <RTitleText>{notif.fields.name}</RTitleText>
+                                            <RText>Qty: {notif.fields.InStockQty}</RText>
                                         </View>
                                         <View style={Styles.ackContainer}>
                                             <TouchableOpacity onPress={() => this.handleDonate()}>
                                                 <FontAwesome5 name="hand-holding-heart" style={Styles.buttonIconSeparator} size={30} color="black" />
                                             </TouchableOpacity>
-                                            <TouchableOpacity onPress={() => this.props.clearNotif(notif.id)}>
+                                            <TouchableOpacity onPress={() => {
+                                                this.props.setDecision('Retain') // R -> Retain
+                                                this.props.clearNotif(notif.id.toString())}}>
                                                 <AntDesign style={Styles.buttonIconSeparator} name="CodeSandbox" size={30} color="black" />
                                             </TouchableOpacity>
-                                            <TouchableOpacity>
+                                            <TouchableOpacity onPress={() => {
+                                                this.props.setDecision('Discard') // R -> Retain
+                                            }}>
                                                 <MaterialIcons style={Styles.buttonIconSeparator} name="delete" size={30} color="black" />
                                             </TouchableOpacity>
                                         </View>
@@ -67,7 +75,7 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
                                         {/* <MaterialIcons style={{ marginRight: 10 }} name="person" size={24} color="black" /> */}
                                         <FontAwesome style={{ marginRight: 10 }} name="calendar" size={24} color="black" />
                                         <Text style={Styles.requestorTextContainer}>
-                                            {notif.expiryDate}
+                                            Expires in {notif.fields.expiresOn} months
                                         </Text>
                                     </View>
                                 </View>
@@ -88,10 +96,18 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
 }
 
 const mapStatetoProps = (state: AppState, localProps: NotificationsScreenProps): NotificationsScreenProps => {
+    var notifArray: any =  []
+    state.medicine.medicines.forEach((med) => {
+        if(med.fields.expiresOn < 3) {
+            notifArray.push(med)
+        }
+    })
     return {
         ...localProps,
         data: {
-            notification: state.medicine.notifications
+            // notification: state.medicine.notifications
+            notification: notifArray
+            // state.medicine.medicines
         },
         title: localProps.route.params.title
     }
@@ -99,7 +115,8 @@ const mapStatetoProps = (state: AppState, localProps: NotificationsScreenProps):
 
 const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): NotificationsScreenDispatchProps => {
     return {
-        clearNotif: (id: string) => dispatch(clearNotif(id))
+        clearNotif: (id: string) => dispatch(clearNotif(id)),
+        setDecision: (label: string) => dispatch(setDecision(label))
     }
 }
 

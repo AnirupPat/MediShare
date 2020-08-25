@@ -268,13 +268,18 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
 }
 
 const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): MedicineScreenProps => {
-    // console.log(state.medicine.notifications.length)
+    var notifArray: any =  []
+    state.medicine.medicines.forEach((med) => {
+        if(med.fields.expiresOn < 3) {
+            notifArray.push(med)
+        }
+    })
     return {
         ...localProps,
         data: state.medicine.medicines,
         title: localProps.route.params.title,
         entity: state.core.coreData.entity,
-        notifCount: state.medicine.notifications.length
+        notifCount: notifArray.length
     }
 }
 

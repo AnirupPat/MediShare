@@ -22,12 +22,11 @@ export class Product extends React.Component<ProductProps, ProductState> {
         return (
             <TouchableOpacity onPress={this.props.onPress}
                 style={[Styles.orderContainer, (this.props.data.fields.decision == 'Retain' ? { backgroundColor: 'blue' }
-                    : (this.props.data.fields.decision == 'Discard' ? { backgroundColor: 'red' } 
-                    : (this.props.data.fields.decision == 'Donate' ? { backgroundColor: 'green' } : null)))]} activeOpacity={0.5}>
+                    : (this.props.data.fields.decision == 'Discard' ? { backgroundColor: 'red' }
+                        : (this.props.data.fields.decision == 'Donate' ? { backgroundColor: 'green' } : null)))]} activeOpacity={0.5}>
                 {/* <View style={Styles.rightContainer}> */}
                 <View style={Styles.checkboxContainer}>
                     <CheckBox
-                        // leftText={"CheckBox"}
                         isChecked={this.props.data.fields.selected}
                         onClick={this.props.onClick}
                         style={Styles.checkbox}
@@ -37,7 +36,7 @@ export class Product extends React.Component<ProductProps, ProductState> {
                 <View style={Styles.rightContainer}>
                     <View style={Styles.orderNumberContainer}>
                         <View style={Styles.medicineNameBox}>
-                            <AntDesign name="medicinebox" size={30} color={Colors.primary} />
+                            <AntDesign style={Styles.innerIcons} name="medicinebox" size={30} color={Colors.primary} />
                             <RTitleText> {this.props.data.fields.name}</RTitleText>
                             <View style={Styles.qtyBox}>
                                 <RText>(Qty - {this.props.data.fields.InStockQty})</RText>
@@ -45,21 +44,21 @@ export class Product extends React.Component<ProductProps, ProductState> {
                         </View>
                     </View>
                     <View style={Styles.orderNumberContainer}>
-                        
+
                         <View style={Styles.medicineNameBox}>
-                    <AntDesign name="pushpin" size={24} color="black" />
-                    <RText> {this.props.data.fields.points}</RText>
+                            <AntDesign style={Styles.innerIcons} name="pushpin" size={24} color="black" />
+                            <RText> {this.props.data.fields.points}</RText>
                         </View>
                     </View>
                     <View style={Styles.orderNumberContainer}>
                         <View style={Styles.medicineNameBox}>
-                            <FontAwesome name="calendar" size={24} color="black" />
-                            <RText> Expires  {this.props.data.fields.expiresOn}</RText>
+                            <FontAwesome style={Styles.innerIcons} name="calendar" size={24} color="black" />
+                            <RText> Expires in {this.props.data.fields.expiresOn} months</RText>
                         </View>
                     </View>
                     <View style={Styles.orderNumberContainer}>
-                    <View style={Styles.medicineNameBox}>
-                    <Entypo name="bug" size={24} color="black" />
+                        <View style={Styles.medicineNameBox}>
+                            <Entypo style={Styles.innerIcons} name="bug" size={24} color="black" />
                             <RText> {this.props.data.fields.notes}</RText>
                         </View>
                     </View>

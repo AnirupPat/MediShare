@@ -6,7 +6,7 @@ export type Medicine =
         "decision": string
         "selected": boolean,
         "InStockQty": number,
-        "expiresOn": string,
+        "expiresOn": number,
         "points": string,
         "description": string,
         "price": number,

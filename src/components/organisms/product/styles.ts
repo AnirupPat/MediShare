@@ -29,17 +29,6 @@ export const Styles = StyleSheet.create({
     leftContainer: {
         flexDirection: 'column'
     },
-    lowerBox: {
-        // display: "flex",
-        flexDirection: 'row',
-        height: 100,
-        width: '100%',
-        // borderTopWidth: 1,
-        // borderTopColor: Colors.codes.grayDark
-        borderRadius: 5,
-        borderWidth: 0.3,
-        borderColor: Colors.codes.grayLight
-    },
     donate: {
         paddingTop: 20,
         paddingLeft: 40,
@@ -99,6 +88,9 @@ export const Styles = StyleSheet.create({
     },
     iconSeparator: {
         marginHorizontal: '1%'
+    },
+    innerIcons: {
+        marginRight: '1%'
     }
 });
 
