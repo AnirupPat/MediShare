@@ -14,7 +14,7 @@ import SlidingUpPanel from 'rn-sliding-up-panel';
 import { LogoImage } from '../../components/molecules/logo-image/view';
 import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Entypo, FontAwesome5 } from '@expo/vector-icons';
+import { Entypo, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { RButton } from '../../components/atoms/r-button/view';
 import { RText } from '../../components/atoms/r-text/view';
 import { Ionicons } from '@expo/vector-icons';
@@ -129,8 +129,9 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                                     <View style={Styles.donorBox}>
                                         <View style={Styles.nameBox}>
                                             <RTitleText>{donor.item.name}</RTitleText>
-                                            <View style={Styles.verifiedBox}>
-                                                <RText>{donor.item.status}</RText>
+                                            <View style={{marginTop: 5, marginLeft: 5}}>
+                                                {/* <RText>{donor.item.status}</RText> */}
+                                                <MaterialIcons name="verified-user" size={24} color="green" />
                                             </View>
                                         </View>
                                         {/* style={Styles.verifiedFont} */}
