@@ -16,6 +16,7 @@ import { DoubleTap } from '../../components/organisms/double-tap/view';
 import AnimatedView from '../../components/organisms/animated-view/view';
 import { addMedicinePics, ProductsActionTypes, getMedicinePics } from '../../store/medicines/actions';
 import { MedicinePics } from '../../store/medicines/types';
+import { FontAwesome, Entypo } from '@expo/vector-icons';
 
 
 const { width, height } = Dimensions.get('screen');
@@ -124,19 +125,19 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
     handleAnimation = (image: any, index: any) => {
         // A loop is needed for continuous animation
         Animated.loop(
-          // Animation consists of a sequence of steps
-          Animated.sequence([
-            // start rotation in one direction (only half the time is needed)
-            Animated.timing(this.animatedValue, {toValue: 1.0, duration: 150, easing: Easing.linear, useNativeDriver: true}),
-            // rotate in other direction, to minimum value (= twice the duration of above)
-            Animated.timing(this.animatedValue, {toValue: -1.0, duration: 300, easing: Easing.linear, useNativeDriver: true}),
-            // return to begin position
-            Animated.timing(this.animatedValue, {toValue: 0.0, duration: 150, easing: Easing.linear, useNativeDriver: true})
-          ]),{
-              iterations: 1
-          }
-        ).start(); 
-      }
+            // Animation consists of a sequence of steps
+            Animated.sequence([
+                // start rotation in one direction (only half the time is needed)
+                Animated.timing(this.animatedValue, { toValue: 1.0, duration: 150, easing: Easing.linear, useNativeDriver: true }),
+                // rotate in other direction, to minimum value (= twice the duration of above)
+                Animated.timing(this.animatedValue, { toValue: -1.0, duration: 300, easing: Easing.linear, useNativeDriver: true }),
+                // return to begin position
+                Animated.timing(this.animatedValue, { toValue: 0.0, duration: 150, easing: Easing.linear, useNativeDriver: true })
+            ]), {
+            iterations: 1
+        }
+        ).start();
+    }
 
     toggleLike = () => {
         console.log('Double tapped !')
@@ -157,39 +158,35 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
                     <Card>
                         <Text style={Styles.pointsTitle}>Images</Text>
                         <View style={Styles.picButtonsView}>
-                            <TouchableOpacity style={Styles.button} onPress={this._cameraImage}>
-                                <View>
-                                    <Text style={Styles.buttonTextStyle}>Camera</Text>
-                                </View>
+                            <TouchableOpacity style={Styles.iconCamera} onPress={this._cameraImage}>
+                                <FontAwesome name="camera" size={40} color="black" />
                             </TouchableOpacity>
 
 
-                            <TouchableOpacity style={Styles.button} onPress={this._pickImage}>
-                                <View>
-                                    <Text style={Styles.buttonTextStyle}>Gallery</Text>
-                                </View>
+                            <TouchableOpacity style={Styles.iconGallery} onPress={this._pickImage}>
+                                <Entypo name="folder-images" size={40} color="black" />
                             </TouchableOpacity>
                         </View>
                         <View style={Styles.imageView}>
-                        {this.props.image2.map((image, index) => {
-                                    return (
-                                        <View key={index} style={Styles.imageTouchableOpacity}>
-                                                <AnimatedView key={index} image={image} values={123} /> 
-                                                {/* <Image source={{ uri: image }} />  */}
-                                        </View>    
-                                    )
-                                })}
+                            {this.props.image2.map((image, index) => {
+                                return (
+                                    <View key={index} style={Styles.imageTouchableOpacity}>
+                                        <AnimatedView key={index} image={image} values={123} />
+                                        {/* <Image source={{ uri: image }} />  */}
+                                    </View>
+                                )
+                            })}
                         </View>
                     </Card>
-                    <Text style={Styles.hintFont}>** Add images of both sides of the medicine and 
+                    <Text style={Styles.hintFont}>** Add images of both sides of the medicine and
                     let the Dawaai AI detect the Medicine details for you</Text>
-                    {this.props.image2.length > 1 ? 
+                    {this.props.image2.length > 1 ?
                         <RButton name="Submit" onPress={() => this.handleIntelligentMac()} />
                         : null
                     }
-                    
 
-                    
+
+
 
                     {/* <DoubleTap onDoubleTap={this.toggleLike}>
                         <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
@@ -202,11 +199,11 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
 
 const mapStatetoProps = (state: AppState, localProps: ProductAddScreenProps): ProductAddScreenProps => {
     var a: string[] = []
-        state.medicine.medicinePics.map(image => {
-            if(image.image)
-                a.push(image.image.toString())
-        })
-    
+    state.medicine.medicinePics.map(image => {
+        if (image.image)
+            a.push(image.image.toString())
+    })
+
     return {
         ...localProps,
         image2: a

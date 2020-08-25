@@ -57,11 +57,9 @@ export class Product extends React.Component<ProductProps, ProductState> {
                         <TouchableOpacity onPress={this.props.onDelete}>
                         <AntDesign style={Styles.iconSeparator} name="minuscircle" size={24} color="#8B0000" />
                         </TouchableOpacity>
-                        <MaterialIcons style={Styles.iconSeparator} name="delete" size={24} color="black" />
+                        {/* <MaterialIcons style={Styles.iconSeparator} name="delete" size={24} color="black" />
                         <AntDesign style={Styles.iconSeparator} name="CodeSandbox" size={24} color="black" />
-                        <FontAwesome style={Styles.iconSeparator} name="share-alt" size={24} color="black" />
-
-
+                        <FontAwesome style={Styles.iconSeparator} name="share-alt" size={24} color="black" /> */}
                     </View>
                 </View>
             </TouchableOpacity>

@@ -13,6 +13,12 @@ const Styles = StyleSheet.create({
     hintFont: {
         fontFamily: Utils.getFontFamily()
     },
+    iconCamera: {
+        marginRight: '20%'
+    },
+    iconGallery: {
+        marginLeft: '20%'
+    },
     input: {
         borderRadius: 10,
         borderWidth: 2,
@@ -52,6 +58,7 @@ const Styles = StyleSheet.create({
     },
     picButtonsView: {
         flexDirection: 'row',
+        justifyContent: 'center',
         width: "100%"
     },
     button: {

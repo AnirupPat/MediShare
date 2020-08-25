@@ -67,7 +67,9 @@ class MedicineReviewScreen extends React.Component<MedicineReviewScreenProps, Me
         })
     }
 
+    handleOnDelete = () => {
 
+    }
 
     handleNotification = notification => {
         console.log('----lets see what is there in')
@@ -131,40 +133,38 @@ class MedicineReviewScreen extends React.Component<MedicineReviewScreenProps, Me
                     data={this.props.data}
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={(product) =>
-                        
-                            
-                            <Product
-                                data={product.item}
-                                // onPress={this.handleNavigateToDetail.bind(this, product.item.id)}
-                                onPress={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
-                                onClick={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
-                            />
-
+                        <Product
+                            data={product.item}
+                            onDelete={this.handleOnDelete.bind(this, product.item.id)}
+                            // onPress={this.handleNavigateToDetail.bind(this, product.item.id)}
+                            onPress={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
+                            onClick={this.handleOnClick.bind(this, product.item.id, product.item.fields.selected)}
+                        />
                     }
                     ListHeaderComponent={this.Render_FlatList_Sticky_header}
-                    // stickyHeaderIndices={[0]}
+                // stickyHeaderIndices={[0]}
                 />
 
-<View>
-                <View style={this.props.entity !== 'NGO' ? Styles.header_style : Styles.header_style2}>
-                <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
-                    <View>
-                        <Text style={Styles.buttonTextStyle}>Donate</Text>
+                <View>
+                    <View style={this.props.entity !== 'NGO' ? Styles.header_style : Styles.header_style2}>
+                        <TouchableOpacity style={Styles.button} onPress={() => this.handleDonate()}>
+                            <View>
+                                <Text style={Styles.buttonTextStyle}>Donate</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={Styles.button}>
+                            <View>
+                                <Text style={Styles.buttonTextStyle}>Retain</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={Styles.button}>
+                            <View>
+                                <Text style={Styles.buttonTextStyle}>Discard</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={Styles.button}>
-                    <View>
-                        <Text style={Styles.buttonTextStyle}>Retain</Text>
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={Styles.button}>
-                    <View>
-                        <Text style={Styles.buttonTextStyle}>Discard</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
-            {/* <Text style={Styles.hintText}>** The following Meds will expire soon.</Text> */}
-            </View>
+                    {/* <Text style={Styles.hintText}>** The following Meds will expire soon.</Text> */}
+                </View>
             </View>
         )
     }
