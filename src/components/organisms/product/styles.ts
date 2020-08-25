@@ -13,14 +13,16 @@ export const Styles = StyleSheet.create({
         borderBottomColor: Colors.codes.silver
     },
     orderNumberContainer: {
-        width: "100%",
-        justifyContent: 'flex-start',
-        // alignItems: 'center',
+        width: "80%",
+        // justifyContent: 'flex-start',
         flexDirection: 'row',
+        flexWrap: 'wrap',
+        marginRight: '5%'
     },
     rightContainer: {
+        flexWrap: 'wrap',
         width: '100%',
-        marginHorizontal: 20,
+        marginHorizontal: '5%',
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         flexDirection: 'column'
@@ -76,7 +78,8 @@ export const Styles = StyleSheet.create({
     medicineNameBox: {
         width: '80%',
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        flexWrap: 'wrap'
     },
     quantityActionBox: {
         display: 'flex',
