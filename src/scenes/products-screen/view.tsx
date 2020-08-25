@@ -122,7 +122,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     handleDonate = () => {
-        this.props.setDecision('Donate') // D -> Donate
+        // this.props.setDecision('Donate') // D -> Donate
         this.props.navigation.navigate("request", {
             title: "Donors"
         })
@@ -270,7 +270,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
 const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): MedicineScreenProps => {
     var notifArray: any =  []
     state.medicine.medicines.forEach((med) => {
-        if(med.fields.expiresOn < 3) {
+        if(med.fields.expiresOn < 3  && med.fields.decision != "Donate") {
             notifArray.push(med)
         }
     })

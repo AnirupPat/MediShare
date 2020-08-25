@@ -14,10 +14,11 @@ import SlidingUpPanel from 'rn-sliding-up-panel';
 import { LogoImage } from '../../components/molecules/logo-image/view';
 import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Entypo } from '@expo/vector-icons';
+import { Entypo, FontAwesome5 } from '@expo/vector-icons';
 import { RButton } from '../../components/atoms/r-button/view';
 import { RText } from '../../components/atoms/r-text/view';
 import { Ionicons } from '@expo/vector-icons';
+import { setDecision, ProductsActionTypes } from '../../store/medicines/actions';
 
 const { height } = Dimensions.get("window");
 const _draggedValue = new Animated.Value(180);
@@ -79,6 +80,7 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
     }
 
     handleShare = () => {
+        this.props.setDecision('Donate')
         this.props.navigation.navigate("mail", {
             title: ''
         })
@@ -138,7 +140,8 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                                             <RText>Distance: {donor.item.distance}</RText>
                                             <View style={Styles.requestAction}>
                                                 <TouchableOpacity style={Styles.shareBox} onPress={() => this.handleShare()}>
-                                                    <Ionicons style={{ marginRight: 5 }} name="md-share" size={24} color="black" />
+                                                <FontAwesome5 name="hand-holding-heart" style={{ marginRight: 5 }}  size={24} color="black" />
+                                                    {/* <Ionicons style={{ marginRight: 5 }} name="md-share" size={24} color="black" /> */}
                                                     <RText>Share</RText>
                                                 </TouchableOpacity>
                                             </View>
@@ -162,9 +165,9 @@ const mapStatetoProps = (state: AppState, localProps: RequestScreenProps): Reque
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): RequestScreenDispatchProps => {
+const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): RequestScreenDispatchProps => {
     return {
-
+        setDecision: (label: string) => dispatch(setDecision(label))
     }
 }
 
