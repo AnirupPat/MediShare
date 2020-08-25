@@ -19,6 +19,8 @@ export const CLEAR_NOTIF = 'CLEAR_NOTIF'
 export const  SET_MED = 'SET_MED'
 export const SEARCH_MEDS = 'SEARCH_MEDS'
 export const REDUCE_MED_COUNT = 'REDUCE_MED_COUNT'
+export const SET_DECISION = "SET_DECISION"
+export const SET_DECISION_BY_ID = "SET_DECISION_BY_ID"
 
 export interface SetAllProductHeaders {
     type: typeof SET_ALL_PRODUCT_HEADERS
@@ -105,6 +107,32 @@ export interface searchMeds {
 export interface reduceMedCount {
     type: typeof REDUCE_MED_COUNT,
     key: string
+}
+
+export interface setDecision {
+    type: typeof SET_DECISION,
+    label: string
+}
+
+export interface setDecisionById {
+    type: typeof SET_DECISION_BY_ID,
+    id: string,
+    label: string
+}
+
+export const setDecisionById = (id: string,label: string): ProductsActionTypes => {
+    return {
+        type: SET_DECISION_BY_ID,
+        id,
+        label
+    }
+}
+
+export const setDecision = (label: string): ProductsActionTypes => {
+    return {
+        type: SET_DECISION,
+        label
+    }
 }
 
 export const reduceMedCount = (key: string): ProductsActionTypes => {
@@ -244,3 +272,5 @@ export type ProductsActionTypes =
     | clearNotif
     | searchMeds
     | reduceMedCount
+    | setDecision
+    | setDecisionById

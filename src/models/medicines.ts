@@ -3,24 +3,13 @@ export type Medicine =
     "id": number,
     "fields": {
         "name": string,
+        "decision": string
         "selected": boolean,
         "InStockQty": number,
-        "BlockedQty": number,
-        "expiresOn": string,
+        "expiresOn": number,
         "points": string,
         "description": string,
         "price": number,
-        "notes": string,
-        "currency": string,
-        "images": string[],
-        "rating": number,
-        "offer": number,
-        // "details": [
-        //     "key:value",
-        //     "key:value"
-        // ],
-        "tags": string[],
-        "category": number,
-        "subcategory": string
+        "notes": string
     }
 }

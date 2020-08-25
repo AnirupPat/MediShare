@@ -1,20 +1,14 @@
 [   
     {
         "id": "N0001",
-        "medicine": "Brufen",
-        "quantity": 3,
-        "expiryDate": "Expires in 3 months"
+        "medicine": "Crocin Pain Relief",
+        "quantity": 15,
+        "expiryDate": "Expires in 1 months"
     },
     {
         "id": "N0002",
-        "medicine": "Dolo 650",
-        "quantity": 20,
+        "medicine": "Glychihage SR 1mg",
+        "quantity": 10,
         "expiryDate": "Expires in 2 months"
-    },
-    {
-        "id": "N0003",
-        "medicine": "Limcee",
-        "quantity": 15,
-        "expiryDate": "Expires in 3 months"
     }
 ]

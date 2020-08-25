@@ -8,38 +8,26 @@ export const Styles = StyleSheet.create({
         width: "100%",
         justifyContent: 'space-between',
         paddingVertical: 10,
-        marginHorizontal: 15,
         borderBottomWidth: 0.5,
         borderBottomColor: Colors.codes.silver
     },
+    checkboxContainer: {
+        flexDirection: "row",
+        marginBottom: 20,
+        width: '10%',
+        paddingHorizontal: '2%'
+    },
     orderNumberContainer: {
-        width: "100%",
-        justifyContent: 'flex-start',
-        // alignItems: 'center',
         flexDirection: 'row',
+        flexWrap: 'wrap',
     },
     rightContainer: {
-        width: '100%',
-        marginHorizontal: 20,
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        width: '90%',
+        paddingHorizontal: '2%'
     },
     leftContainer: {
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
         flexDirection: 'column'
-    },
-    lowerBox: {
-        // display: "flex",
-        flexDirection: 'row',
-        height: 100,
-        width: '100%',
-        // borderTopWidth: 1,
-        // borderTopColor: Colors.codes.grayDark
-        borderRadius: 5,
-        borderWidth: 0.3,
-        borderColor: Colors.codes.grayLight
     },
     donate: {
         paddingTop: 20,
@@ -89,10 +77,6 @@ export const Styles = StyleSheet.create({
         marginLeft: 10,
         marginTop: 2
     },
-    checkboxContainer: {
-        flexDirection: "row",
-        marginBottom: 20,
-    },
     checkbox: {
         alignSelf: "center",
         width: '5%'
@@ -104,6 +88,9 @@ export const Styles = StyleSheet.create({
     },
     iconSeparator: {
         marginHorizontal: '1%'
+    },
+    innerIcons: {
+        marginRight: '1%'
     }
 });
 

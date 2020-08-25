@@ -15,7 +15,7 @@ import { Linking } from 'expo';
 import * as Permissions from 'expo-permissions';
 import { Notifications } from 'expo';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { clearMedPics, ProductsActionTypes, setCheckBox, searchMeds, reduceMedCount } from '../../store/medicines/actions';
+import { clearMedPics, ProductsActionTypes, setCheckBox, searchMeds, reduceMedCount, setDecision } from '../../store/medicines/actions';
 import { RButton } from '../../components/atoms/r-button/view';
 
 var med = []
@@ -122,13 +122,18 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
     }
 
     handleDonate = () => {
+        this.props.setDecision('Donate') // D -> Donate
         this.props.navigation.navigate("request", {
             title: "Donors"
         })
     }
 
+    handleRetain = () => {
+        this.props.setDecision('Retain') // R -> Remove
+    }
+
     handleDiscardAction = () => {
-        
+        this.props.setDecision('Discard') // R -> Remove
     }
 
     sendPushNotification(token) {
@@ -244,7 +249,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
                             <Text style={Styles.buttonTextStyle}>Donate</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={Styles.button}>
+                    <TouchableOpacity style={Styles.button} onPress={() => this.handleRetain()}>
                         <View style={{ display: 'flex', flexDirection: 'column' }}>
                             <AntDesign style={Styles.buttonIconSeparator} name="CodeSandbox" size={24} color="white" />
                             <Text style={Styles.buttonTextStyle}>Retain</Text>
@@ -263,13 +268,18 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
 }
 
 const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): MedicineScreenProps => {
-    // console.log(state.medicine.notifications.length)
+    var notifArray: any =  []
+    state.medicine.medicines.forEach((med) => {
+        if(med.fields.expiresOn < 3) {
+            notifArray.push(med)
+        }
+    })
     return {
         ...localProps,
         data: state.medicine.medicines,
         title: localProps.route.params.title,
         entity: state.core.coreData.entity,
-        notifCount: state.medicine.notifications.length
+        notifCount: notifArray.length
     }
 }
 
@@ -278,7 +288,8 @@ const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): MedicineSc
         clearMedPics: () => dispatch(clearMedPics()),
         setCheckBox: (id: string, value: boolean) => dispatch(setCheckBox(id, value)),
         searchMeds: (text: string) => dispatch(searchMeds(text)),
-        reduceMedCount: (key: string) => dispatch(reduceMedCount(key))
+        reduceMedCount: (key: string) => dispatch(reduceMedCount(key)),
+        setDecision: (label: string) => dispatch(setDecision(label))
     }
 }
 
