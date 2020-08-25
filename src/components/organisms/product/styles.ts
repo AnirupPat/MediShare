@@ -75,8 +75,7 @@ export const Styles = StyleSheet.create({
     medicineNameBox: {
         width: '80%',
         display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap'
+        flexDirection: 'row'
     },
     quantityActionBox: {
         display: 'flex',

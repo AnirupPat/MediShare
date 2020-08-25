@@ -5,7 +5,7 @@ import { Styles } from './styles';
 import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
 import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { MaterialIcons, FontAwesome, FontAwesome5, AntDesign } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome, FontAwesome5, AntDesign, Entypo } from '@expo/vector-icons';
 import { RText } from '../../atoms/r-text/view';
 import CheckBox from 'react-native-check-box';
 
@@ -45,7 +45,11 @@ export class Product extends React.Component<ProductProps, ProductState> {
                         </View>
                     </View>
                     <View style={Styles.orderNumberContainer}>
-                        <RText> {this.props.data.fields.points}</RText>
+                        
+                        <View style={Styles.medicineNameBox}>
+                    <AntDesign name="pushpin" size={24} color="black" />
+                    <RText> {this.props.data.fields.points}</RText>
+                        </View>
                     </View>
                     <View style={Styles.orderNumberContainer}>
                         <View style={Styles.medicineNameBox}>
@@ -54,7 +58,10 @@ export class Product extends React.Component<ProductProps, ProductState> {
                         </View>
                     </View>
                     <View style={Styles.orderNumberContainer}>
-                        <RText> {this.props.data.fields.notes}</RText>
+                    <View style={Styles.medicineNameBox}>
+                    <Entypo name="bug" size={24} color="black" />
+                            <RText> {this.props.data.fields.notes}</RText>
+                        </View>
                     </View>
                     <View style={[Styles.buttonStack, Styles.orderNumberContainer]}>
                         <TouchableOpacity onPress={this.props.onDelete}>
