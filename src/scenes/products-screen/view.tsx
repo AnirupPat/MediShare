@@ -270,7 +270,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
 const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): MedicineScreenProps => {
     var notifArray: any =  []
     state.medicine.medicines.forEach((med) => {
-        if(med.fields.expiresOn < 3  && med.fields.decision != "Donate") {
+        if(med.fields.expiresOn < 3  && med.fields.decision == "") {
             notifArray.push(med)
         }
     })

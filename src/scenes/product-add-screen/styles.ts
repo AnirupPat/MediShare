@@ -17,7 +17,7 @@ const Styles = StyleSheet.create({
         marginRight: '20%'
     },
     iconGallery: {
-        marginLeft: '20%'
+        // marginLeft: '20%'
     },
     input: {
         borderRadius: 10,
