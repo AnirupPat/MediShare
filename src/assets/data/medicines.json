@@ -3,127 +3,56 @@
         "id": 100001,
         "fields": {
             "name": "Crocin Pain Relief",
+            "decision": "",
             "selected": false,
             "InStockQty": 15,
             "expiresOn": "in 18 months",
-            "BlockedQty": 8,
             "points": "Paracetamol 650 mg​ Caffeine Anhydrous 50 mg",
             "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
             "price": 57.90,
-            "notes": "Symptomatic relief from mild to moderate pain",
-            "currency": "£",
-            "images": [
-                "link to image 1",
-                "link to image 2"
-            ],
-            "rating": 3.5,
-            "offer": 0.1,
-            "details": [
-                "key:value",
-                "key:value"
-            ],
-            "tags": [
-                "tag 1",
-                "tag 2",
-                "tag 3",
-                "tag 4",
-                "tag 5"
-            ],
-            "category": 1001,
-            "subcategory": "1001a"
+            "notes": "Symptomatic relief from mild to moderate pain"
         }
     },
     {
         "id": 100002,
         "fields": {
             "name": "Glychihage SR 1mg",
+            "decision": "",
             "selected": false,
             "InStockQty": 10,
             "expiresOn": "in 19 months",
-            "BlockedQty": 8,
             "points": "Metformin Hydrochloride 1000 mg",
             "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
             "price": 57.90,
-            "notes": "Type 2 diabetes mellitus",
-            "currency": "£",
-            "images": [
-                "link to image 1",
-                "link to image 2"
-            ],
-            "rating": 3.5,
-            "offer": 0.1,
-           
-            "tags": [
-                "tag 1",
-                "tag 2",
-                "tag 3",
-                "tag 4",
-                "tag 5"
-            ],
-            "category": 1001,
-            "subcategory": "1001a"
+            "notes": "Type 2 diabetes mellitus"
         }
     },
     {
         "id": 100003,
         "fields": {
             "name": "Atocor 20",
+            "decision": "",
             "selected": false,
             "InStockQty": 15,
             "expiresOn": "in 28 months",
-            "BlockedQty": 8,
             "points": "Atorvastatin 20 mg​",
             "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
             "price": 57.90,
-            "notes": "Lower cholesterol (LDL) in blood",
-            "currency": "£",
-            "images": [
-                "link to image 1",
-                "link to image 2"
-            ],
-            "rating": 3.5,
-            "offer": 0.1,
-            
-            "tags": [
-                "tag 1",
-                "tag 2",
-                "tag 3",
-                "tag 4",
-                "tag 5"
-            ],
-            "category": 1001,
-            "subcategory": "1001a"
+            "notes": "Lower cholesterol (LDL) in blood"
         }
     },
     {
         "id": 100004,
         "fields": {
             "name": "Feburic 40",
+            "decision": "",
             "selected": false,
             "InStockQty": 15,
             "expiresOn": "in 26 months",
-            "BlockedQty": 8,
             "points": "Febuxostat 40 mg",
             "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
             "price": 57.90,
-            "notes": "Treat hyperuricemia (constantly high levels of uric acid) in adults who have gout",
-            "currency": "£",
-            "images": [
-                "link to image 1",
-                "link to image 2"
-            ],
-            "rating": 3.5,
-            "offer": 0.1,
-            
-            "tags": [
-                "tag 1",
-                "tag 2",
-                "tag 3",
-                "tag 4",
-                "tag 5"
-            ],
-            "category": 1001,
-            "subcategory": "1001a"
+            "notes": "Treat hyperuricemia (constantly high levels of uric acid) in adults who have gout"
         }
     }
 ]
