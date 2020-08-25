@@ -1,4 +1,4 @@
-import { ProductsActionTypes, SET_DECISION, REDUCE_MED_COUNT, SEARCH_MEDS, CLEAR_NOTIF, SET_MED, SET_CHECKBOX, CLEAR_MED_PICS, SET_MED_CONFIRM, GET_MEDICINE_PICS, SET_ALL_PRODUCT_HEADERS, SET_MEDICINE_PICS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY, SET_PRODUCT_CATEGORY_FILTER, SET_FILTERS, SET_SKU_NUMBER_FILTERS } from './actions';
+import { ProductsActionTypes,SET_DECISION_BY_ID, SET_DECISION, REDUCE_MED_COUNT, SEARCH_MEDS, CLEAR_NOTIF, SET_MED, SET_CHECKBOX, CLEAR_MED_PICS, SET_MED_CONFIRM, GET_MEDICINE_PICS, SET_ALL_PRODUCT_HEADERS, SET_MEDICINE_PICS, ADD_MAIN_CATEGORY, SEARCH_MAIN_CATEGORY, SEARCH_SUB_CATEGORY, ADD_SUB_CATEGORY, SET_PRODUCT_CATEGORY_FILTER, SET_FILTERS, SET_SKU_NUMBER_FILTERS } from './actions';
 import { MedicineInitialState } from './data'
 import { MedicineStateType, MedicineFilters, MedConfirm } from './types';
 import { DummyData } from '../../models/dummy-data';
@@ -122,6 +122,18 @@ const setDecision = (state: MedicineStateType, label: string): MedicineStateType
     }
 }
 
+const setDecisionById = (state: MedicineStateType, id: string, label: string): MedicineStateType => {
+    return {
+        ...state,
+        medicines: state.medicines.map((med) => {
+            if(med.id.toString() == id.toString()) {
+                med.fields.decision = label
+            }
+            return med 
+        })
+    }
+}
+
 export const MedicineReducer = (state = MedicineInitialState, action: ProductsActionTypes): MedicineStateType => {
     switch (action.type) {
         case SET_ALL_PRODUCT_HEADERS:
@@ -150,6 +162,8 @@ export const MedicineReducer = (state = MedicineInitialState, action: ProductsAc
                 return reduceMedCount(state, action.key)
             case SET_DECISION:
                 return setDecision(state, action.label)
+            case SET_DECISION_BY_ID:
+                return setDecisionById(state, action.id, action.label)
         default:
             return state
     }
