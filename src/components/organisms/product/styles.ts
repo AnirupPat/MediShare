@@ -8,28 +8,25 @@ export const Styles = StyleSheet.create({
         width: "100%",
         justifyContent: 'space-between',
         paddingVertical: 10,
-        marginHorizontal: 15,
         borderBottomWidth: 0.5,
         borderBottomColor: Colors.codes.silver
     },
+    checkboxContainer: {
+        flexDirection: "row",
+        marginBottom: 20,
+        width: '10%',
+        paddingHorizontal: '2%'
+    },
     orderNumberContainer: {
-        width: "80%",
-        // justifyContent: 'flex-start',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        marginRight: '5%'
     },
     rightContainer: {
-        flexWrap: 'wrap',
-        width: '100%',
-        marginHorizontal: '5%',
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        width: '90%',
+        paddingHorizontal: '2%'
     },
     leftContainer: {
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
         flexDirection: 'column'
     },
     lowerBox: {
@@ -91,10 +88,6 @@ export const Styles = StyleSheet.create({
     qtyBox: {
         marginLeft: 10,
         marginTop: 2
-    },
-    checkboxContainer: {
-        flexDirection: "row",
-        marginBottom: 20,
     },
     checkbox: {
         alignSelf: "center",

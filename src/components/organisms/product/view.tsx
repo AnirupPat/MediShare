@@ -56,7 +56,7 @@ export class Product extends React.Component<ProductProps, ProductState> {
                     <View style={Styles.orderNumberContainer}>
                         <RText> {this.props.data.fields.notes}</RText>
                     </View>
-                    <View style={Styles.buttonStack}>
+                    <View style={[Styles.buttonStack, Styles.orderNumberContainer]}>
                         <TouchableOpacity onPress={this.props.onDelete}>
                             <AntDesign style={Styles.iconSeparator} name="minuscircle" size={24} color="#8B0000" />
                         </TouchableOpacity>
