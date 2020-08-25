@@ -19,7 +19,7 @@ export type RequestScreenState = {
 }
 
 export type RequestScreenDispatchProps = {
-    
+    setDecision: (label: string) => void
  }
 
 export type RequestScreenProps =

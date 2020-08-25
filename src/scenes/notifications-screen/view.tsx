@@ -98,7 +98,7 @@ class NotificationsScreen extends React.Component<NotificationsScreenProps, Noti
 const mapStatetoProps = (state: AppState, localProps: NotificationsScreenProps): NotificationsScreenProps => {
     var notifArray: any =  []
     state.medicine.medicines.forEach((med) => {
-        if(med.fields.expiresOn < 3) {
+        if(med.fields.expiresOn < 3 && med.fields.decision == "") {
             notifArray.push(med)
         }
     })
