@@ -97,22 +97,8 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
         } else {
             let image = await ImagePicker.launchCameraAsync();
             if (!image.cancelled) {
-                // const model = await cocoSsd.load();
- 
-                // // Classify the image.
-                // const predictions = await model.detect(image.uri);
-                
-                // console.log('Predictions: ');
-                // console.log(predictions);
-
-
-                
-                // this.setState({ image: image.uri });
-                // console.log(image.uri)
                 this.classifyImage(image)
             }
-            // console.log(image);
-            
             this.props.addMedicinePics(image)
         }
     };
@@ -160,10 +146,6 @@ imageToTensor(rawImageData) {
     }
 
     handlerLongClick = (image: any, index: any) => {
-        // console.log('log pressed !')
-        // console.log(image)
-        // console.log(this.animatedValue)
-        // console.log(this.animatedValue)
         this.handleAnimation(image, index)
     }
 
