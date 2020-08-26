@@ -22,7 +22,6 @@ import * as jpeg from 'jpeg-js'
 import * as tf from '@tensorflow/tfjs'
 import { fetch } from '@tensorflow/tfjs-react-native'
 const cocoSsd = require('@tensorflow-models/coco-ssd'); 
-// import * as fs from '@react-native-fs'
 
 const { width, height } = Dimensions.get('screen');
 let images = [
@@ -40,9 +39,6 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
         image: null,
         isTfReady: false,
         isModelReady: false,
-        // hasCameraPermission: null,
-        // type: Expo.Camera.Constants.Type.Back,
-
         cameraRollStatus: '',
         cameraStatus: '',
         testmsg: ''
@@ -86,17 +82,13 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
 
         this.setState({ cameraStatus: status.status });
         this.setState({ cameraRollStatus: status2.status })
-        // console.log('Permission =>', permissions);
-        // console.log('Status => ', status);
 
         if (status.status !== 'granted' && status2.status !== 'granted') {
-
-            // console.log(`[ pickFromCamera ] ${permissions} access: ${status.status}`);
-            // console.log(`[ pickFromCamera ] ${permissions2} access: ${status2.status}`);
 
         } else {
             let image = await ImagePicker.launchCameraAsync();
             if (!image.cancelled) {
+                this.setState({ image: image.uri });
                 this.classifyImage(image)
             }
             this.props.addMedicinePics(image)

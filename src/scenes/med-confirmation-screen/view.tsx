@@ -35,31 +35,14 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
             "id": Math.floor(100000 + Math.random() * 900000),
             "fields": {
                 "name": this.props.data.medConfirm.drugName,
+                "decision": "",
                 "selected": false,
                 "InStockQty": 20,
-                "expiresOn": "after 6 months",
-                "BlockedQty": 8,
+                "expiresOn": 2,
                 "points": this.props.data.medConfirm.composition,
                 "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
                 "price": 57.90,
-                "notes": this.props.data.medConfirm.indication,
-                "currency": "£",
-                "images": [
-                    "link to image 1",
-                    "link to image 2"
-                ],
-                "rating": 3.5,
-                "offer": 0.1,
-
-                "tags": [
-                    "tag 1",
-                    "tag 2",
-                    "tag 3",
-                    "tag 4",
-                    "tag 5"
-                ],
-                "category": 1001,
-                "subcategory": "1001a"
+                "notes": this.props.data.medConfirm.indication    
             }
         }
         this.props.setMedicine(medDetails)
@@ -105,7 +88,7 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
                 <TextInput
                     style={Styles.passwordInputTextInput}
                     enablesReturnKeyAutomatically={true}
-                    value={this.props.data.medConfirm.expiry}
+                    value="04/2021"      //{this.props.data.medConfirm.expiry}
                     keyboardType="default"
                     returnKeyType="next"
                 />
@@ -119,6 +102,15 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
                     returnKeyType="next"
                 />
                 <Text style={Styles.inputHelpText}>Indication</Text>
+
+                <TextInput
+                    style={Styles.passwordInputTextInput}
+                    enablesReturnKeyAutomatically={true}
+                    value="No"
+                    keyboardType="default"
+                    returnKeyType="next"
+                />
+                <Text style={Styles.inputHelpText}>Prescription</Text>
 
                 <RButton name="Submit" onPress={() => this.medConfirm()} />
             </View>
