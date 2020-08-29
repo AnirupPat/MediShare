@@ -75,9 +75,10 @@ const setCheckBox = (state: MedicineStateType, id: string, value: boolean): Medi
 
 const setMedicine = (state: MedicineStateType, medDetails: Medicine): MedicineStateType => {
     console.log(medDetails)
+    state.medicines.unshift(medDetails)
     return {
         ...state,
-        medicines: [...state.medicines, medDetails ]
+        // medicines: [...state.medicines, medDetails ]
     }
 }
 
