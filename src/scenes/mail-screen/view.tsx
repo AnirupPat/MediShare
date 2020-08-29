@@ -14,7 +14,7 @@ class MailScreen extends React.Component<MailScreenProps, MailScreenState> {
 
     handleBack = () => {
         this.props.navigation.navigate("medicine", {
-            title: "My PillBox"
+            title: "My Pillbox"
         })
     }
 
@@ -23,7 +23,7 @@ class MailScreen extends React.Component<MailScreenProps, MailScreenState> {
             <View style={Styles.screen}>
                 <RTitleText>Congrats</RTitleText>
                 <RText>A mail has been sent to the requested NGO. We will get in touch with you as soon as we get some response</RText>
-                <RButton name="Back to PillBox" onPress={() => this.handleBack()} />
+                <RButton name="Back to Pillbox" onPress={() => this.handleBack()} />
             </View>
         )
     }

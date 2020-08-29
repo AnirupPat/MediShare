@@ -1,6 +1,6 @@
 import React, { Dispatch } from 'react'
 import { SearchBar, withBadge, Icon, Badge } from 'react-native-elements';
-import { ScrollView, View, Dimensions, Text, FlatList, Alert, Platform, CheckBox } from 'react-native'
+import { ScrollView, View, Image, Dimensions, Text, FlatList, Alert, Platform, CheckBox } from 'react-native'
 import Styles from './styles'
 import { MedicineScreenProps, MedicineScreenState, MedicineScreenDispatchProps } from './types'
 import { AppState, AppActionTypes } from '../../store';
@@ -270,7 +270,7 @@ class MedicineScreen extends React.Component<MedicineScreenProps, MedicineScreen
 const mapStatetoProps = (state: AppState, localProps: MedicineScreenProps): MedicineScreenProps => {
     var notifArray: any =  []
     state.medicine.medicines.forEach((med) => {
-        if(med.fields.expiresOn < 3  && med.fields.decision == "") {
+        if(med.fields.expiresOn < 10  && med.fields.decision == "") {
             notifArray.push(med)
         }
     })

@@ -6,11 +6,25 @@
             "decision": "",
             "selected": false,
             "InStockQty": 15,
-            "expiresOn": 7,
+            "expiresOn": 5,
             "points": "Paracetamol 650 mg​, Caffeine Anhydrous 50 mg",
             "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
             "price": 57.90,
             "notes": "Symptomatic relief from mild to moderate pain"
+        }
+    },
+    {
+        "id": 100005,
+        "fields": {
+            "name": "Azithral 500 MG",
+            "decision": "",
+            "selected": false,
+            "InStockQty": 8,
+            "expiresOn": 7,
+            "points": "Azithromycin (250mg/500mg)",
+            "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
+            "price": 57.90,
+            "notes": "Dizziness , Fever , Headache , Vomiting, Flatulence, Dry Scalp, Heartburn , Weakness, Diarrhoea , Abdominal Pain"
         }
     },
     {
@@ -20,7 +34,7 @@
             "decision": "",
             "selected": false,
             "InStockQty": 10,
-            "expiresOn": 12,
+            "expiresOn": 8,
             "points": "Metformin Hydrochloride 1000 mg",
             "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
             "price": 57.90,

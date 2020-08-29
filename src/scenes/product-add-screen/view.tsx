@@ -217,7 +217,6 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
                             <Text style={Styles.buttonTextStyle}>Identify with Dawai</Text>
                         </View>
                     </TouchableOpacity>
-                    {/* <RButton name="Identify with DAWAI" onPress={() => this.handleIntelligentMac()} /> */}
                     {/* : null
                      } */}
 

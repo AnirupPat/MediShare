@@ -1,5 +1,5 @@
 import React, { Dispatch } from 'react'
-import { ScrollView, View, Dimensions, Text, FlatList, Button, Animated } from 'react-native'
+import { ScrollView, View, Image, Dimensions, Text, FlatList, Button, Animated } from 'react-native'
 import Styles from './styles'
 import { RequestScreenProps, RequestScreenState, RequestScreenDispatchProps } from './types'
 import { AppState, AppActionTypes } from '../../store';
@@ -111,9 +111,9 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                 <SlidingUpPanel
                     draggableRange={this.state.draggableRange}
                     animatedValue={_draggedValue}
-                    // snappingPoints={[360]}
+                    snappingPoints={[360]}
                     height={height + 180}
-                    friction={0.7}
+                    friction={0.5}
                     ref={c => this._panel = c}>
                     <View style={Styles.container}>
                         <View style={Styles.logoBox}>
@@ -141,8 +141,9 @@ class RequestScreen extends React.Component<RequestScreenProps, RequestScreenSta
                                             <RText>Distance: {donor.item.distance}</RText>
                                             <View style={Styles.requestAction}>
                                                 <TouchableOpacity style={Styles.shareBox} onPress={() => this.handleShare()}>
-                                                <FontAwesome5 name="hand-holding-heart" style={{ marginRight: 5 }}  size={24} color="black" />
-                                                    {/* <Ionicons style={{ marginRight: 5 }} name="md-share" size={24} color="black" /> */}
+                                                {/* <FontAwesome5 name="hand-holding-heart" style={{ marginRight: 5 }}  size={24} color="black" /> */}
+                                                <Image style={{ marginRight: 5, marginTop: 3, width: 40, height: 40 }}   source={require('../../assets/images/MediShare_logo.png')}  />
+
                                                     <RText>Share</RText>
                                                 </TouchableOpacity>
                                             </View>
