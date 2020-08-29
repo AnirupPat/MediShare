@@ -3,12 +3,18 @@
         "id": "N0001",
         "medicine": "Crocin Pain Relief",
         "quantity": 15,
-        "expiryDate": "Expires in 1 months"
+        "expiryDate": "Expires in 5 months"
     },
     {
         "id": "N0002",
-        "medicine": "Glychihage SR 1mg",
-        "quantity": 10,
-        "expiryDate": "Expires in 2 months"
+        "medicine": "Azithral",
+        "quantity": 5,
+        "expiryDate": "Expires in 7 months"
+    },
+    {
+        "id": "N0003",
+        "medicine": "Glyciphage",
+        "quantity": 30,
+        "expiryDate": "Expires in 8 months"
     }
 ]

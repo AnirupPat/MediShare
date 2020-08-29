@@ -21,7 +21,7 @@ import * as mobilenet from '@tensorflow-models/mobilenet';
 import * as jpeg from 'jpeg-js'
 import * as tf from '@tensorflow/tfjs'
 import { fetch } from '@tensorflow/tfjs-react-native'
-const cocoSsd = require('@tensorflow-models/coco-ssd'); 
+const cocoSsd = require('@tensorflow-models/coco-ssd');
 
 const { width, height } = Dimensions.get('screen');
 let images = [
@@ -89,50 +89,50 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
             let image = await ImagePicker.launchCameraAsync();
             if (!image.cancelled) {
                 this.setState({ image: image.uri });
-                this.classifyImage(image)
+                // this.classifyImage(image)
             }
             this.props.addMedicinePics(image)
         }
     };
 
 
-imageToTensor(rawImageData) {
-    const TO_UINT8ARRAY: any = true
-    const { width, height, data } = jpeg.decode(rawImageData, TO_UINT8ARRAY)
-    // Drop the alpha channel info for mobilenet
-    const buffer = new Uint8Array(width * height * 3)
-    let offset = 0 // offset into original data
-    for (let i = 0; i < buffer.length; i += 3) {
-      buffer[i] = data[offset]
-      buffer[i + 1] = data[offset + 1]
-      buffer[i + 2] = data[offset + 2]
+    imageToTensor(rawImageData) {
+        const TO_UINT8ARRAY: any = true
+        const { width, height, data } = jpeg.decode(rawImageData, TO_UINT8ARRAY)
+        // Drop the alpha channel info for mobilenet
+        const buffer = new Uint8Array(width * height * 3)
+        let offset = 0 // offset into original data
+        for (let i = 0; i < buffer.length; i += 3) {
+            buffer[i] = data[offset]
+            buffer[i + 1] = data[offset + 1]
+            buffer[i + 2] = data[offset + 2]
 
-      offset += 4
+            offset += 4
+        }
+
+        return tf.tensor3d(buffer, [height, width, 3])
     }
-
-    return tf.tensor3d(buffer, [height, width, 3])
-  }
 
     classifyImage = async (image) => {
         try {
-          const imageAssetPath = Image.resolveAssetSource(image)
-          const response = await fetch(imageAssetPath.uri, {}, { isBinary: true })
-          const rawImageData = await response.arrayBuffer()
-          const imageTensor = this.imageToTensor(rawImageData)
-          var model = await mobilenet.load()
-          const predictions = await model.classify(imageTensor)
-          this.setState({ predictions })
-          console.log(predictions)
+            const imageAssetPath = Image.resolveAssetSource(image)
+            const response = await fetch(imageAssetPath.uri, {}, { isBinary: true })
+            const rawImageData = await response.arrayBuffer()
+            const imageTensor = this.imageToTensor(rawImageData)
+            var model = await mobilenet.load()
+            const predictions = await model.classify(imageTensor)
+            this.setState({ predictions })
+            console.log(predictions)
         } catch (error) {
-          console.log(error)
+            console.log(error)
         }
-      }
+    }
 
     async componentDidMount() {
         await tf.ready(); // preparing TensorFlow
-        this.setState({ isTfReady: true});    
+        this.setState({ isTfReady: true });
         var model = await cocoSsd.load(); // preparing COCO-SSD model
-        this.setState({ isModelReady: true }); 
+        this.setState({ isModelReady: true });
         this.props.getMedicinePics()
         this.getPermissionAsync()
     }
@@ -210,12 +210,18 @@ imageToTensor(rawImageData) {
                         </View>
                     </Card>
                     <Text style={Styles.hintFont}>** Add images of both sides of the medicine and
-                    let the Dawaai AI detect the Medicine details for you</Text>
-                    {this.props.image2.length > 1 ?
-                        <RButton name="Submit" onPress={() => this.handleIntelligentMac()} />
-                        : null
-                    }
+                    let the Dawai AI detect the Medicine details for you</Text>
+                    {/* {this.props.image2.length > 1 ? */}
+                    <TouchableOpacity style={Styles.button} onPress={() => this.handleIntelligentMac()}>
+                        <View>
+                            <Text style={Styles.buttonTextStyle}>Identify with Dawai</Text>
+                        </View>
+                    </TouchableOpacity>
+                    {/* : null
+                     } */}
 
+
+                    
 
 
 

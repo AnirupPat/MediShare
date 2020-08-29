@@ -22,8 +22,8 @@ export class Product extends React.Component<ProductProps, ProductState> {
         return (
             <TouchableOpacity onPress={this.props.onPress}
                 style={[Styles.orderContainer, (this.props.data.fields.decision == 'Retain' ? { backgroundColor: '#85C1E9' }
-                    : (this.props.data.fields.decision == 'Discard' ? { backgroundColor: 'red' }
-                        : (this.props.data.fields.decision == 'Donate' ? { backgroundColor: 'green' } : null)))]} activeOpacity={0.5}>
+                    : (this.props.data.fields.decision == 'Discard' ? { backgroundColor: '#CD5C5C' }
+                        : (this.props.data.fields.decision == 'Donate' ? { backgroundColor: '#3CB371' } : null)))]} activeOpacity={0.5}>
                 {/* <View style={Styles.rightContainer}> */}
                 <View style={Styles.checkboxContainer}>
                     <CheckBox

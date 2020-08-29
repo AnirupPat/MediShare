@@ -9,8 +9,8 @@ const Constants = {
     DEFAULT_ICON: "feather",
     SPACE: " ",
     DEFAULT_TEXT: {
-        insightsText1: "Looks like you are all caught with your notifications",
-        insightsText2: "We will keep you informed about any other requests that comes to you"
+        insightsText1: "You are All Caught Up",
+        insightsText2: "You have reviewed all your meds nearing expiry"
     },
     FONTS: {
         'laila-bold': require('../../assets/fonts/Laila-Bold.ttf'),

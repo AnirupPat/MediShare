@@ -112,7 +112,7 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
                 />
                 <Text style={Styles.inputHelpText}>Prescription</Text>
 
-                <RButton name="Submit" onPress={() => this.medConfirm()} />
+                <RButton name="Add to my Pillbox" onPress={() => this.medConfirm()} />
             </View>
         )
     }
