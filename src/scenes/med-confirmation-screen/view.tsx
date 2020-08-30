@@ -38,7 +38,7 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
                 "decision": "",
                 "selected": false,
                 "InStockQty": 20,
-                "expiresOn": 2,
+                "expiresOn": 21,
                 "points": this.props.data.medConfirm.composition,
                 "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
                 "price": 57.90,
@@ -88,7 +88,7 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
                 <TextInput
                     style={Styles.passwordInputTextInput}
                     enablesReturnKeyAutomatically={true}
-                    value="04/2021"      //{this.props.data.medConfirm.expiry}
+                    value="05/2022"      //{this.props.data.medConfirm.expiry}
                     keyboardType="default"
                     returnKeyType="next"
                 />

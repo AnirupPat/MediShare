@@ -5,7 +5,7 @@ import { Styles } from './styles';
 import { RTitleText } from '@virtuelabs-io/rapido-modules/src/components/atoms/r-title-text/view';
 import { Colors } from '@virtuelabs-io/rapido-modules/src/commons/styles/colors';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { MaterialIcons, FontAwesome, FontAwesome5, AntDesign, Entypo } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome, FontAwesome5, AntDesign, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
 import { RText } from '../../atoms/r-text/view';
 import CheckBox from 'react-native-check-box';
 
@@ -58,7 +58,8 @@ export class Product extends React.Component<ProductProps, ProductState> {
                     </View>
                     <View style={Styles.orderNumberContainer}>
                         <View style={Styles.medicineNameBox}>
-                            <Entypo style={Styles.innerIcons} name="bug" size={24} color="black" />
+                            {/* <Entypo style={Styles.innerIcons} name="bug" size={24} color="black" /> */}
+                            <MaterialCommunityIcons style={Styles.innerIcons} name="hand-pointing-right" size={24} color="black" />
                             <RText> {this.props.data.fields.notes}</RText>
                         </View>
                     </View>
