@@ -70,7 +70,7 @@ const Styles = StyleSheet.create({
         borderRadius: 5
     },
     buttonTextStyle: {
-        fontSize: 15,
+        fontSize: 20,
         color: Colors.secondary,
         textAlign: 'center',
         fontFamily: Utils.getFontFamily(),

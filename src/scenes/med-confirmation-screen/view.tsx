@@ -71,7 +71,8 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
                     style={Styles.passwordInputTextInput}
                     enablesReturnKeyAutomatically={true}
                     keyboardType="default"
-                    value={this.props.data.medConfirm.drugName}
+                    value="Dolo 650"
+                    // value={this.props.data.medConfirm.drugName}
                     returnKeyType="next"
                 />
                 <Text style={Styles.inputHelpText}>Drug Name</Text>
@@ -79,7 +80,8 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
                 <TextInput
                     style={Styles.passwordInputTextInput}
                     enablesReturnKeyAutomatically={true}
-                    value={this.props.data.medConfirm.composition}
+                    value="Paracetamol(650mg)"
+                    // value={this.props.data.medConfirm.composition}
                     keyboardType="default"
                     returnKeyType="next"
                 />
@@ -97,7 +99,8 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
                 <TextInput
                     style={Styles.passwordInputTextInput}
                     enablesReturnKeyAutomatically={true}
-                    value={this.props.data.medConfirm.indication}
+                    value="Fever"
+                    // value={this.props.data.medConfirm.indication}
                     keyboardType="default"
                     returnKeyType="next"
                 />
