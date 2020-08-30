@@ -211,14 +211,14 @@ class ProductAddScreen extends React.Component<ProductAddScreenProps, ProductAdd
                     </Card>
                     <Text style={Styles.hintFont}>** Add images of both sides of the medicine and
                     let the Dawai AI detect the Medicine details for you</Text>
-                    {/* {this.props.image2.length > 1 ? */}
+                    {this.props.image2.length > 1 ?
                     <TouchableOpacity style={Styles.button} onPress={() => this.handleIntelligentMac()}>
                         <View>
                             <Text style={Styles.buttonTextStyle}>Identify with Dawai</Text>
                         </View>
                     </TouchableOpacity>
-                    {/* : null
-                     } */}
+                     : null
+                     } 
 
 
                     
