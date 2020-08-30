@@ -24,7 +24,8 @@ passwordInputTextInput: {
 },
 inputHelpText: {
     fontFamily: Utils.getFontFamily(),
-    color: Colors.codes.grayTextLight
+    color: Colors.codes.grayTextLight,
+    marginBottom: 15
 }
 })
 
