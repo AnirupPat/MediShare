@@ -27,44 +27,62 @@ class MailScreen extends React.Component<MailScreenProps, MailScreenState> {
         return (
             <View style={Styles.screen}>
                 <View style={Styles.thanksBox}>
-                <RTitleText>Thank you for MediSharing</RTitleText>
-                <RText>You have shared the following meds with Goonj.</RText>
+                    <RTitleText>Thank you for MediSharing</RTitleText>
+                    <RText>You have shared the following meds with Goonj.</RText>
                 </View>
                 <FlatList
+                    style={{marginBottom: '10%'}}
                     keyExtractor={item => item.id.toString()}
                     data={this.props.data}
                     // ItemSeparatorComponent={this.FlatListItemSeparator}
                     renderItem={(product) =>
                         <View style={Styles.donatedMeds}>
                             <View style={Styles.medName}>
-                            <AntDesign style={{marginRight: '5%'}}  name="medicinebox" size={30} color={Colors.primary} />
-                            <RText>{product.item.fields.name}</RText>
+                                <AntDesign style={{ marginRight: '5%' }} name="medicinebox" size={30} color={Colors.primary} />
+                                <RText>{product.item.fields.name}</RText>
                             </View>
                             <View style={Styles.medName}>
-                            <AntDesign style={{marginRight: '5%'}} name="pushpin" size={24} color="black" />
-                            <RText>{product.item.fields.points}</RText>
+                                <AntDesign style={{ marginRight: '5%' }} name="pushpin" size={24} color="black" />
+                                <RText>{product.item.fields.points}</RText>
                             </View>
-                        </View> 
+                        </View>
                     }
                 />
+
+                
+                 
+                
+
+
+
+
+
+
+
+
                 <View style={Styles.thanksBox}>
-                <RText>Your intent to donate has been notified to Goonj. </RText>
-                <RText>Kindly contact for hand over.</RText>
+                    <RText>Your intent to donate has been notified to Goonj. </RText>
+                    <RText>Kindly contact for hand over.</RText>
                 </View>
 
 
 
 
                 <RButton name="Back to Pillbox" onPress={() => this.handleBack()} />
+
+                <View style={Styles.thanksBox}>
+                <RText>Moreover, click below to know of Meds requested by Goonj</RText>
+                <RButton name="Lets help Goonj" onPress={() => this.handleBack()} />
+                </View>
             </View>
         )
     }
 }
 
 const mapStatetoProps = (state: AppState, localProps: MailScreenProps): MailScreenProps => {
-    var donatedMedArray: any =  []
+    var donatedMedArray: any = []
     state.medicine.medicines.forEach((med) => {
-        if(med.fields.decision == 'Donate') {
+        if (med.fields.decision == 'Donate') {
             donatedMedArray.push(med)
         }
     })
@@ -76,8 +94,8 @@ const mapStatetoProps = (state: AppState, localProps: MailScreenProps): MailScre
 
 const mapDispatchToProps = (dispatch: Dispatch<ProductsActionTypes>): MailScreenDispatchProps => {
     return {
-        
+
     }
 }
 
-export default connect(mapStatetoProps, mapDispatchToProps) (MailScreen)
+export default connect(mapStatetoProps, mapDispatchToProps)(MailScreen)

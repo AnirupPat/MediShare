@@ -34,15 +34,17 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
         var medDetails = {
             "id": Math.floor(100000 + Math.random() * 900000),
             "fields": {
-                "name": this.props.data.medConfirm.drugName,
+                "name": 'P-650',
                 "decision": "",
                 "selected": false,
-                "InStockQty": 13,
+                "InStockQty": 9,
                 "expiresOn": 43,
-                "points": this.props.data.medConfirm.composition,
+                "points": 'Paracetamol(650mg)',
+                // this.props.data.medConfirm.composition,
                 "description": "This product can only be delivered in the following countries : United-Kingdom, Ireland, Germany, France, Belgium, the Netherlands, Luxembourg, Portugal and Spain",
                 "price": 57.90,
-                "notes": this.props.data.medConfirm.indication    
+                "notes": 'Fever'
+                // this.props.data.medConfirm.indication    
             }
         }
         this.props.setMedicine(medDetails)
@@ -71,7 +73,7 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
                     style={Styles.passwordInputTextInput}
                     enablesReturnKeyAutomatically={true}
                     keyboardType="default"
-                    value="Dolo 650"
+                    value="P-650"
                     // value={this.props.data.medConfirm.drugName}
                     returnKeyType="next"
                 />
@@ -99,7 +101,7 @@ class MailScreen extends React.Component<MedConfirmationScreenProps, MedConfirma
                 <TextInput
                     style={Styles.passwordInputTextInput}
                     enablesReturnKeyAutomatically={true}
-                    value="13"      //{this.props.data.medConfirm.expiry}
+                    value="9"      //{this.props.data.medConfirm.expiry}
                     keyboardType="default"
                     returnKeyType="next"
                 />
