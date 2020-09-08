@@ -1,5 +1,5 @@
 import React, { Dispatch } from 'react'
-import { View, FlatList } from 'react-native'
+import { View, FlatList, Text } from 'react-native'
 import { RText, RButton } from '../../components/atoms'
 import Styles from './styles'
 import { MailScreenProps, MailScreenState, MailScreenDispatchProps } from './types'
@@ -31,7 +31,7 @@ class MailScreen extends React.Component<MailScreenProps, MailScreenState> {
                     <RText>You have shared the following meds with Goonj.</RText>
                 </View>
                 <FlatList
-                    style={{marginBottom: '10%'}}
+                    style={{ marginBottom: '10%' }}
                     keyExtractor={item => item.id.toString()}
                     data={this.props.data}
                     // ItemSeparatorComponent={this.FlatListItemSeparator}
@@ -49,30 +49,17 @@ class MailScreen extends React.Component<MailScreenProps, MailScreenState> {
                     }
                 />
 
-                
-                 
-                
-
-
-
-
-
-
-
 
                 <View style={Styles.thanksBox}>
                     <RText>Your intent to donate has been notified to Goonj. </RText>
                     <RText>Kindly contact for hand over.</RText>
                 </View>
 
-
-
-
                 <RButton name="Back to Pillbox" onPress={() => this.handleBack()} />
 
                 <View style={Styles.thanksBox}>
-                <RText>Moreover, click below to know of Meds requested by Goonj</RText>
-                <RButton name="Lets help Goonj" onPress={() => this.handleBack()} />
+                    <RText>Moreover, click below to know of Meds requested by Goonj</RText>
+                    <RButton name="Lets help Goonj" onPress={() => this.handleBack()} />
                 </View>
             </View>
         )
@@ -82,7 +69,10 @@ class MailScreen extends React.Component<MailScreenProps, MailScreenState> {
 const mapStatetoProps = (state: AppState, localProps: MailScreenProps): MailScreenProps => {
     var donatedMedArray: any = []
     state.medicine.medicines.forEach((med) => {
-        if (med.fields.decision == 'Donate') {
+        if (med.fields.decision == 'Donate' && med.fields.name != "Glyciphage SR 1mg") {
+            donatedMedArray.push(med)
+        }
+        if(med.fields.name == "Glyciphage SR 1mg") {
             donatedMedArray.push(med)
         }
     })
