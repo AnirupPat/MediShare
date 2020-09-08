@@ -72,6 +72,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             mail: {
                 title: ''
+            },
+            ngoRequest: {
+                title: ''
             }
         },
 

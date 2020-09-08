@@ -16,10 +16,16 @@ class MailScreen extends React.Component<MailScreenProps, MailScreenState> {
         super(props)
         this.props.navigation.setOptions(getStackStyles(''))
     }
-
+    
     handleBack = () => {
         this.props.navigation.navigate("medicine", {
             title: "My Pillbox"
+        })
+    }
+
+    handleNGORequest = () => {
+        this.props.navigation.navigate("ngoRequest", {
+            title: ""
         })
     }
 
@@ -59,7 +65,7 @@ class MailScreen extends React.Component<MailScreenProps, MailScreenState> {
 
                 <View style={Styles.thanksBox}>
                     <RText>Moreover, click below to know of Meds requested by Goonj</RText>
-                    <RButton name="Lets help Goonj" onPress={() => this.handleBack()} />
+                    <RButton name="Lets help Goonj" onPress={() => this.handleNGORequest()} />
                 </View>
             </View>
         )
