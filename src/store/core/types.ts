@@ -54,6 +54,9 @@ export type MedicineStackNavigationParamsType = {
     },
     mail: {
         title: string
+    },
+    ngoRequest: {
+        title: string
     }
 }
 
